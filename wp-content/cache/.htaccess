@@ -13,11 +13,11 @@
 </IfModule>
 <IfModule mod_headers.c>
   Header set Vary "Accept-Encoding, Cookie"
-  Header set Cache-Control 'max-age=3, must-revalidate'
+  Header set Cache-Control 'max-age=864000, must-revalidate'
 </IfModule>
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html A3
+  ExpiresByType text/html A864000
 </IfModule>
 
 # END supercache
