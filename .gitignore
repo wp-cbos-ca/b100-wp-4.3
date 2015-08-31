@@ -1,5 +1,7 @@
 .ht-access
 wp-config.php
 wp-content/server/
+wp-content/cache/meta
 wp-content/cache/supercache
 wp-content/cache/autoptimize
+wp-content/cache/wp-cache-*.*

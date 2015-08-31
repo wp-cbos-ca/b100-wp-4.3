@@ -65,22 +65,11 @@ if ( $disable_jquery_ui ) {
 
 $local_gravatar_only = true;
 if ( $local_gravatar_only ) {
-    add_filter( 'bp_core_fetch_avatar', 'bp_remove_gravatar', 1, 9 );    
+    //https://wordpress.stackexchange.com/questions/17413/removing-gravatar-com-support-for-wordpress-and-simple-local-avatars
     add_filter('get_avatar', 'remove_gravatar', 1, 5);
-    add_filter('bp_get_signup_avatar', 'bp_remove_signup_gravatar', 1, 1 );
-    
     function remove_gravatar ($avatar, $id_or_email, $size, $default, $alt) {
         $default = get_template_directory_uri() .'/images/avatar.png';
         return "<img alt='{$alt}' src='{$default}' class='avatar avatar-{$size} photo avatar-default' height='{$size}' width='{$size}' />";
-    }
-    
-    function bp_remove_signup_gravatar ($image) {
-        $default = get_template_directory_uri() .'/images/avatar.png';
-        if( $image && strpos( $image, "gravatar.com" ) ){ 
-            return '<img src="' . $default . '" alt="avatar" class="avatar" width="60" height="60" />';
-        } else {
-            return $image;
-        }
     }
 }
 
