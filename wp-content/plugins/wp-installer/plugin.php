@@ -28,7 +28,7 @@ function run_site_installer(){
 
 function get_site_data(){
     $items = array(
-        array( 'name' => 'clean',           'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'clean',           'run' => 1, 'ran' => 1 ),
         array( 'name' => 'site',            'run' => 0, 'ran' => 0 ),
         array( 'name' => 'menus',           'run' => 0, 'ran' => 0 ),
         array( 'name' => 'pages',           'run' => 0, 'ran' => 0 ),
@@ -42,6 +42,7 @@ function get_site_data(){
         array( 'name' => 'users',           'run' => 0, 'ran' => 0 ),
         array( 'name' => 'widgets',         'run' => 0, 'ran' => 0 ),
         array( 'name' => 'themes',          'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'plugins',         'run' => 1, 'ran' => 0 ),
     );
     return $items;
 }
@@ -128,6 +129,9 @@ function run_install_files( $items='' ) {
                         break;
                     case 'widgets':
                         install_widgets();
+                        break;
+                    case 'plugins':
+                        configure_plugins();
                         break;
                     default:   
                 }
