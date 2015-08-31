@@ -3,6 +3,8 @@ wp-config.php
 wp-content/server/
 wp-content/cache/meta
 wp-content/cache/supercache
-wp-content/cache/autoptimize
+wp-content/cache/autoptimize/js/
+wp-content/cache/autoptimize/css/
+wp-content/cache/autoptimize/index.html
 wp-content/cache/wp-cache-*.*
 wp-content/plugins/wp-installer/images-featured/
