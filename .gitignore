@@ -6,5 +6,6 @@ wp-content/cache/supercache
 wp-content/cache/autoptimize/js/
 wp-content/cache/autoptimize/css/
 wp-content/cache/autoptimize/index.html
+wp-content/backupwordpress-*/
 wp-content/cache/wp-cache-*.*
 wp-content/plugins/wp-installer/images-featured/
