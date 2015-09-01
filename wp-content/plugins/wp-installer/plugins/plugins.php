@@ -9,7 +9,13 @@ function configure_plugins(){
         foreach ( $plugins as $plugin ) {
             if ( $plugin['configure'] ) {
                 foreach ( $plugin['items'] as $item ) {
-                    update_option( $item['name'], $item['value'] );
+                    update_option( $item['option_name'], $item['option_value'] );
+                }
+            }
+            if ( $plugin['activate'] ) {
+                $file = plugins_dir()  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
+                if ( file_exists( $file ) ) {
+                    activate_plugin( $file );
                 }
             }
         }
