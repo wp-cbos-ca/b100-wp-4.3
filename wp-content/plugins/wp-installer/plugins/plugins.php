@@ -13,7 +13,7 @@ function configure_plugins(){
                 }
             }
             if ( $plugin['activate'] ) {
-                $file = plugins_dir()  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
+                $file = WP_PLUGIN_DIR  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
                 if ( file_exists( $file ) ) {
                     activate_plugin( $file );
                 }

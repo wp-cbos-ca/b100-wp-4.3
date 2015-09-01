@@ -5,13 +5,13 @@ defined( 'ABSPATH' ) || die();
 function get_plugins_data() {
     $plugins = array ( 
             array ( 
-                'name' => 'WP Super Cache', 'folder' => 'wp-super-cache', 'file' => 'wpsupercache.php', 'configure' => 0, 'activate' => 1, 
+                'name' => 'WP Super Cache', 'folder' => 'wp-super-cache', 'file' => 'wp-cache.php', 'configure' => 0, 'activate' => 1, 
                 'items' => array (
                         array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
                         )
                 ),
             array ( 
-                'name' => 'Autoptimize', 'folder' => 'autoptimize', 'configure' => 1, 'activate' => 1, 
+                'name' => 'Autoptimize', 'folder' => 'autoptimize', 'file' => 'autoptimize.php', 'configure' => 1, 'activate' => 1, 
                 'items' => array (
                         array ( 'option_name' => 'autoptimize_html',               'option_value' => 'on',  'set' => 1 ),
                         array ( 'option_name' => 'autoptimize_html_keepcomments',  'option_value' => '', 'set' => 1 ),
@@ -34,7 +34,13 @@ function get_plugins_data() {
                         )
                 ),
                 array ( 
-                'name' => 'Sucuri Scanner', 'folder' => 'sucuri-scanner', 'file' => 'wpsupercache.php', 'configure' => 0, 'activate' => 1, 
+                'name' => 'WP Optimization and Update Scheduling', 'folder' => 'wp-optimization', 'file' => 'plugin.php', 'configure' => 0, 'activate' => 1, 
+                'items' => array (
+                        array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
+                        )
+                ),
+                array ( 
+                'name' => 'Sucuri Scanner', 'folder' => 'sucuri-scanner', 'file' => 'sucuri.php', 'configure' => 0, 'activate' => 0, 
                 'items' => array (
                         array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
                         )
