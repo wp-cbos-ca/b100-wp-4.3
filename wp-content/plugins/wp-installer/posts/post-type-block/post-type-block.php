@@ -8,9 +8,9 @@ function install_post_type_block( $user_id = 1 ){
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
     for ( $i=1; $i <= $cnt; $i++ ) {
-            $title = build_custom_post_block_title( $i );
+            $title = build_post_type_block_title( $i );
             $guid = get_option( 'home' ) . sanitize_title_with_dashes( $title );
-            if ( ! custom_post_exists ( sanitize_title_with_dashes( $title ), $post_type ) ) {
+            if ( ! get_page_by_title ( $title, OBJECT, 'post' ) ) {
                 $wpdb -> insert( $wpdb -> posts, 
                 array(
                     'post_author' => $user_id, 
@@ -33,31 +33,7 @@ function install_post_type_block( $user_id = 1 ){
      }
 }
 
-function custom_post_exists( $slug, $post_type )  {
-    if ( $post_id = get_custom_post_id_by_slug( $slug, $post_type ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function get_custom_post_id_by_slug( $title, $post_type = 'post' ) {
-     global $wpdb;
-     $query = $wpdb -> prepare( 
-        'SELECT ID FROM ' . $wpdb->posts . ' WHERE post_name = %s AND post_type = %s', 
-        sanitize_title_with_dashes( $title ), 
-        $post_type
-        );
-     if ( $post_id = $wpdb -> get_var( $query ) ) {
-        return $post_id;
-    }
-    else {
-        return false;
-    }
-}
-
-function build_custom_post_block_title( $i ) {
+function build_post_type_block_title( $i ) {
     if ( $i < 10 ) {
         $page_num = '0' . $i;
     }

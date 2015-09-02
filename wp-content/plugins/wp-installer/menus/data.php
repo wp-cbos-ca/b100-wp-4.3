@@ -5,11 +5,11 @@ defined( 'ABSPATH' ) || die();
 function get_menu_data() {
     $menus = array ( 
             0 => array ( 
-                'name' => 'Main Menu', 'slug' => 'main-menu', 'build' => 0, 
+                'name' => 'Main Menu', 'slug' => 'main-menu', 'build' => 1, 
                 'items' => array (
-                        0 => array ( 'title' => 'Home', 'slug' => 'home', 'build' => 0 ),
+                        0 => array ( 'title' => 'Home', 'slug' => 'home', 'build' => 1 ),
                         4 => array ( 'title' => 'About Us', 'slug' => 'about-us', 'build' => 1 ),
-                        5 => array ( 'title' => 'Contact', 'slug' => 'contact', 'build' => 0 ),
+                        5 => array ( 'title' => 'Contact', 'slug' => 'contact', 'build' => 1 ),
                         5 => array ( 'title' => 'Search', 'slug' => 'search', 'build' => 1 ),
                         )
             ),
