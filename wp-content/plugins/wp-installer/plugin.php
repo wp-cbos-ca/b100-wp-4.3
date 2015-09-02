@@ -12,52 +12,20 @@ Author URI:     http://wp.cbos.ca
 
 defined( 'ABSPATH' ) || die();
 
-require_once( dirname(__FILE__) . '/functions/gui.php' );
+require_once( dirname(__FILE__) . '/includes/template.php' );
 
 function wp_install_site_data() {
-    require_once( dirname(__FILE__) . '/functions/functions.php' );        
+    require_once( dirname(__FILE__) . '/data.php' );        
+    require_once( dirname(__FILE__) . '/includes/functions.php' );        
 }
 add_action( 'admin_init', 'wp_install_site_data' );
 
+// called from includes/template
 function run_site_installer(){
     load_install_files();
     run_install_files();
     load_settings_files();
     run_settings_files();
-}
-
-function get_site_data(){
-    $items = array(
-        array( 'name' => 'clean',           'run' => 1, 'ran' => 1 ),
-        array( 'name' => 'site',            'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'menus',           'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'pages',           'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'posts',           'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'posts-custom',    'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'posts-block',     'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'images-featured', 'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'categories',      'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'category-assign', 'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'tags',            'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'users',           'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'widgets',         'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'themes',          'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'plugins',         'run' => 1, 'ran' => 0 ),
-    );
-    return $items;
-}
-
-function get_settings_data() {
-    $items = array(
-        array( 'name' => 'general',     'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'writing',     'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'reading',     'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'discussion',  'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'media',       'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'permalinks',  'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'timezone',    'run' => 1, 'ran' => 0 ),
-    );
-    return $items;
 }
 
 function load_install_files( $items='' ) {

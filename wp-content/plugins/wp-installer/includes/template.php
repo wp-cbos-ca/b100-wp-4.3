@@ -11,15 +11,8 @@ function wp_site_installer_menu(){
         'function' => 'wp_site_installer',
         );
         
-    add_management_page( 
-        $args['page_title'], 
-        $args['menu_title'], 
-        $args['capability'], 
-        $args['menu_slug'], 
-        $args['function']
-    );
+    add_management_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
 }
-
 add_action( 'admin_menu', 'wp_site_installer_menu' );
 
 function wp_site_installer() {
