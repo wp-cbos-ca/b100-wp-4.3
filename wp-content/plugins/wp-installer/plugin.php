@@ -19,7 +19,7 @@ if ( ! defined( 'WP_POST_TYPE_ALT' ) ) {
     define( 'WP_POST_TYPE_ALT', 'custom' ); //change as needed
 }
 
-require_once( dirname(__FILE__) . '/includes/template.php' );
+require_once( dirname(__FILE__) . '/includes/template/template.php' );
 
 function wp_install_site_data() {
     require_once( dirname(__FILE__) . '/data.php' );        

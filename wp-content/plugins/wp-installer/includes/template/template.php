@@ -25,14 +25,18 @@ function wp_site_installer() {
         $msg = "";
     }
     
+    require_once( dirname(__FILE__) . '/data.php' );
+    $items = get_template_data();
+    
     $str = '<div class="wrap" style="width: 50%;">';
-    $str .= '<h1>Run Installer</h1>';
-    $str .= '<p>See plugin file for detail settings.</p>';
+    $str .= sprintf('<h1>%s</h1>%s', $items['title'], PHP_EOL );
+    $str .= sprintf( '<p>%s</p>%s', $items['desc'], PHP_EOL );
     $str .= '<form action="" method="post">';
-    $str .= '<button class="button" name="site-installer" >Run Installer</button>';
+    $str .= sprintf('<button class="button" name="site-installer" >%s</button>', $items['button_text'], PHP_EOL );
     $str .= wp_nonce_field( 'site-installer', 'site-installer' );
     $str .= '</form>';
     $str .= '<p>' . $msg . '</p>';
+    $str .= get_help_data();
     $str .= '</div>';
     echo $str;
 }
