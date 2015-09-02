@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || die();
 
  function get_tags_data(){
-     $items = array();
+     $items = array( 'tag' );
      return $items;
  }
  

@@ -6,9 +6,9 @@ function get_installer_run_data(){
     $items = array(
         'site'      => array ( 'run' => 0, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
-        'content'   => array ( 'run' => 1, 'ran' => 0 ),
+        'content'   => array ( 'run' => 0, 'ran' => 0 ),
         'images'    => array ( 'run' => 0, 'ran' => 0 ),
-        'sorting'   => array ( 'run' => 0, 'ran' => 0 ),
+        'sorting'   => array ( 'run' => 1, 'ran' => 0 ),
     );
     return $items;
 }
@@ -61,7 +61,7 @@ function get_sorting_data(){
     $items = array(
         array( 'name' => 'categories',      'run' => 0, 'ran' => 0 ),
         array( 'name' => 'cats-assign',     'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'tags',            'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'tags',            'run' => 1, 'ran' => 0 ),
         array( 'name' => 'tags-assign',     'run' => 0, 'ran' => 0 ),
     );
     return $items;
