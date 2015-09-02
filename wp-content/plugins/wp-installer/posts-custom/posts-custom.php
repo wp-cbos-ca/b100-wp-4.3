@@ -3,14 +3,13 @@
 defined( 'ABSPATH' ) || die();
 
 function install_custom_post_type_data ( $user_id = 1 ) {
-    $post_type = 'reviews';
     require_once dirname( __FILE__) . '/data.php';
     global $wpdb;
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
     $posts = get_custom_post_type_data();
     foreach ( $posts as $post ) {
-        if ( $post['build'] &&  ( ! custom_post_exists ( $post['post_name'], $post_type ) ) ) {  //insert it only if specified
+        if ( $post['build'] &&  ( ! custom_post_exists ( $post['post_name'], WP_POST_TYPE_ALT ) ) ) {  //insert it only if specified
             $guid = get_option( 'home' ) . $post['guid']; //build guid
             //insert post/page
             $wpdb->insert( $wpdb->posts, 

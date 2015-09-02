@@ -2,28 +2,25 @@
 
 defined( 'ABSPATH' ) || die();
 
-add_action( 'install_site_data', 'install_tags' );
-
 function install_tags() {
     require_once dirname( __FILE__) . '/data.php';
     $tags = get_tags_data();
-    if ( $posts = get_posts_by_post_type( 'reviews' ) ) {
+    if ( $posts = get_posts_by_post_type( WP_POST_TYPE, 15 ) ) {
         foreach ( $posts as $post ) {
             generate_tag_data( $post, $tags );
         }
     }
 }
 
-//
 function generate_tag_data( $post, $tags ) {
-    $tag = $tags[ rand( 0, 11 ) ];
+    $tag = $tags[ rand( 0, count( $tags ) - 1 ) ];
     $tag .= rand( 1,3 );
-    wp_set_post_tags( $post->ID, $tag, false ); 
+    wp_set_post_tags( $post -> ID, $tag, false ); 
 }
 
-function get_posts_by_post_type( $post_type = 'post' ) {
+function get_posts_by_post_type( $post_type = 'post', $numposts = '' ) {
     $args = array(
-        'posts_per_page'   => 15,
+        'posts_per_page'   => $numposts,
         'offset'           => 0,
         'category'         => '',
         'category_name'    => '',

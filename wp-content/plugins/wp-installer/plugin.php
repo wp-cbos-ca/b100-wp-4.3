@@ -12,6 +12,13 @@ Author URI:     http://wp.cbos.ca
 
 defined( 'ABSPATH' ) || die();
 
+if ( ! defined( 'WP_POST_TYPE' ) ) {
+    define( 'WP_POST_TYPE', 'post' );
+}
+if ( ! defined( 'WP_POST_TYPE_ALT' ) ) {
+    define( 'WP_POST_TYPE_ALT', 'custom' ); //change as needed
+}
+
 require_once( dirname(__FILE__) . '/includes/template.php' );
 
 function wp_install_site_data() {

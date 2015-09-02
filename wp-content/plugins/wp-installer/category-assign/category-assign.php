@@ -4,15 +4,14 @@ defined( 'ABSPATH' ) || die();
 
 function assign_categories() {
     $args = array(
-    'type'                     => 'post',
+    'type'                     => WP_POST_TYPE,
     'parent'                   => 0,
     'orderby'                  => 'name',
     ); 
     $cats = get_categories( $args );
-    var_dump( $cats );
     if ( ! empty ( $cats ) ) {
     
-        if ( $posts = get_posts_by_post_type_cat( 'reviews' ) ) {
+        if ( $posts = get_posts_by_post_type_cat( WP_POST_TYPE ) ) {
             foreach ( $posts as $post ) {
                 $cat = $cats[ rand( 1, count( $cats ) ) ];
                 wp_set_post_categories( $post->ID, $cat->term_id, false );
@@ -21,14 +20,13 @@ function assign_categories() {
     }
 }
 
-function save_to_category_by_post_type ($post_ID) {
+function save_to_category_by_post_type ( $post_ID ) {
     global $wpdb;
     if( wp_is_post_autosave( $post_ID ) || wp_is_post_revision( $post_ID ) ) {
       return $post_ID;
     }
     $ccat_id = intval( get_cat_ID( $cat_name ) );
     wp_set_object_terms( $post_ID, $ccat_id, 'category' );
-
 }
 
 function get_posts_by_post_type_cat( $numposts = 15 ) {
