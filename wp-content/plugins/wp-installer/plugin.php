@@ -49,13 +49,13 @@ function get_site_data(){
 
 function get_settings_data() {
     $items = array(
-        array( 'name' => 'general',     'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'writing',     'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'reading',     'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'discussion',  'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'media',       'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'permalinks',  'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'timezone',    'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'general',     'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'writing',     'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'reading',     'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'discussion',  'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'media',       'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'permalinks',  'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'timezone',    'run' => 1, 'ran' => 0 ),
     );
     return $items;
 }
@@ -65,7 +65,10 @@ function load_install_files( $items='' ) {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                require_once( dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php' );
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
             }
         }
     }
@@ -76,7 +79,10 @@ function load_settings_files( $items='' ) {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                require_once( dirname(__FILE__) . '/settings/' . $item['name'] . '/' . $item['name'] . '.php' );
+                $file = dirname(__FILE__) . '/settings/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
             }
         }
     }
@@ -140,7 +146,8 @@ function run_install_files( $items='' ) {
     }
 }
 
-function run_settings_files( $items='' ) {
+function run_settings_files( $items=Array() ) {
+    $items = get_settings_data();
     if ( ! empty ( $items )  && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {

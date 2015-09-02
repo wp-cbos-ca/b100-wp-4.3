@@ -8,7 +8,7 @@ function get_site_title(){
 }
 
 function get_tagline(){
-    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 0, 'update' => 0 );
+    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 'Just Another WordPress Bundle', 'update' => 0 );
     return $tagline;
 }
 
@@ -22,7 +22,7 @@ function get_install_url(){
     return $install_url;
 }
 
-function get_admin_email_address() {
+function get_admin_email() {
     $email = array ( 'title' => 'E-mail Address', 'option_name' => 'admin_email', 'option_value' => 'admin@example.ca', 'update' => 0  );
     return $email;
 }
@@ -38,20 +38,6 @@ function get_general_data() {
     );
     return $items;
 }
-
-function get_timezone() {
-     //the first timezone with 'selected' => 1 is chosen. America/Toronto is the default.
-     $timezone = array (    //option_name => timezone_string
-            0 => array ( 'name' => 'America/Toronto', 'selected' =>  1 ),
-            1 => array ( 'name' => 'America/Vancouver', 'selected' =>  0 ),
-            2 => array ( 'name' => 'America/New_York', 'selected' =>  0 ),
-            3 => array ( 'name' => 'America/Chicago', 'selected' =>  0 ),
-            4 => array ( 'name' => 'America/Denver', 'selected' =>  0 ),
-            5 => array ( 'name' => 'America/Los_Angeles', 'selected' =>  0 ),
-            //add your own here as needed...
-            );
-     return $timezone;
-} 
 
 function get_site_language() {
     $site_language = array ( 'title' => 'Site Language', 'option_name' => 'WPLANG', 'option_value' => 'en', 'update' => 0  );

@@ -2,21 +2,13 @@
 
 defined( 'ABSPATH' ) || die();
 
-function setup_timezone() {
-    
+function install_timezone_settings() {
     require_once dirname( __FILE__) . '/data.php';
-    
-    $items = get_timezone();
-    
-    $timezone = 'America/Toronto';
-    
-    if ( $items ) foreach ( $items as $item ) { 
+    $items = get_timezone_data();
+    if ( ! empty ( $items ) ) foreach ( $items as $item ) { 
         if ( $item['selected'] ) {
-            $timezone = $item['name'];
+            update_option( 'timezone_string', $item['option_value'] );
             break;
         }
     }
-    update_option( 'timezone_string', $timezone );
-     
-   
 }
