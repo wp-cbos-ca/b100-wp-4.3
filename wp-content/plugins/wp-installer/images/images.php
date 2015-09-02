@@ -4,11 +4,11 @@ defined( 'ABSPATH' ) || die();
 
 function install_featured_images() {
     require_once( dirname(__FILE__) . '/data.php' );
-    set_featured_image();
+    $items = get_featured_image_data();
+    set_featured_image( $items['attach_id'] );
 }
 
-function set_featured_image() {
-    $attach_id = 50;
+function set_featured_image( $attach_id = '' ) {
     if ( $posts = get_posts_by_post_type_images( '15' ) ) {
         foreach ( $posts as $post ) {
             set_post_thumbnail( $post->ID, $attach_id );

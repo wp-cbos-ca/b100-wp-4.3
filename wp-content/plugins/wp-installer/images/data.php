@@ -3,6 +3,6 @@
 defined( 'ABSPATH' ) || die();
 
 function get_featured_image_data() {
-    $items = array ( 'url' => get_content_dir( 'uploads/2015/08/image.jpg' ) ); 
+    $items = array ( 'attach_id' => '50' ); 
     return $items;
 }
