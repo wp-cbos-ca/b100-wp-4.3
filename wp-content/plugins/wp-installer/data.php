@@ -6,8 +6,8 @@ function get_installer_run_data(){
     $items = array(
         'site'      => array ( 'run' => 0, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
-        'content'   => array ( 'run' => 0, 'ran' => 0 ),
-        'images'    => array ( 'run' => 1, 'ran' => 0 ),
+        'content'   => array ( 'run' => 1, 'ran' => 0 ),
+        'images'    => array ( 'run' => 0, 'ran' => 0 ),
         'sorting'   => array ( 'run' => 0, 'ran' => 0 ),
     );
     return $items;
@@ -40,12 +40,12 @@ function get_settings_data() {
 
 function get_content_data(){
     $items = array(
-        array( 'name' => 'pages',           'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'pages',           'run' => 0, 'ran' => 0 ),
         array( 'name' => 'page-block',      'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'posts',           'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'post-block',      'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'post-type',       'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'post-type-block', 'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'posts',           'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'post-block',      'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'post-type',       'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'post-type-block', 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }

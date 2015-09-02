@@ -153,6 +153,9 @@ function load_content_files() {
                 if ( strpos( $item['name'], 'post-' ) !== FALSE ) {
                     $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
+                else if ( strpos( $item['name'], 'page-' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/pages/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
                 else {
                     $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
