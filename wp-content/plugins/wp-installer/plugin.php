@@ -31,16 +31,20 @@ add_action( 'admin_init', 'wp_install_site_data' );
 function run_site_installer(){
     $items = get_installer_data();
     if ( $items['site']['run'] ) {
-        load_install_files();
-        run_install_files();
+        load_site_files();
+        run_site_files();
     }
     if ( $items['settings']['run'] ) {
         load_settings_files();
         run_settings_files();
     }
+    if ( $items['content']['run'] ) {
+        load_content_files();
+        run_content_files();
+    }
 }
 
-function load_install_files( $items='' ) {
+function load_site_files() {
     $items = get_site_data();
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
@@ -54,7 +58,41 @@ function load_install_files( $items='' ) {
     }
 }
 
-function load_settings_files( $items='' ) {
+function run_site_files() {
+    $items = get_site_data();
+    if ( ! empty ( $items )  && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                switch( $item['name'] ) {
+                    case 'clean':
+                        default_cleaner();
+                        break;
+                    case 'menus':
+                        install_menus();
+                        break;
+                    case 'pages':
+                        install_pages();
+                        break;
+                    case 'users':
+                        install_users();
+                        break;
+                    case 'widgets':
+                        install_widgets();
+                        break;
+                    case 'themes':
+                        activate_themes();
+                        break;
+                    case 'plugins':
+                        configure_plugins();
+                        break;
+                    default:   
+                }
+            }
+        }
+    }
+}
+
+function load_settings_files() {
     $items = get_settings_data();
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
@@ -68,24 +106,60 @@ function load_settings_files( $items='' ) {
     }
 }
 
-function run_install_files( $items='' ) {
-    $items = get_site_data();
+function run_settings_files() {
+    $items = get_settings_data();
     if ( ! empty ( $items )  && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
                 switch( $item['name'] ) {
-                    case 'clean':
-                        default_cleaner();
+                    case 'general':
+                        install_general_settings();
                         break;
-                    case 'site':
-                        install_site();
+                    case 'writing':
+                        install_writing_settings();
                         break;
-                    case 'menus':
-                        install_menus();
+                    case 'reading':
+                        install_reading_settings();
                         break;
-                    case 'pages':
-                        install_pages();
+                    case 'discussion':
+                        install_discussion_settings();
                         break;
+                    case 'media':
+                        install_media_settings();
+                        break;
+                    case 'permalinks':
+                        install_permalink_settings();
+                        break;
+                    case 'timezone':
+                        install_timezone_settings();
+                        break;
+                    default:   
+                }
+            }
+        }
+    }
+}
+
+function load_content_files() {
+    $items = get_content_data();
+    if ( ! empty ( $items ) && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
+            }
+        }
+    }
+}
+
+function run_content_files() {
+    $items = get_content_data();
+    if ( ! empty ( $items )  && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                switch( $item['name'] ) {
                     case 'posts':
                         install_posts();
                         break;
@@ -107,53 +181,6 @@ function run_install_files( $items='' ) {
                     case 'tags':
                         install_tags();
                         break;
-                    case 'timezone':
-                        install_timezone();
-                        break;
-                    case 'users':
-                        install_users();
-                        break;
-                    case 'widgets':
-                        install_widgets();
-                        break;
-                    case 'plugins':
-                        configure_plugins();
-                        break;
-                    default:   
-                }
-            }
-        }
-    }
-}
-
-function run_settings_files( $items=Array() ) {
-    $items = get_settings_data();
-    if ( ! empty ( $items )  && is_array( $items ) ) {
-        foreach ( $items as $item ) {
-            if ( $item['run'] && ! $item['ran'] ) {
-                switch( $item['name'] ) {
-                    case 'general':
-                        install_general_settings();
-                        break;
-                    case 'timezone':
-                        install_timezone_settings();
-                        break;
-                    case 'writing':
-                        install_writing_settings();
-                        break;
-                    case 'reading':
-                        install_reading_settings();
-                        break;
-                    case 'discussion':
-                        install_discussion_settings();
-                        break;
-                    case 'media':
-                        install_media_settings();
-                        break;
-                    case 'permalinks':
-                        install_permalink_settings();
-                        break;
-                    default:   
                 }
             }
         }
