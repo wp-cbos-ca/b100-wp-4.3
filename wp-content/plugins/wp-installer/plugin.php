@@ -42,6 +42,10 @@ function run_site_installer(){
         load_content_files();
         run_content_files();
     }
+    if ( $items['sorting']['run'] ) {
+        load_sorting_files();
+        run_sorting_files();
+    }
 }
 
 function load_site_files() {
@@ -69,9 +73,6 @@ function run_site_files() {
                         break;
                     case 'menus':
                         install_menus();
-                        break;
-                    case 'pages':
-                        install_pages();
                         break;
                     case 'users':
                         install_users();
@@ -165,6 +166,12 @@ function run_content_files() {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
                 switch( $item['name'] ) {
+                    case 'pages':
+                        install_pages();
+                        break;
+                    case 'page-block':
+                        install_page_block();
+                        break;
                     case 'posts':
                         install_posts();
                         break;
@@ -177,6 +184,32 @@ function run_content_files() {
                     case 'images':
                         install_featured_images();
                         break;
+                }
+            }
+        }
+    }
+}
+
+function load_sorting_files() {
+    $items = get_sorting_data();
+    if ( ! empty ( $items ) && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
+            }
+        }
+    }
+}
+
+function run_sorting_files() {
+    $items = get_sorting_data();
+    if ( ! empty ( $items )  && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                switch( $item['name'] ) {
                     case 'categories':
                         install_categories();
                         break;
