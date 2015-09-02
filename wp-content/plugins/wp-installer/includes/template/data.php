@@ -35,7 +35,7 @@ function get_help_data(){
     $str .= 'Thus to work with this plugin at this point you will need to make use of a freely available editor such as Notepad++ or better ';
     $str .= 'and a freely available (s)ftp program such as Filezilla or alternate.</p>';
     $str .= '<p>It follows a "holographic" style of programming which is fairly easy to work with and understand ';
-    $str .= 'as each successive layer (whether drilling down deeper or zoning out to an upper layer) is simply a repeat of the same pattern seen at each of the layers.</p>' . PHP_EOL;
+    $str .= 'as each successive layer (whether drilling down deeper or zoning out to an upper layer) is simply a repeat of the same pattern seen at each of the other layers.</p>' . PHP_EOL;
     $str .= '<p>Thanks for stopping by, and hope you have a wonderful day.' . PHP_EOL;
     $str .= '</div>' . PHP_EOL;
     return $str;
