@@ -2,8 +2,6 @@
 
 defined( 'ABSPATH' ) || die();
 
-add_action( 'install_site_data', 'install_menus' );
-
 function install_menus() {
     require_once dirname( __FILE__) . '/data.php';
     $menus = get_menu_data();
@@ -60,34 +58,4 @@ function menu_item_exists( $item, $menu_id ) {
      
     }
     return $found;
-}
-
-//Set the primary menu to Main Menu
-function assign_menus() {
-    $menus = array ( 
-        0 => array ( 
-            'name' => 'Main Menu' , 
-            'location' => 'primary' ,
-            'assign' => 1 ,
-        ),
-        1 => array ( 
-            'name' => 'Secondary Menu' , 
-            'location' => 'secondary' ,
-            'assign' => 0 ,
-        ),
-        2 => array ( 
-            'name' => 'Footer Menu' , 
-            'location' => 'footer' ,
-            'assign' => 1 ,
-        )
-    );
-    if ( $menus ) foreach ( $menus as $menu ) {
-        if ( $menu_exists = wp_get_nav_menu_object( $menu['name'] ) ) {
-            $locations = get_theme_mod( 'nav_menu_locations' );
-            if ( ! empty ( $locations[ $menu['location'] ] ) ) {
-                $locations[ $menu['location'] ] = $menu_exists->term_id; 
-            }
-            set_theme_mod( 'nav_menu_locations', $locations );
-        }
-    }
 }

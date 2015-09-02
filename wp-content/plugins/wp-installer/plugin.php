@@ -57,7 +57,12 @@ function load_site_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( strpos( $item['name'], 'menu-' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/menus/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
+                else {
+                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
                 if ( file_exists( $file ) ) {
                     require_once( $file );
                 }
@@ -77,6 +82,9 @@ function run_site_files() {
                         break;
                     case 'menus':
                         install_menus();
+                        break;
+                    case 'menu-assign':
+                        assign_menus();
                         break;
                     case 'users':
                         install_users();
