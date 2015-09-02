@@ -46,6 +46,10 @@ function run_site_installer(){
         load_sorting_files();
         run_sorting_files();
     }
+    if ( $items['images']['run'] ) {
+        load_images_files();
+        run_images_files();
+    }
 }
 
 function load_site_files() {
@@ -181,9 +185,37 @@ function run_content_files() {
                     case 'post-block':
                         install_post_block();
                         break;
+                    default:    
+                }
+            }
+        }
+    }
+}
+
+function load_images_files() {
+    $items = get_images_data();
+    if ( ! empty ( $items ) && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
+            }
+        }
+    }
+}
+
+function run_images_files() {
+    $items = get_images_data();
+    if ( ! empty ( $items )  && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                switch( $item['name'] ) {
                     case 'images':
                         install_featured_images();
                         break;
+                    default: 
                 }
             }
         }

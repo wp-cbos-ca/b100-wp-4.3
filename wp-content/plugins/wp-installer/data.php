@@ -7,7 +7,8 @@ function get_installer_data(){
         'site'      => array ( 'run' => 0, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
         'content'   => array ( 'run' => 0, 'ran' => 0 ),
-        'sorting'   => array ( 'run' => 1, 'ran' => 0 ),
+        'images'    => array ( 'run' => 1, 'ran' => 0 ),
+        'sorting'   => array ( 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }
@@ -45,6 +46,12 @@ function get_content_data(){
         array( 'name' => 'post-block',      'run' => 1, 'ran' => 0 ),
         array( 'name' => 'post-type',       'run' => 1, 'ran' => 0 ),
         array( 'name' => 'post-type-block', 'run' => 1, 'ran' => 0 ),
+    );
+    return $items;
+}
+
+function get_images_data(){
+    $items = array(
         array( 'name' => 'images',          'run' => 1, 'ran' => 0 ),
     );
     return $items;
@@ -52,7 +59,7 @@ function get_content_data(){
 
 function get_sorting_data(){
     $items = array(
-        array( 'name' => 'categories',      'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'categories',      'run' => 0, 'ran' => 0 ),
         array( 'name' => 'cats-assign',     'run' => 0, 'ran' => 0 ),
         array( 'name' => 'tags',            'run' => 0, 'ran' => 0 ),
         array( 'name' => 'tags-assign',     'run' => 0, 'ran' => 0 ),
