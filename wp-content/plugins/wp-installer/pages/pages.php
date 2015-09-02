@@ -3,18 +3,16 @@
 defined( 'ABSPATH' ) || die();
 
 function install_pages ( $user_id = 1 ) {
-    
     global $wpdb;
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' );
 
     require_once dirname( __FILE__) . '/data.php';
     $pages = get_page_data();
-     
-    foreach ( $pages as $page ) {
-        if ( $page['build'] &&  ( ! page_exists ( $page['post_name'] ) ) ) {  //insert it only if specified
-            $guid = get_option('home') . $page['guid']; //build guid
-            //insert post/page
+    if ( ! empty( $pages ) ) foreach ( $pages as $page ) {
+        if ( $page['build'] ) {
+            if ( ! get_page_by_title ( $page['post_title'], OBJECT, 'page' ) ) {
+            $guid = get_option( 'home' ) . '/' . $page['guid']; 
             $wpdb->insert( $wpdb->posts, 
                 array(
                     'post_author' => $user_id, 
@@ -32,35 +30,11 @@ function install_pages ( $user_id = 1 ) {
                     'to_ping' => '', 
                     'pinged' => '', 
                     'post_content_filtered' => '' 
-                ));                                
+                ));            
+            }                    
         }
     }                        
 }
-
-function page_exists( $slug )  {
-    if ( $post_id = get_page_id_by_slug( $slug ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function get_page_id_by_slug( $slug, $post_type = 'page' ) {
-     global $wpdb;
-     $query = $wpdb -> prepare( 
-        'SELECT ID FROM ' . $wpdb->posts . ' WHERE post_name = %s AND post_type = %s', 
-        $slug, 
-        $post_type
-        );
-     if ( $post_id = $wpdb -> get_var( $query ) ) {
-        return $post_id;
-    }
-    else {
-        return false;
-    }
-}
-
 
 function install_page_block( $user_id = 0 ){
     global $wpdb;
@@ -68,7 +42,7 @@ function install_page_block( $user_id = 0 ){
     
     for ( $i=0; $i < $cnt; $i++ ) {
             
-            $title = build_page_title( $i );
+            $title = build_page_block_title( $i );
             if ( ! is_page ( $title )) {
                 $wpdb->insert( $wpdb->posts, 
                 array(
@@ -92,7 +66,7 @@ function install_page_block( $user_id = 0 ){
      }
 }
 
-function build_page_title( $i ) {
+function build_page_block_title( $i ) {
     if ( $i < 10 ) {
         $n = $i + 1;
         $page_num = '0' . $n;

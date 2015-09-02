@@ -4,7 +4,7 @@ function get_page_data() {
     $pages = array ( 
         array ( 
             'build' => 1, 
-            'post_title' => 'Front Page', 'post_name' => 'front-page', 'guid' => 'front-page', 'template' => 'front-page',
+            'post_title' => 'Home', 'post_name' => 'home', 'guid' => 'home', 'template' => 'front-page',
             'post_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam risus tortor, commodo a massa non, varius convallis lectus. Suspendisse ut convallis odio. Nulla et eros lacinia, posuere tortor et, gravida nunc. Interdum et malesuada fames ac ante.',
         ),
         array ( 

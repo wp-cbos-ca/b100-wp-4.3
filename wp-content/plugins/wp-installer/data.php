@@ -4,9 +4,9 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_data(){
     $items = array(
-        'site'      => array ( 'run' => 0, 'ran' => 0 ),
+        'site'      => array ( 'run' => 1, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
-        'content'   => array ( 'run' => 1, 'ran' => 0 ),
+        'content'   => array ( 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }
@@ -39,8 +39,8 @@ function get_settings_data() {
 
 function get_content_data(){
     $items = array(
-        array( 'name' => 'posts',           'run' => 1, 'ran' => 1 ),
-        array( 'name' => 'post-block',      'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'posts',           'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'post-block',      'run' => 1, 'ran' => 1 ),
         array( 'name' => 'post-type',       'run' => 1, 'ran' => 1 ),
         array( 'name' => 'post-type-block', 'run' => 1, 'ran' => 1 ),
         array( 'name' => 'images',          'run' => 1, 'ran' => 1 ),
