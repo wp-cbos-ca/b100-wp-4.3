@@ -4,17 +4,20 @@ defined( 'ABSPATH' ) || die();
 
 function assign_categories() {
     $args = array(
-    'type'                     => WP_POST_TYPE,
-    'parent'                   => 0,
-    'orderby'                  => 'name',
+        'type'          => WP_POST_TYPE,
+        'taxonomy'      => 'category',
+        'hide_empty'    => 0,
+        'parent'        => 0,
+        'orderby'       => 'name',
+        
     ); 
     $cats = get_categories( $args );
     if ( ! empty ( $cats ) ) {
-    
-        if ( $posts = get_posts_by_post_type_cat( WP_POST_TYPE ) ) {
+        if ( $posts = get_posts_by_post_type_cat( 15 ) ) {
             foreach ( $posts as $post ) {
-                $cat = $cats[ rand( 1, count( $cats ) ) ];
-                wp_set_post_categories( $post->ID, $cat->term_id, false );
+                $random_key = rand( 0, count( $cats ) - 1 );
+                $cat_id = $cats[ $random_key ] -> term_id;
+                wp_set_post_categories( $post->ID, $cat_id, false );
             }
         }
     }
