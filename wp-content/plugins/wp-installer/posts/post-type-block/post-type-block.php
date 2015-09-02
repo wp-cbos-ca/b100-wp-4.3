@@ -2,10 +2,9 @@
 
 defined( 'ABSPATH' ) || die();
 
-function install_posts_block( $user_id = 1 ){
+function install_post_type_block( $user_id = 1 ){
     global $wpdb;
     $cnt = 15;
-    $post_type = 'reviews';
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
     for ( $i=1; $i <= $cnt; $i++ ) {
@@ -24,7 +23,7 @@ function install_posts_block( $user_id = 1 ){
                     'post_modified' => $now, 
                     'post_modified_gmt' => $now_gmt, 
                     'guid' => $guid, 
-                    'post_type' => $post_type,
+                    'post_type' => WP_POST_TYPE,
                     'comment_count' => 0, 
                     'to_ping' => '', 
                     'pinged' => '', 

@@ -145,7 +145,7 @@ function load_content_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                if ( str_pos( $item['name'], 'post-' ) !== FALSE ) {
+                if ( strpos( $item['name'], 'post-' ) !== FALSE ) {
                     $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
                 else {
@@ -168,23 +168,26 @@ function run_content_files() {
                     case 'posts':
                         install_posts();
                         break;
-                    case 'posts-custom':
+                    case 'post-type':
                         install_custom_post_type_data();
                         break;
-                    case 'posts-block':
-                        install_posts_block();
+                    case 'post-block':
+                        install_post_block();
                         break;
-                    case 'images-featured':
+                    case 'images':
                         install_featured_images();
                         break;
                     case 'categories':
                         install_categories();
                         break;
-                    case 'category-assign':
+                    case 'cats-assign':
                         assign_categories();
                         break;
                     case 'tags':
                         install_tags();
+                        break;
+                    case 'tags-assign':
+                        assign_tags();
                         break;
                 }
             }
