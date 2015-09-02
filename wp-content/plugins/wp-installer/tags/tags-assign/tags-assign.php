@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || die();
 
 function assign_tags_to_posts() {
     require_once dirname( __FILE__) . '/data.php';
-    $tags = get_tags_data();
+    $tags = get_terms( 'post_tag', 'orderby=count&hide_empty=0' ); 
     if ( $posts = get_posts_by_post_type( WP_POST_TYPE, 15 ) ) {
         foreach ( $posts as $post ) {
             generate_tag_data( $post, $tags );
@@ -13,8 +13,8 @@ function assign_tags_to_posts() {
 }
 
 function generate_tag_data( $post, $tags ) {
-    $tag = $tags[ rand( 0, count( $tags ) - 1 ) ];
-    $tag .= rand( 1,3 );
+    $random_key = rand( 0, count( $tags ) - 1 );
+    $tag = $tags[ $random_key ] -> name;
     wp_set_post_tags( $post -> ID, $tag, false ); 
 }
 

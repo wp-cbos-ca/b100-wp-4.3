@@ -62,7 +62,7 @@ function get_sorting_data(){
         array( 'name' => 'categories',      'run' => 0, 'ran' => 0 ),
         array( 'name' => 'cats-assign',     'run' => 0, 'ran' => 0 ),
         array( 'name' => 'tags',            'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'tags-assign',     'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'tags-assign',     'run' => 1, 'ran' => 0 ),
     );
     return $items;
 }

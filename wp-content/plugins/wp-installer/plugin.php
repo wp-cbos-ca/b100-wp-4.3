@@ -230,7 +230,15 @@ function load_sorting_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( strpos( $item['name'], 'tags-' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/tags/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
+                else if ( strpos( $item['name'], 'cats-' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/categories/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
+                else {
+                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
                 if ( file_exists( $file ) ) {
                     require_once( $file );
                 }
@@ -255,7 +263,7 @@ function run_sorting_files() {
                         install_tags();
                         break;
                     case 'tags-assign':
-                        assign_tags();
+                        assign_tags_to_posts();
                         break;
                 }
             }
