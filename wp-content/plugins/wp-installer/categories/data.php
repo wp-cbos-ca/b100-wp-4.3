@@ -11,6 +11,5 @@ function get_categories_data(){
         array( 'name' => 'Children', 'slug' => 'children', 'build' => 1 ),
      );
      return $items;
-     
  }
  

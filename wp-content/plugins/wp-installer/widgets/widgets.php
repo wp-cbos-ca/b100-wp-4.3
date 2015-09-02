@@ -3,11 +3,11 @@
 defined( 'ABSPATH' ) || die();
 
 //the widget api does not appear to be very well developed.
-function setup_widgets() {
+function install_widgets() {
     
     require_once dirname( __FILE__) . '/data.php';
-      
-    // Set up default widgets for default theme.
+    $items = get_widgets_data();
+    // Set up default widgets for default theme.  the following may not work...
     update_option( 'widget_search', array ( 2 => array ( 'title' => '' ), '_multiwidget' => 1 ) );
     update_option( 'widget_recent-posts', array ( 2 => array ( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
     update_option( 'widget_recent-comments', array ( 2 => array ( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );

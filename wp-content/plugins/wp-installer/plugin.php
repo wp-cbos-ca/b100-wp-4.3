@@ -145,7 +145,12 @@ function load_content_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( str_pos( $item['name'], 'post-' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
+                else {
+                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
                 if ( file_exists( $file ) ) {
                     require_once( $file );
                 }
