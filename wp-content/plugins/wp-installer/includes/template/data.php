@@ -2,6 +2,17 @@
   
 defined( 'ABSPATH' ) || die();
 
+function get_installer_data() {
+    $items = array( 
+        'page_title' => 'WP Site Installer',
+        'menu_title' => 'WP Site Installer',
+        'capability' => 'manage_options',
+        'menu_slug' => 'wp-site-installer',
+        'function' => 'wp_site_installer',
+        );
+        return $items;
+}
+
 function get_template_data(){
     $items = array(
         'title' => 'Run Installer',

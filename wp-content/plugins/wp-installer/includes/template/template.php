@@ -3,14 +3,8 @@
 defined( 'ABSPATH' ) || die();
 
 function wp_site_installer_menu(){
-    $args = array( 
-        'page_title' => 'WP Site Installer',
-        'menu_title' => 'Site Installer',
-        'capability' => 'manage_options',
-        'menu_slug' => 'site-installer',
-        'function' => 'wp_site_installer',
-        );
-        
+    require_once( dirname(__FILE__) . '/data.php' );
+    $args = get_installer_data();
     add_management_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
 }
 add_action( 'admin_menu', 'wp_site_installer_menu' );
@@ -25,7 +19,6 @@ function wp_site_installer() {
         $msg = "";
     }
     
-    require_once( dirname(__FILE__) . '/data.php' );
     $items = get_template_data();
     
     $str = '<div class="wrap" style="width: 50%;">';

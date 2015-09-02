@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name:    WP Installer
+Plugin Name:    WP Site Installer
 Plugin URI:     http://wp.cbos.ca
 Description:    Capable of installing pages, posts, menus, featured images, categories, tags and users. Also capable of setting permalinks, timezones, the front and posts page, etc. Remove once complete. Can be retained for restoring site to user specified factory default. 
 Version:        1.0.0
@@ -29,7 +29,7 @@ add_action( 'admin_init', 'wp_install_site_data' );
 
 // called from includes/template
 function run_site_installer(){
-    $items = get_installer_data();
+    $items = get_installer_run_data();
     if ( $items['site']['run'] ) {
         load_site_files();
         run_site_files();

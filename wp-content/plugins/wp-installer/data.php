@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function get_installer_data(){
+function get_installer_run_data(){
     $items = array(
         'site'      => array ( 'run' => 0, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
