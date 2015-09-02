@@ -29,10 +29,15 @@ add_action( 'admin_init', 'wp_install_site_data' );
 
 // called from includes/template
 function run_site_installer(){
-    load_install_files();
-    run_install_files();
-    load_settings_files();
-    run_settings_files();
+    $items = get_installer_data();
+    if ( $items['site']['run'] ) {
+        load_install_files();
+        run_install_files();
+    }
+    if ( $items['settings']['run'] ) {
+        load_settings_files();
+        run_settings_files();
+    }
 }
 
 function load_install_files( $items='' ) {
