@@ -11,6 +11,8 @@ function install_page_block( $user_id = 1 ){
     if ( ! empty ( $items ) ) for ( $i=0; $i < $items['cnt']; $i++ ) {
             $title = build_page_block_title( $items['title_prefix'], $i );
             if ( ! get_page_by_title( $title, OBJECT, 'page' ) ) {
+                $post_name = sanitize_title( $title );
+                $guid = get_option( 'home' ) . '/' . $post_name;
                 $wpdb->insert( $wpdb->posts, 
                 array(
                     'post_author' => $user_id, 
@@ -18,8 +20,8 @@ function install_page_block( $user_id = 1 ){
                     'post_date_gmt' => $now_gmt, 
                     'post_content' => '',
                     'post_excerpt' => '', 
-                    'post_title' => __($title), 
-                    'post_name' => __( sanitize_title_with_dashes( $title ) ),
+                    'post_title' => $title, 
+                    'post_name' =>  $post_name,
                     'post_modified' => $now, 
                     'post_modified_gmt' => $now_gmt, 
                     'guid' => $guid, 

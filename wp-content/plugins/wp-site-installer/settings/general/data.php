@@ -3,12 +3,12 @@
 defined( 'ABSPATH' ) || die();
 
 function get_site_title(){
-    $site_title = array( 'title' => 'Site Tite', 'option_name' => 'blogname', 'option_value' => 'WordPress 4.3 Bundle', 'update' => 1 );
+    $site_title = array( 'title' => 'Site Tite', 'option_name' => 'blogname', 'option_value' => 'WP 4.3 B100 LTS', 'update' => 1 );
     return $site_title;
 }
 
 function get_tagline(){
-    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 'Just Another WordPress Bundle', 'update' => 0 );
+    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 'WP 4.3 Optimized, Secured, Backed Up and Cached', 'update' => 0 );
     return $tagline;
 }
 

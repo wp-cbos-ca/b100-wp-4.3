@@ -12,7 +12,7 @@ function install_pages ( $user_id = 1 ) {
     if ( ! empty( $pages ) ) foreach ( $pages as $page ) {
         if ( $page['build'] ) {
             if ( ! get_page_by_title ( $page['post_title'], OBJECT, 'page' ) ) {
-            $guid = get_option( 'home' ) . '/' . $page['guid']; 
+            $guid = get_option( 'home' ) . '/' . $page['post_name']; 
             $wpdb->insert( $wpdb->posts, 
                 array(
                     'post_author' => $user_id, 
@@ -20,11 +20,11 @@ function install_pages ( $user_id = 1 ) {
                     'post_date_gmt' => $now_gmt, 
                     'post_content' => $page['post_content'],
                     'post_excerpt' => '', 
-                    'post_title' => __($page['post_title']), 
-                    'post_name' => __( $page['post_name'] ),
+                    'post_title' => $page['post_title'], 
+                    'post_name' => $page['post_name'],
                     'post_modified' => $now, 
                     'post_modified_gmt' => $now_gmt, 
-                    'guid' => $guid, 
+                    'guid' => $guid,
                     'post_type' => 'page',
                     'comment_count' => 0, 
                     'to_ping' => '', 

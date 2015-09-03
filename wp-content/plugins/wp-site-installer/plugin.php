@@ -161,6 +161,10 @@ function load_content_files() {
                 if ( strpos( $item['name'], 'post-' ) !== FALSE ) {
                     $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
+                else if ( strpos( $item['name'], 'posts-type' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/posts-type/' . $item['name'] . '/' . $item['name'] . '.php';
+                }
+                
                 else if ( strpos( $item['name'], 'page-' ) !== FALSE ) {
                     $file = dirname(__FILE__) . '/pages/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
@@ -190,11 +194,14 @@ function run_content_files() {
                     case 'posts':
                         install_posts();
                         break;
-                    case 'post-type':
-                        install_custom_post_type_data();
-                        break;
                     case 'post-block':
                         install_post_block();
+                        break;
+                    case 'post-type':
+                        install_post_type();
+                        break;
+                    case 'post-type-block':
+                        install_post_type_block();
                         break;
                     default:    
                 }

@@ -7,12 +7,11 @@ function install_posts ( $user_id = 1 ) {
     global $wpdb;
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
-    
     $posts = get_posts_data();
     if ( ! empty ( $posts ) ) foreach ( $posts as $post ) {
         if ( $post['build'] ) {
             if ( ! get_page_by_title ( $post['post_title'], OBJECT, 'post' ) ) { 
-                $guid = get_option('home') . '/' . $post['guid']; 
+                $guid = get_option( 'home' ) . '/' . $post['post_name'];
                 $wpdb->insert( $wpdb->posts, 
                     array(
                         'post_author' => $user_id, 
@@ -20,8 +19,8 @@ function install_posts ( $user_id = 1 ) {
                         'post_date_gmt' => $now_gmt, 
                         'post_content' => $post['post_content'],
                         'post_excerpt' => '', 
-                        'post_title' => __($post['post_title']), 
-                        'post_name' => __( $post['post_name'] ),
+                        'post_title' => $post['post_title'], 
+                        'post_name' => $post['post_name'],
                         'post_modified' => $now, 
                         'post_modified_gmt' => $now_gmt, 
                         'guid' => $guid, 
