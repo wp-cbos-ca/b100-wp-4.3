@@ -8,7 +8,7 @@ function get_installer_data() {
         'menu_title' => 'WP Site Installer',
         'capability' => 'manage_options',
         'menu_slug' => 'wp-site-installer',
-        'function' => 'wp_site_installer',
+        'function' => 'the_site_installer_template',
         );
         return $items;
 }

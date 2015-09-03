@@ -7,4 +7,6 @@ wp-content/cache/autoptimize/css/
 wp-content/cache/autoptimize/index.html
 wp-content/backupwordpress-*/
 wp-content/cache/wp-cache-*.*
-wp-content/plugins/wp-installer/images-featured/
+wp-content/plugins/wp-site-installer/images-featured/
+wp-content/plugins/wp-site-specifier/
+wp-content/wp-cache-config.php

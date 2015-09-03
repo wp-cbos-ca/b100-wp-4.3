@@ -9,7 +9,7 @@ function wp_site_installer_menu(){
 }
 add_action( 'admin_menu', 'wp_site_installer_menu' );
 
-function wp_site_installer() {
+function get_site_installer_template() {
     if ( ! current_user_can( 'manage_options' ) )  {
         wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     }
@@ -31,7 +31,11 @@ function wp_site_installer() {
     $str .= '<p>' . $msg . '</p>';
     $str .= get_help_data();
     $str .= '</div>';
-    echo $str;
+    return $str;
+}
+
+function the_site_installer_template() {
+    echo get_site_installer_template();
 }
     
 function check_site_installer() {
