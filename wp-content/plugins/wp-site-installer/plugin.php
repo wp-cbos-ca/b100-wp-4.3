@@ -158,11 +158,11 @@ function load_content_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                if ( strpos( $item['name'], 'post-' ) !== FALSE ) {
+                if ( strpos( $item['name'], 'posts-' ) !== FALSE ) {
                     $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
-                else if ( strpos( $item['name'], 'posts-type' ) !== FALSE ) {
-                    $file = dirname(__FILE__) . '/posts-type/' . $item['name'] . '/' . $item['name'] . '.php';
+                else if ( strpos( $item['name'], 'post-type-block' ) !== FALSE ) {
+                    $file = dirname(__FILE__) . '/post-type/' . $item['name'] . '/' . $item['name'] . '.php';
                 }
                 
                 else if ( strpos( $item['name'], 'page-' ) !== FALSE ) {
@@ -194,8 +194,8 @@ function run_content_files() {
                     case 'posts':
                         install_posts();
                         break;
-                    case 'post-block':
-                        install_post_block();
+                    case 'posts-block':
+                        install_posts_block();
                         break;
                     case 'post-type':
                         install_post_type();

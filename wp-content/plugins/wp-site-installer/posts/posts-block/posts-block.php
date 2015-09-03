@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function install_post_block( $user_id = 1 ){
+function install_posts_block( $user_id = 1 ){
     require_once( dirname(__FILE__) . '/data.php' );
     global $wpdb;  
     $now = date( 'Y-m-d H:i:s' );
