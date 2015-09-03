@@ -4,10 +4,10 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_run_data(){
     $items = array(
-        'site'      => array ( 'run' => 0, 'ran' => 0 ),
-        'settings'  => array ( 'run' => 0, 'ran' => 0 ),
-        'content'   => array ( 'run' => 0, 'ran' => 0 ),
-        'images'    => array ( 'run' => 0, 'ran' => 0 ),
+        'site'      => array ( 'run' => 1, 'ran' => 0 ),
+        'settings'  => array ( 'run' => 1, 'ran' => 0 ),
+        'content'   => array ( 'run' => 1, 'ran' => 0 ),
+        'images'    => array ( 'run' => 1, 'ran' => 0 ),
         'sorting'   => array ( 'run' => 1, 'ran' => 0 ),
     );
     return $items;
@@ -51,7 +51,7 @@ function get_content_data(){
     return $items;
 }
 
-function get_images_data(){
+function get_image_data(){
     $items = array(
         array( 'name' => 'images',          'run' => 1, 'ran' => 0 ),
     );

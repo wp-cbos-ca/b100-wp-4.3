@@ -211,7 +211,7 @@ function run_content_files() {
 }
 
 function load_images_files() {
-    $items = get_images_data();
+    $items = get_image_data();
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
@@ -225,7 +225,7 @@ function load_images_files() {
 }
 
 function run_images_files() {
-    $items = get_images_data();
+    $items = get_image_data();
     if ( ! empty ( $items )  && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
