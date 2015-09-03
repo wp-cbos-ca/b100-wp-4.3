@@ -8,7 +8,7 @@ function install_pages ( $user_id = 1 ) {
     $now_gmt = date( 'Y-m-d H:i:s' );
 
     require_once dirname( __FILE__) . '/data.php';
-    $pages = get_page_data();
+    $pages = get_pages_data();
     if ( ! empty( $pages ) ) foreach ( $pages as $page ) {
         if ( $page['build'] ) {
             if ( ! get_page_by_title ( $page['post_title'], OBJECT, 'page' ) ) {

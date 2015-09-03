@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || die();
 
 function install_menus() {
     require_once dirname( __FILE__) . '/data.php';
-    $menus = get_menu_data();
+    $menus = get_menus_data();
     if ( ! empty ( $menus ) ) foreach ( $menus as $menu ) {
         if ( $menu['build'] ) {
             if ( $exists = wp_get_nav_menu_object( $menu['name'] ) ) {

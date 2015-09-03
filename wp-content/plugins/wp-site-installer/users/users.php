@@ -7,7 +7,7 @@ function install_users() {
     
     $client_id = 1;
     
-    $users = get_user_data();
+    $users = get_users_data();
     
      if ( $users ) foreach  ( $users as $user ) {
          

@@ -1,6 +1,6 @@
 <?php
 
-function get_page_data() {
+function get_pages_data() {
     $pages = array ( 
         array ( 
             'build' => 1, 

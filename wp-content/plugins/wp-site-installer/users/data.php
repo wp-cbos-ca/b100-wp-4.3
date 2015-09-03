@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function get_user_data() {
+function get_users_data() {
     $users = array (
          0 =>  array (
          'create' => 0,

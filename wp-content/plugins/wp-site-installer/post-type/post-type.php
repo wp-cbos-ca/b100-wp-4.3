@@ -7,7 +7,7 @@ function install_custom_post_type_data ( $user_id = 1 ) {
     global $wpdb;
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
-    $posts = get_custom_post_type_data();
+    $posts = get_post_type_data();
     foreach ( $posts as $post ) {
         if ( $post['build'] &&  ( ! custom_post_exists ( $post['post_name'], WP_POST_TYPE_ALT ) ) ) {  //insert it only if specified
             $guid = get_option( 'home' ) . $post['guid']; //build guid

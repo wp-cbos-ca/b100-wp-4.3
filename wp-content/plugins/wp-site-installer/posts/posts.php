@@ -8,7 +8,7 @@ function install_posts ( $user_id = 1 ) {
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
     
-    $posts = get_post_data();
+    $posts = get_posts_data();
     if ( ! empty ( $posts ) ) foreach ( $posts as $post ) {
         if ( $post['build'] ) {
             if ( ! get_page_by_title ( $post['post_title'], OBJECT, 'post' ) ) { 

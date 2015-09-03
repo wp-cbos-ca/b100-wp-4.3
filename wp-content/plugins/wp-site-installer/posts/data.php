@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function get_post_data() {
+function get_posts_data() {
     $items = array ( 
         1 => array ( 
             'build' => 1, 'post_title' => 'Post 01', 'post_name' => 'post-01', 'guid' => 'post-01', 'template' => '',

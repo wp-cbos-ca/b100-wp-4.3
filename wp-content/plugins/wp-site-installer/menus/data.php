@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function get_menu_data() {
+function get_menus_data() {
     $menus = array ( 
             0 => array ( 
                 'name' => 'Main Menu', 'slug' => 'main-menu', 'build' => 1, 

@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || die();
 
 function install_featured_images() {
     require_once( dirname(__FILE__) . '/data.php' );
-    $items = get_featured_image_data();
+    $items = get_images_data();
     set_featured_image( $items['attach_id'] );
 }
 
