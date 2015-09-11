@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WP Optimization and Update Scheduling
+Plugin Name: WP Optimization
 Plugin URI: http://wp.cbos.ca
 Description: Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, and removing feed links.
 Author: wp.cbos.ca
