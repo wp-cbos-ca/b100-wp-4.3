@@ -7,7 +7,6 @@ function install_post_type_block( $user_id = 1 ){
     global $wpdb;
     $now = date( 'Y-m-d H:i:s' );
     $now_gmt = date( 'Y-m-d H:i:s' ); //adjust
-    
     $items = get_post_type_block_data();
     for ( $i=1; $i <= $items['cnt']; $i++ ) {
             $post_title = build_post_type_block_title( $items['title_prefix'], $i );

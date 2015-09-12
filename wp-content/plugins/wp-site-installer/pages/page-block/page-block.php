@@ -43,6 +43,6 @@ function build_page_block_title( $title_prefix, $i ) {
     else {
         $page_num = $n;        
     }
-     $title = sprintf( '%s %s', $title_prefix ,$page_num );
+     $title = sprintf( '%s %s', $title_prefix, $page_num );
      return $title;
 }
