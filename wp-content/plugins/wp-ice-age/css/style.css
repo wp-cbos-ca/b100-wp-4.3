@@ -1,0 +1,12 @@
+
+/* wp-ice-age/css/style.css */
+
+#wp-admin-bar-updates { 
+    display: none !important; 
+} 
+.update-count { 
+    display: none !important; 
+} 
+.update-plugins { 
+    display: none !important; 
+}
