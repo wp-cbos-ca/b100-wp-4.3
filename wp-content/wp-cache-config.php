@@ -5,6 +5,7 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wp_super_cache_comments = '0'; //Added by WP-Cache Manager
 $dismiss_readable_warning = 1; //Added by WP-Cache Manager
 $cache_schedule_interval = 'daily'; //Added by WP-Cache Manager
 $cache_gc_email_me = 0; //Added by WP-Cache Manager
@@ -19,18 +20,18 @@ $wp_cache_mfunc_enabled = 0; //Added by WP-Cache Manager
 $wp_supercache_304 = 0; //Added by WP-Cache Manager
 $wp_cache_no_cache_for_get = 0; //Added by WP-Cache Manager
 $wp_cache_disable_utf8 = 0; //Added by WP-Cache Manager
-$cache_time_interval = '600'; //Added by WP-Cache Manager
-$cache_schedule_type = 'time'; //Added by WP-Cache Manager
+$cache_time_interval = '86400'; //Added by WP-Cache Manager
+$cache_schedule_type = 'interval'; //Added by WP-Cache Manager
 $cache_page_secret = '739fc0fe1030d0555b6a04be59515ce3'; //Added by WP-Cache Manager
-$wp_cache_home_path = '/wp/frozen/bundle/b100/'; //Added by WP-Cache Manager
+$wp_cache_home_path = ''; //Added by WP-Cache Manager
 $wp_cache_slash_check = 1; //Added by WP-Cache Manager
 if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_CONTENT_DIR . "/plugins/wp-super-cache/" ); //Added by WP-Cache Manager
 
-$cache_compression = 0; //Added by WP-Cache Manager
-$cache_enabled = false; //Added by WP-Cache Manager
+$cache_compression = 1; //Added by WP-Cache Manager
+$cache_enabled = true; //Added by WP-Cache Manager
 $super_cache_enabled = true; //Added by WP-Cache Manager
-$cache_max_time = '1800'; //Added by WP-Cache Manager
+$cache_max_time = 86400; //Added by WP-Cache Manager
 //$use_flock = true; // Set it true or false if you know what to use
 $cache_path = WP_CONTENT_DIR . '/cache/';
 $file_prefix = 'wp-cache-';
@@ -42,7 +43,7 @@ $cache_acceptable_files = array( 'wp-comments-popup.php', 'wp-links-opml.php', '
 $cache_rejected_uri = array('wp-.*\\.php', 'index\\.php');
 $cache_rejected_user_agent = array ( 0 => 'bot', 1 => 'ia_archive', 2 => 'slurp', 3 => 'crawl', 4 => 'spider', 5 => 'Yandex' );
 
-$cache_rebuild_files = 0; //Added by WP-Cache Manager
+$cache_rebuild_files = 1; //Added by WP-Cache Manager
 
 // Disable the file locking system.
 // If you are experiencing problems with clearing or creating cache files
@@ -68,19 +69,19 @@ $wp_super_cache_late_init = 0; //Added by WP-Cache Manager
 
 // uncomment the next line to enable advanced debugging features
 $wp_super_cache_advanced_debug = 0;
-$wp_super_cache_front_page_text = '';
-$wp_super_cache_front_page_clear = 0;
-$wp_super_cache_front_page_check = 0;
-$wp_super_cache_front_page_notification = '0';
+$wp_super_cache_front_page_text = ''; //Added by WP-Cache Manager
+$wp_super_cache_front_page_clear = '0'; //Added by WP-Cache Manager
+$wp_super_cache_front_page_check = '0'; //Added by WP-Cache Manager
+$wp_super_cache_front_page_notification = '0'; //Added by WP-Cache Manager
 
 $wp_cache_object_cache = 0; //Added by WP-Cache Manager
 $wp_cache_anon_only = 0;
 $wp_supercache_cache_list = 0; //Added by WP-Cache Manager
 $wp_cache_debug_to_file = 0;
-$wp_super_cache_debug = 0;
+$wp_super_cache_debug = '0'; //Added by WP-Cache Manager
 $wp_cache_debug_level = 5;
-$wp_cache_debug_ip = '';
-$wp_cache_debug_log = '';
+$wp_cache_debug_ip = ''; //Added by WP-Cache Manager
+$wp_cache_debug_log = ''; //Added by WP-Cache Manager
 $wp_cache_debug_email = '';
 $wp_cache_pages[ "search" ] = 0;
 $wp_cache_pages[ "feed" ] = 0;
@@ -96,6 +97,5 @@ $wp_cache_hide_donation = 0;
 $wp_cache_not_logged_in = 0; //Added by WP-Cache Manager
 $wp_cache_clear_on_post_edit = 0; //Added by WP-Cache Manager
 $wp_cache_hello_world = 0; //Added by WP-Cache Manager
-$wp_cache_mobile_enabled = 0; //Added by WP-Cache Manager
+$wp_cache_mobile_enabled = 1; //Added by WP-Cache Manager
 $wp_cache_cron_check = 1; //Added by WP-Cache Manager
-?>

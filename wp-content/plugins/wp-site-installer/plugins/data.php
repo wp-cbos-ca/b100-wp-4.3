@@ -7,7 +7,7 @@ function get_plugins_data() {
             array ( 
                 'name' => 'WP Super Cache', 'folder' => 'wp-super-cache', 'file' => 'wp-cache.php', 'configure' => 0, 'activate' => 1, 
                 'items' => array (
-                        array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
+                        array ( 'option_name' => 'gzipcompression', 'option_value' => 1, 'set' => 1 ),
                         )
                 ),
             array ( 
