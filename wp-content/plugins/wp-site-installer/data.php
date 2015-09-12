@@ -42,11 +42,11 @@ function get_settings_data() {
 function get_content_data(){
     $items = array(
         array( 'name' => 'pages',           'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'page-block',      'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'page-block',      'run' => 0, 'ran' => 0 ),
         array( 'name' => 'posts',           'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'posts-block',     'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'post-type',       'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'post-type-block', 'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'posts-block',     'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'post-type',       'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'post-type-block', 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }
