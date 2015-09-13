@@ -87,5 +87,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-//Frozen 2015/08/29 08:12 AM.

@@ -5,6 +5,26 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wp_super_cache_comments = '0'; //Added by WP-Cache Manager
+$dismiss_readable_warning = 1; //Added by WP-Cache Manager
+$cache_schedule_interval = 'daily'; //Added by WP-Cache Manager
+$cache_gc_email_me = 0; //Added by WP-Cache Manager
+$cache_scheduled_time = '00:00'; //Added by WP-Cache Manager
+$wp_cache_mobile_groups = ''; //Added by WP-Cache Manager
+$wp_cache_mobile_prefixes = 'w3c , w3c-, acs-, alav, alca, amoi, audi, avan, benq, bird, blac, blaz, brew, cell, cldc, cmd-, dang, doco, eric, hipt, htc_, inno, ipaq, ipod, jigs, kddi, keji, leno, lg-c, lg-d, lg-g, lge-, lg/u, maui, maxo, midp, mits, mmef, mobi, mot-, moto, mwbp, nec-, newt, noki, palm, pana, pant, phil, play, port, prox, qwap, sage, sams, sany, sch-, sec-, send, seri, sgh-, shar, sie-, siem, smal, smar, sony, sph-, symb, t-mo, teli, tim-, tosh, tsm-, upg1, upsi, vk-v, voda, wap-, wapa, wapi, wapp, wapr, webc, winw, winw, xda , xda-'; //Added by WP-Cache Manager
+$wp_cache_refresh_single_only = '0'; //Added by WP-Cache Manager
+$wp_cache_make_known_anon = 0; //Added by WP-Cache Manager
+$wp_cache_mod_rewrite = 1; //Added by WP-Cache Manager
+$wp_cache_front_page_checks = 0; //Added by WP-Cache Manager
+$wp_cache_mfunc_enabled = 0; //Added by WP-Cache Manager
+$wp_supercache_304 = 0; //Added by WP-Cache Manager
+$wp_cache_no_cache_for_get = 0; //Added by WP-Cache Manager
+$wp_cache_disable_utf8 = 0; //Added by WP-Cache Manager
+$cache_time_interval = '86400'; //Added by WP-Cache Manager
+$cache_schedule_type = 'interval'; //Added by WP-Cache Manager
+$cache_page_secret = ''; //Added by WP-Cache Manager
+$wp_cache_home_path = ''; //Added by WP-Cache Manager
+$wp_cache_slash_check = 1; //Added by WP-Cache Manager
 if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_PLUGIN_DIR . '/wp-super-cache/' );
 
