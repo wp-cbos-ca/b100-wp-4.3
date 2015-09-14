@@ -8,17 +8,17 @@ function get_menus_data() {
                 'name' => 'Main Menu', 'slug' => 'main-menu', 'build' => 1, 
                 'items' => array (
                         0 => array ( 'title' => 'Home', 'slug' => 'home', 'build' => 1 ),
-                        4 => array ( 'title' => 'About Us', 'slug' => 'about-us', 'build' => 1 ),
-                        5 => array ( 'title' => 'Contact', 'slug' => 'contact', 'build' => 1 ),
-                        5 => array ( 'title' => 'Search', 'slug' => 'search', 'build' => 1 ),
+                        1 => array ( 'title' => 'Blog', 'slug' => 'blog', 'build' => 1 ),
+                        2 => array ( 'title' => 'About', 'slug' => 'about', 'build' => 1 ),
+                        3 => array ( 'title' => 'Contact', 'slug' => 'contact', 'build' => 1 ),
                         )
             ),
             1 => array ( 
                 'name' => 'Secondary Menu', 'slug' => 'secondary-menu', 'build' => 0,
                 'items' => array (
                         0 => array ( 'title' => 'Home', 'slug' => 'home', 'build' => 1 ),
-                        1 => array ( 'title' => 'About', 'slug' => 'about', 'build' => 1 ),
-                        2 => array ( 'title' => 'Blog', 'slug' => 'blog', 'build' => 1 ),
+                        1 => array ( 'title' => 'Blog', 'slug' => 'blog', 'build' => 1 ),
+                        2 => array ( 'title' => 'About', 'slug' => 'about', 'build' => 1 ),
                         3 => array ( 'title' => 'Contact', 'slug' => 'contact', 'build' => 1 ),
                         )
             ),

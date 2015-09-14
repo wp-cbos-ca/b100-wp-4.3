@@ -9,7 +9,7 @@ function assign_menus() {
         if ( $menu_exists = wp_get_nav_menu_object( $menu['name'] ) ) {
             $locations = get_theme_mod( 'nav_menu_locations' );
             if ( isset( $locations[ $menu['location'] ] ) ) {
-                $locations[ $menu['location'] ] = $menu_exists->term_id; 
+                $locations[ $menu['location'] ] = $menu_exists->term_id;
             }
             set_theme_mod( 'nav_menu_locations', $locations );
         }

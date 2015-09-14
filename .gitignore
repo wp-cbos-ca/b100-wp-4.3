@@ -9,5 +9,7 @@ wp-content/backupwordpress-*/
 wp-content/cache/wp-cache-*.*
 wp-content/cache/*.txt
 wp-content/plugins/wp-site-installer/images-featured/
+wp-content/plugins/wp-site-installer/widgets/
+wp-content/plugins/wp-site-installer/widgets/*.*
 wp-content/plugins/wp-site-specifier/
 wp-content/wp-cache-config.php

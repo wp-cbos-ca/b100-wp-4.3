@@ -5,23 +5,23 @@ defined( 'ABSPATH' ) || die();
 function get_installer_run_data(){
     $items = array(
         'site'      => array ( 'run' => 1, 'ran' => 0 ),
-        'settings'  => array ( 'run' => 1, 'ran' => 0 ),
-        'content'   => array ( 'run' => 1, 'ran' => 0 ),
-        'images'    => array ( 'run' => 1, 'ran' => 0 ),
-        'sorting'   => array ( 'run' => 1, 'ran' => 0 ),
+        'settings'  => array ( 'run' => 0, 'ran' => 0 ),
+        'content'   => array ( 'run' => 0, 'ran' => 0 ),
+        'images'    => array ( 'run' => 0, 'ran' => 0 ),
+        'sorting'   => array ( 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }
 
 function get_site_data(){
     $items = array(
-        array( 'name' => 'clean',       'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'clean',       'run' => 0, 'ran' => 0 ),
         array( 'name' => 'menus',       'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'menu-assign', 'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'users',       'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'menu-assign', 'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'users',       'run' => 0, 'ran' => 0 ),
         array( 'name' => 'widgets',     'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'themes',      'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'plugins',     'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'themes',      'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'plugins',     'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }

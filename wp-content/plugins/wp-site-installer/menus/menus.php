@@ -19,7 +19,6 @@ function install_menus() {
             add_items_to_menu( $menu_id, $menu['slug'], $menu['items'] );
         }
     }
-    assign_menus();
 }
 
 function add_items_to_menu( $menu_id, $slug, $items ) {
