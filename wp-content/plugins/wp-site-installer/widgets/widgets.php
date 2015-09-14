@@ -7,12 +7,10 @@ function install_widgets() {
     $items = get_widgets_data();
     $sidebars = get_option( 'sidebars_widgets' );
     $location = 'sidebar-1';
-    pre_dump( $sidebars[ $location ] ); 
     foreach ( $items as $k => $item ) {
     if ( $item['update'] ) {
             if ( $item['on'] ) {
                 if ( ! exists_in_sidebar( $sidebars[ $item['location'] ], $item['slug'] ) ) {
-                    pre_dump( "doesn't exist" );
                     array_unshift( $sidebars[ $item['location'] ], $item['slug'] );
                     //array_search ( 'a', $arr );
                     update_option( 'sidebars_widgets', $sidebars );
