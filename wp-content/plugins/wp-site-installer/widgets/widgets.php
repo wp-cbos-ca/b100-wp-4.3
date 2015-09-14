@@ -7,7 +7,7 @@ function install_widgets() {
     $items = get_widgets_data();
     $sidebars = get_option( 'sidebars_widgets' );
     $location = 'sidebar-1';
-    pre_dump( $sidebars[ $location ] );
+    pre_dump( $sidebars[ $location ] ); 
     foreach ( $items as $k => $item ) {
     if ( $item['update'] ) {
             if ( $item['on'] ) {
