@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_run_data(){
     $items = array(
-        'site'      => array ( 'run' => 0, 'ran' => 0 ),
+        'site'      => array ( 'run' => 1, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
         'content'   => array ( 'run' => 0, 'ran' => 0 ),
         'images'    => array ( 'run' => 0, 'ran' => 0 ),
@@ -16,7 +16,7 @@ function get_installer_run_data(){
 function get_site_data(){
     $items = array(
         array( 'name' => 'clean',       'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'menus',       'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'menus',       'run' => 0, 'ran' => 0 ),
         array( 'name' => 'menu-assign', 'run' => 0, 'ran' => 0 ),
         array( 'name' => 'users',       'run' => 0, 'ran' => 0 ),
         array( 'name' => 'widgets',     'run' => 1, 'ran' => 0 ),

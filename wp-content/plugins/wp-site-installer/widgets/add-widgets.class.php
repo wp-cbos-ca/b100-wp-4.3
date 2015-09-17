@@ -11,7 +11,7 @@
  * 
  */
 
-class WP_Automatic_Widgets {
+class WPSI_Add_Widgets {
     
     protected $sidebar_options = array();
     protected $widgets = array();

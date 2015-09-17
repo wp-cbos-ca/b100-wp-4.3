@@ -3,13 +3,13 @@
 defined( 'ABSPATH' ) || die();
 
 //for consumption by the widget class. (Yum, yum!)
-function get_widgets_data() {
+function get_widget_data() {
     $items = array(
                 array( 
                     'sidebar' => 'sidebar-1',
                     'widget' => 'text',
                     'args' => array( 'title' => 'My text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
-                    'install' => 1
+                    'install' => 0
                 ),
                 array( 
                     'sidebar' => 'sidebar-1',
