@@ -7,15 +7,15 @@ function get_widget_data() {
     $items = array(
                 array( 
                     'sidebar' => 'sidebar-1',
-                    'widget' => 'text',
-                    'args' => array( 'title' => 'My text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
-                    'install' => 1
-                ),
+                    'slug' => 'search',
+                    'install' => 1,
+                    ),
                 array( 
                     'sidebar' => 'sidebar-1',
-                    'widget' => 'search',
-                    'install' => 1
-                    ),
+                    'slug' => 'text',
+                    'args' => array( 'title' => 'Text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
+                    'install' => 1,
+                ),
                 );
     return $items;
 }

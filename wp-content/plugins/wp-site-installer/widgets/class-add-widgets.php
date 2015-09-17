@@ -20,25 +20,26 @@ class WPSI_Add_Widgets {
         if( ! count( $widgets ) ) {
             return false;
         }
-        $this -> sidebar_options = get_option( 'sidebars_widgets', array() );
+        $this -> sidebar_options = get_option( 'sidebars_widgets' );
         $this -> _count_widgets();
         foreach( $widgets as $widget ) {
             if ( $widget[ 'install' ] ){
                 if ( ! $this-> _has_widget ( $widget )  ) {
                     $this -> _add_widget( $widget );
+                    $this -> _save();
                 }
+                
             }
         }
-        $this -> _save();
     }
     
     function _has_widget( $widget) {
-        $sidebar_id = $widget[ 'sidebar' ];
-        $widget_id = $widget[ 'widget' ];
-        $sidebar = $this -> sidebar_options[ $sidebar_id ];
+        $sidebar_slug = $widget[ 'sidebar' ];
+        $widget_slug = $widget[ 'slug' ];
+        $sidebar = $this -> sidebar_options[ $sidebar_slug ];
         $found = false;
-        foreach ( $sidebar as $k => $v ) {        
-            if ( strpos( $v, $widget_id ) !== FALSE ) {
+        if ( ! empty ( $sidebar ) ) foreach ( $sidebar as $item ) {    
+            if ( strpos( $item, $widget_slug ) !== FALSE ) {
                 $found = true;
                 break;
             }            
@@ -47,16 +48,16 @@ class WPSI_Add_Widgets {
     }
     
     function _add_widget( $widget ) {
-        $sidebar_id = $widget[ 'sidebar' ];
-        $widget_id = $widget[ 'widget' ];
+        $sidebar_slug = $widget[ 'sidebar' ];
+        $widget_slug = $widget[ 'slug' ];
         $widget_args = $widget[ 'args' ];
-        $sidebar = $this -> sidebar_options[ $sidebar_id ];
-        $count = $this -> widgets[ $widget_id ] + 1;
-        $sidebar[] = "$widget_id-$count";
-        $this -> sidebar_options[ $sidebar_id ] = $sidebar;
-        $widget_contents = get_option( "widget_$widget_id", array() );
+        $sidebar = $this -> sidebar_options[ $widget[ 'sidebar' ] ];
+        $count = $this -> widgets[ $widget_slug ] + 1;
+        $sidebar[] = "$widget_slug-$count";
+        $this -> sidebar_options[ $sidebar_slug ] = $sidebar;
+        $widget_contents = get_option( "widget_$widget_slug", array() );
         $widget_contents[ $count ] = $widget_args;
-        $this -> widgets[ $widget_id ] = $widget_contents;
+        $this -> widgets[ $widget_slug ] = $widget_contents;
      }
      
      function _count_widgets() {
