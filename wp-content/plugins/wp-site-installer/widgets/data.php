@@ -9,7 +9,7 @@ function get_widget_data() {
                     'sidebar' => 'sidebar-1',
                     'widget' => 'text',
                     'args' => array( 'title' => 'My text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
-                    'install' => 0
+                    'install' => 1
                 ),
                 array( 
                     'sidebar' => 'sidebar-1',

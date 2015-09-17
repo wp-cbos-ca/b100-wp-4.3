@@ -13,13 +13,12 @@ function install_widgets() {
 */
 
 function wpsi_add_widgets( $widgets, $theme_name='' ) {
-    require_once( dirname(__FILE__) . '/add-widgets.class.php' );
+    require_once( dirname(__FILE__) . '/class-add-widgets.php' );
     $theme = get_current_theme();
-    if ( $theme_name == get_current_theme() && false == get_option( 'wpsi_widgets_added' ) ) {
+    if ( $theme_name == get_current_theme() ) {
         if( class_exists( 'WPSI_Add_Widgets' ) ) {
             $add_widgets = new WPSI_Add_Widgets;
             $add_widgets->add_widgets( $widgets );
-            update_option( 'wpsi_widgets_added', 1 );
         }
     }
 }
