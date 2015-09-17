@@ -2,7 +2,26 @@
   
 defined( 'ABSPATH' ) || die();
 
+//for consumption by the widget class. (Yum, yum!)
 function get_widgets_data() {
+    $items = array(
+                array( 
+                    'sidebar' => 'sidebar-1',
+                    'widget' => 'text',
+                    'args' => array( 'title' => 'My text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
+                    'install' => 1
+                ),
+                array( 
+                    'sidebar' => 'sidebar-1',
+                    'widget' => 'search',
+                    'install' => 1
+                    ),
+                );
+    return $items;
+}
+
+//not quite :(
+function get_widgets_data_all() {
     $items = array(
         array( 'name' => 'widget_categories', 'slug' => 'categories', 'location' => 'sidebar-1', 'on' => 1, 'update' => 0 ),
         array( 'name' => 'widget_text', 'slug' => 'text', 'location' => 'sidebar-1', 'on' => 0, 'update' => 0 ),

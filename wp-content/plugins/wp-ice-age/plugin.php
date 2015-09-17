@@ -10,6 +10,12 @@ Author URI: http://wp.cbos.ca
 
 defined( 'ABSPATH' ) || die();
 
+function update_scheduler() {
+    remove_action( 'admin_notices', 'update_nag', 3 );
+    remove_action( 'admin_notices', 'genesis_update_nag' );
+}  
+add_action( 'admin_init', 'update_scheduler', 1 );
+
 function wp_disable_updates(){
     require_once( dirname(__FILE__) . '/data.php' );
     $items = get_core_update_data();

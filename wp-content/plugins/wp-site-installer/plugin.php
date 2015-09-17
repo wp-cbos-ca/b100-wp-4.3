@@ -29,6 +29,7 @@ add_action( 'admin_init', 'wp_install_site_data' );
 
 // called from includes/template
 function run_site_installer(){
+    require_once( dirname(__FILE__) . '/widgets/add-widgets.php' );
     $items = get_installer_run_data();
     if ( $items['site']['run'] ) {
         load_site_files();

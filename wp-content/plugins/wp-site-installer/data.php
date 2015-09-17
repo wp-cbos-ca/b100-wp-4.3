@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_run_data(){
     $items = array(
-        'site'      => array ( 'run' => 1, 'ran' => 0 ),
+        'site'      => array ( 'run' => 0, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
         'content'   => array ( 'run' => 0, 'ran' => 0 ),
         'images'    => array ( 'run' => 0, 'ran' => 0 ),
