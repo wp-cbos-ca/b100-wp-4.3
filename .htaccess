@@ -1,4 +1,8 @@
 
+# BEGIN Security
+Options –Indexes
+# END Security
+
 # BEGIN PAGE SPEED OPTIMIZATION
 
 # BEGIN Compress text files
