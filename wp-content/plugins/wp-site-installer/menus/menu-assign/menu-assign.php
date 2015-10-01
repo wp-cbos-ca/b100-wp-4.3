@@ -5,6 +5,7 @@ defined( 'ABSPATH' ) || die();
 function assign_menus() {
     require_once( dirname(__FILE__) . '/data.php' );
     $menus = get_menu_assign_data();
+    //need to get main menu (first one? regardless of menu name).
     if ( $menus ) foreach ( $menus as $menu ) {
         if ( $menu_exists = wp_get_nav_menu_object( $menu['name'] ) ) {
             $locations = get_theme_mod( 'nav_menu_locations' );

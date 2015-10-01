@@ -9,12 +9,17 @@ function get_pages_data() {
         ),
         array ( 
             'build' => 1,
-            'post_title' => 'About Us', 'post_name' => 'about-us', 'template' => 'contact',
+            'post_title' => 'Blog', 'post_name' => 'about', 'template' => 'default',
             'post_content' => '',
         ),
         array ( 
             'build' => 1,
-            'post_title' => 'Contact', 'post_name' => 'contact', 'template' => 'contact',
+            'post_title' => 'About', 'post_name' => 'about', 'template' => 'default',
+            'post_content' => '',
+        ),
+        array ( 
+            'build' => 1,
+            'post_title' => 'Contact', 'post_name' => 'contact', 'template' => 'default',
             'post_content' => '',
         ), 
         array ( 
