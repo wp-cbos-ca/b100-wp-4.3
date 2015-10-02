@@ -4,8 +4,8 @@ defined( 'ABSPATH' ) || die();
 
 function get_reading_data() {
     $items = array(
-        array ( 'title' => 'Front page displays', 'option_name' => 'show_on_front', 'option_value' => 'posts', 'update' => 0 ),
-        array ( 'title' => 'Front page', 'option_name' => 'page_on_front', 'option_value' => 'front-page', 'update' => 0 ),
+        array ( 'title' => 'Front page displays', 'option_name' => 'show_on_front', 'option_value' => 'page', 'update' => 0 ),
+        array ( 'title' => 'Front page', 'option_name' => 'page_on_front', 'option_value' => 'home', 'update' => 0 ),
         array ( 'title' => 'Posts page', 'option_name' => 'page_for_posts', 'option_value' => 'blog', 'update' => 0 ),
         array ( 'title' => 'Blog pages show at most', 'option_name' => 'posts_per_page', 'option_value' => 10, 'update' => 0 ),
         array ( 'title' => 'Syndication feeds show the most recent', 'option_name' => 'posts_per_rss', 'option_value' => 10, 'update' => 0 ),
