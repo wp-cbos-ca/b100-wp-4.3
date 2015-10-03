@@ -21,7 +21,7 @@ class WPSI_Add_Widgets {
             return false;
         }
         $this -> sidebar_options = get_option( 'sidebars_widgets' );
-        $this -> _count_widgets();
+        $this -> _count_widgets( $widgets );
         foreach( $widgets as $widget ) {
             if ( $widget[ 'install' ] ){
                 if ( ! $this-> _has_widget ( $widget )  ) {
@@ -60,15 +60,24 @@ class WPSI_Add_Widgets {
         $this -> widgets[ $widget_slug ] = $widget_contents;
      }
      
-     function _count_widgets() {
+     function _count_widgets( $widgets ) {
+         
          if( $this -> sidebar_options ) {
+             
              $exclude = array( 'wp_inactive_widgets', 'array_version' );
+             
              foreach( $this -> sidebar_options as $sidebar_id => $sidebar_widgets ) {
+                 
                  if( ! in_array( $sidebar_id, $exclude ) ) {
-                     foreach( $sidebar_widgets as $widget ) {
+                     
+                     if ( ! empty ( $sidebar_widgets ) ) foreach( $sidebar_widgets as $widget ) {
+                         
                          list( $name, $count ) = preg_split( '/-+(?=\S+$)/', $widget );
+                         
                          if( !isset( $this -> widgets[ $name ] ) || $count > $this -> widgets[ $name ] ) {
+                             
                              $this -> widgets[ $name ] = $count;
+                             
                          }
                      }
                  }
