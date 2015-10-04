@@ -10,3 +10,6 @@
 .update-plugins { 
     display: none !important; 
 }
+.plugin-update-tr {
+    display: none !important;
+}
