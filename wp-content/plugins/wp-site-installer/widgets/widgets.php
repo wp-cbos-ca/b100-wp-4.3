@@ -15,10 +15,6 @@ function delete_widgets(){
     update_option( 'sidebars_widgets', $sidebars );
 }
 
-/**
-* https://raw.githubusercontent.com/superinteractive/WordPress-Automagic-Widgets/master/example-usage.php
-*/
-
 function wpsi_add_widgets( $widgets, $theme_name='' ) {
     $theme = get_current_theme();
         if ( $theme_name == get_current_theme() ) {
@@ -26,6 +22,10 @@ function wpsi_add_widgets( $widgets, $theme_name='' ) {
                 $add_widgets->add_widgets( $widgets );
     }
 }
+
+/**
+* https://raw.githubusercontent.com/superinteractive/WordPress-Automagic-Widgets/master/example-usage.php
+*/
 
 class WPSI_Add_Widgets {
     
