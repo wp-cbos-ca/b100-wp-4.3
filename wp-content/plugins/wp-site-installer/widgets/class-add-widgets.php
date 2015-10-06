@@ -26,11 +26,11 @@ class WPSI_Add_Widgets {
             if ( $widget[ 'install' ] ){
                 if ( ! $this-> _has_widget ( $widget )  ) {
                     $this -> _add_widget( $widget );
-                    $this -> _save();
                 }
                 
             }
         }
+        $this -> _save();
     }
     
     function _has_widget( $widget) {
