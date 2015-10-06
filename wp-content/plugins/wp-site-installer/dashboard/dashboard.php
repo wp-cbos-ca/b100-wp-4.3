@@ -1,6 +1,6 @@
 <?php
      
-function install_dashboard(){
+function configure_dashboard(){
     require_once( dirname(__FILE__) . '/data.php' );
     $items = get_dashboard_data();
     

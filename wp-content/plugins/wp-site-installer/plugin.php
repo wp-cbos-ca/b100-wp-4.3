@@ -25,7 +25,7 @@ function wp_install_site_data() {
     require_once( dirname(__FILE__) . '/data.php' );        
     require_once( dirname(__FILE__) . '/includes/functions.php' );        
     require_once( dirname(__FILE__) . '/dashboard/dashboard.php' );        
-    install_dashboard();
+    configure_dashboard();
 }
 add_action( 'admin_init', 'wp_install_site_data' );
 
