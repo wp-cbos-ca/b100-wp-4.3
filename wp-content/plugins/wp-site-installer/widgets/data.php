@@ -14,7 +14,7 @@ function get_widget_data() {
                     'sidebar' => 'sidebar-1',
                     'slug' => 'text',
                     'args' => array( 'title' => 'Text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
-                    'install' => 1,
+                    'install' => 0,
                 ),
                 );
     return $items;
