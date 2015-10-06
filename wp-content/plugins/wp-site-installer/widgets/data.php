@@ -8,11 +8,14 @@ function get_widget_data() {
                 array( 
                     'sidebar' => 'sidebar-1',
                     'slug' => 'search',
+                    'widget' => 'search',
+                    'args' => array( 'title' => '', ),
                     'install' => 1,
                     ),
                 array( 
                     'sidebar' => 'sidebar-1',
                     'slug' => 'text',
+                    'widget' => 'text',
                     'args' => array( 'title' => 'Text widget', 'text' => 'Lorem ipsum dolor sit amet.' ),
                     'install' => 0,
                 ),
