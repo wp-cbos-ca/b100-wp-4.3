@@ -100,9 +100,6 @@ function run_site_files() {
                     case 'plugins':
                         configure_plugins();
                         break;
-                    case 'dashboard':
-                        install_dashboard();
-                        break;
                     default:   
                 }
             }
