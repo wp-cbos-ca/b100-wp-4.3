@@ -13,3 +13,6 @@
 .plugin-update-tr {
     display: none !important;
 }
+#wp-version-message .button {
+    display: none !important;
+}
