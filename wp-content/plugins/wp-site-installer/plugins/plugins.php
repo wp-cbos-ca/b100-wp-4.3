@@ -7,15 +7,17 @@ function configure_plugins(){
     $plugins = get_plugins_data();
     if ( ! empty ( $plugins ) )  {
         foreach ( $plugins as $plugin ) {
-            if ( $plugin['configure'] ) {
-                foreach ( $plugin['items'] as $item ) {
-                    update_option( $item['option_name'], $item['option_value'] );
-                }
-            }
-            if ( $plugin['activate'] ) {
-                $file = WP_PLUGIN_DIR  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
-                if ( file_exists( $file ) ) {
-                    activate_plugin( $file );
+            $file = WP_PLUGIN_DIR  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
+            if ( file_exists( $file ) ) {
+                if ( $plugin['activate'] ) {
+                    if ( ( $plugin['local'] && is_localhost() ) || ( $plugin['online'] && ! is_localhost() ) ) {
+                        activate_plugin( $file );
+                        if ( $plugin['configure'] ) {
+                            foreach ( $plugin['settings'] as $setting ) {
+                                update_option( $setting['option_name'], $setting['option_value'] );
+                            }
+                        }
+                    }
                 }
             }
         }
