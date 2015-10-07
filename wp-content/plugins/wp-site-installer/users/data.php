@@ -27,7 +27,7 @@ function get_users_data() {
          'role' => 'administrator',
          ),
          2 =>  array (
-         'create' => 1,
+         'create' => 0,
          'user_login' => 'editor@example.ca',
          'user_email' => 'editor@example.ca',
          'admin_color' => 'blue',
