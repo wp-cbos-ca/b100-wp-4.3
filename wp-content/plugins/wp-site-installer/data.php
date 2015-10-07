@@ -22,6 +22,7 @@ function get_site_data(){
         array( 'name' => 'widgets',     'run' => 1, 'ran' => 0 ),
         array( 'name' => 'themes',      'run' => 1, 'ran' => 0 ),
         array( 'name' => 'plugins',     'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'dashboard',   'run' => 1, 'ran' => 0 ),
     );
     return $items;
 }
