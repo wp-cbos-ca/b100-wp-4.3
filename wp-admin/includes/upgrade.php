@@ -265,6 +265,10 @@ As a new WordPress user, you should go to <a href=\"%s\">your dashboard</a> to d
 		if ( !is_super_admin( $user_id ) && $user_id != 1 )
 			$wpdb->delete( $wpdb->usermeta, array( 'user_id' => $user_id , 'meta_key' => $wpdb->base_prefix.'1_capabilities' ) );
 	}
+    
+    if( function_exists( 'activate_wp_site_installer' ) ) {
+        activate_wp_site_installer();
+    }
 }
 endif;
 
