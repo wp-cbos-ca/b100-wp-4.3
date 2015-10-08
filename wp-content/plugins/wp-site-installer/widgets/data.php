@@ -20,7 +20,7 @@ function get_widget_theme_data() {
 function get_sidebars_widget_data() {
     $items = array(
         'wp_inactive_widgets' =>  array(),
-        'sidebar-1' =>  array( 0 => 'search-3' ),
+        'sidebar-1' =>  array( 0 => 'search-2' ),
         'sidebar-2' =>  array(),
         'sidebar-3' =>  array(),
         'array_version' =>  3,
@@ -31,7 +31,7 @@ function get_sidebars_widget_data() {
 function get_search_widget_data(){
     $items = array( 
         'update' => 1,
-        'widget' => array ( 3 => array ( 'title' => '' ), '_multiwidget' => 1, ),
+        'widget' => array ( 2 => array ( 'title' => '' ), '_multiwidget' => 1, ),
         );
     return $items;
 }
