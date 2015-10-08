@@ -297,3 +297,37 @@ if ( ! defined( 'is_localhost' ) ) {
         }
     }
 }
+
+function global_remove_welcome_panel() {
+    global $wp_filter;
+    unset( $wp_filter['welcome_panel'] );
+}
+add_action( 'wp_dashboard_setup', 'global_remove_welcome_panel' );
+
+function sort_dashboard_widgets() {
+    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site Installer', 'function' => 'wpsi_function' );
+    wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+    global $wp_meta_boxes;
+    $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
+    $widget_backup = array( 'wpsi_dashboard_widget' => $normal_dashboard['wpsi_dashboard_widget'] );
+    unset( $normal_dashboard['wpsi_dashboard_widget'] );
+    $sorted_dashboard = array_merge( $widget_backup, $normal_dashboard );
+    $wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
+} 
+
+function wpsi_add_dashboard_widget() {
+    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site Installer', 'function' => 'wpsi_function' );
+    wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+}
+add_action( 'wp_dashboard_setup', 'sort_dashboard_widgets' );
+
+function wpsi_function() {
+    $str = sprintf( 'The WP Site Installer can be found at <strong><a href="%s">Tools: WP Site Installer</a>.</strong>', admin_url( '/tools.php?page=wp-site-installer' ) );
+    $str .= '<p>Click <strong>Run Installer</strong> to run the installer. ';
+    $str .= 'The settings are found in the plugin file and can be edited ';
+    $str .= 'with a simple text editor and uploaded with your favourite ftp program. ';
+    $str .= 'This approach is chosen to make these settings less prone to change as once ';
+    $str .= 'configured the entire site configuration can be stored here. ';
+    $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice. </p>';
+    echo $str;
+}
