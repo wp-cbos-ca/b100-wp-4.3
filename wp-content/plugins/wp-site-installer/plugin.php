@@ -90,7 +90,7 @@ function run_site_files() {
                         install_users();
                         break;
                     case 'widgets':
-                        install_widgets();
+                        configure_widgets();
                         break;
                     case 'themes':
                         activate_themes();
@@ -328,6 +328,6 @@ function wpsi_function() {
     $str .= 'with a simple text editor and uploaded with your favourite ftp program. ';
     $str .= 'This approach is chosen to make these settings less prone to change as once ';
     $str .= 'configured the entire site configuration can be stored here. ';
-    $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice. </p>';
+    $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice.</p>';
     echo $str;
 }
