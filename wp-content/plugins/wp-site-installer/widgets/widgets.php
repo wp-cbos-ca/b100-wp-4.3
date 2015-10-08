@@ -11,8 +11,6 @@ function configure_widgets() {
     }
 }
 
-//Warning: this will replace all current widgets
-//and delete inactive ones.  
 function update_sidebars_widgets() {  
     $items = get_sidebars_widget_data();
     $existing = get_option( 'sidebars_widgets' );
