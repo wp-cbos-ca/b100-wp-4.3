@@ -24,5 +24,5 @@ The configuration (DNA) plugin separates out the data (the genome) from
 the functions that implement the genome so that this configuration can be easily 
 updated without affecting other parts of the "cell structure".  In addition,
 (to make bioengineers a little jealous) this genome comes with a set of "dip switches"
-so that each individual part (the C-T, G-A pairs) can be turned on or off individually,
+so that each individual part (the A-T, G-C pairs) can be turned on or off individually,
 without affecting other parts of the "genome". Now only if life were this simple!
