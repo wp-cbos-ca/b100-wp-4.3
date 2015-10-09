@@ -10,8 +10,13 @@ Author URI: http://wp.cbos.ca
 
 defined( 'ABSPATH' ) || die();
 
-$remove_script_version = true;
-if ( $remove_script_version ) {
+define( 'WP0_REMOVE_SCRIPT_VERSION', true );
+define( 'WP0_DISABLE_EMOJIS', true );
+define( 'WP0_LOCAL_GRAVATAR_ONLY', true );
+define( 'WP0_REMOVE_FEED_LINKS', true );
+define( 'WP0_DISABLE_JQUERY_UI_FRONT_END', false );
+
+if ( WP0_REMOVE_SCRIPT_VERSION ) {
     function _remove_script_version( $src ){
         if ( strpos( $src, 'fonts.googleapis.com' ) !== FALSE ){
             return $src;
@@ -28,8 +33,7 @@ if ( $remove_script_version ) {
     add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 }
 
-$disable_emojis = true;
- if ( $disable_emojis ) {
+if ( WP0_DISABLE_EMOJIS ) {
      //https://geek.hellyer.kiwi/plugins/disable-emojis/
     function disable_emojis() {
         remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -52,29 +56,16 @@ $disable_emojis = true;
     }
 }
 
-$disable_jquery_ui = true;
-if ( $disable_jquery_ui ) {
-    function optimize_script_loading() {        
-        if ( ! is_admin() ) { 
-            wp_deregister_script('jquery-ui-core'); 
-            wp_deregister_script('jquery-ui-datepicker'); 
-        }
-    }
-    add_action('wp_enqueue_scripts', 'optimize_script_loading', 15 );
-}
-
-$local_gravatar_only = true;
-if ( $local_gravatar_only ) {
-    //https://wordpress.stackexchange.com/questions/17413/removing-gravatar-com-support-for-wordpress-and-simple-local-avatars
-    add_filter('get_avatar', 'remove_gravatar', 1, 5);
+if ( WP0_LOCAL_GRAVATAR_ONLY ) {
+    //https://wordpress.stackexchange.com/questions/17413/removing-gravatar-com-support-for-wordpress-and-simple-local-avatars    
     function remove_gravatar ($avatar, $id_or_email, $size, $default, $alt) {
         $default = get_template_directory_uri() .'/images/avatar.png';
         return "<img alt='{$alt}' src='{$default}' class='avatar avatar-{$size} photo avatar-default' height='{$size}' width='{$size}' />";
     }
+    add_filter('get_avatar', 'remove_gravatar', 1, 5);
 }
 
-$remove_feed_links = true;
-if ( $remove_feed_links ) {
+if ( WP0_REMOVE_FEED_LINKS ) {
     add_action('init','clean_header');
     add_filter('wp_headers', 'remove_x_pingback');
     remove_action( 'wp_head', 'rsd_link' );
@@ -95,4 +86,14 @@ if ( $remove_feed_links ) {
     function custom_restore_feed_link() {
         echo '<link rel="alternate" type="application/rss+xml" title="'.get_bloginfo('name').' Feed" href="'.get_home_url().'/feed/" />' . "\n";
     }
+}
+
+if ( WP0_DISABLE_JQUERY_UI_FRONT_END ) {
+    function optimize_script_loading() {        
+        if ( ! is_admin() ) { 
+            wp_deregister_script('jquery-ui-core'); 
+            wp_deregister_script('jquery-ui-datepicker'); 
+        }
+    }
+    add_action('wp_enqueue_scripts', 'optimize_script_loading', 15 );
 }
