@@ -8,8 +8,8 @@ wp-content/cache/autoptimize/index.html
 wp-content/backupwordpress-*/
 wp-content/cache/wp-cache-*.*
 wp-content/cache/*.txt
-wp-content/plugins/wp-site-installer/images-featured/
-wp-content/plugins/wp-site-installer/widgets/extra/
-wp-content/plugins/wp-site-installer/debug/
+wp-content/plugins/wp-site-dna/images-featured/
+wp-content/plugins/wp-site-dna/widgets/extra/
+wp-content/plugins/wp-site-dna/debug/
 wp-content/plugins/wp-site-specifier/
 wp-content/wp-cache-config.php
