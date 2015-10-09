@@ -62,6 +62,9 @@ define('NONCE_SALT',       'put your unique phrase here');
  *
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
+ * 
+ * Change this to a four or five digit prefix for better security.
+ * Best done when performing a fresh install on a new database.
  */
 $table_prefix  = 'wp_';
 
