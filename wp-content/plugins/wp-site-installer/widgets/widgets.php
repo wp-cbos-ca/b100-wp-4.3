@@ -20,7 +20,6 @@ function update_sidebars_widgets() {
     $widgets = get_sidebars_widget_data();
     $updated = build_sidebars_widgets_array( $existing, $widgets );
     update_option( 'sidebars_widgets', $updated );
-    $new = get_option( 'sidebars_widgets' );
 } 
 
 function update_widgets(){
@@ -40,13 +39,4 @@ function build_sidebars_widgets_array( $existing, $items ){
         }
     }
     return $existing;
-}
-
-
-function wdump( $arr, $output = 1 ) {
-    if ( $output ) {
-        echo "<pre>";
-        var_dump( $arr );
-        echo "</pre>";
-    }
 }
