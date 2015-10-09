@@ -1,6 +1,10 @@
 
 # BEGIN Security
 Options -Indexes
+<files xmlrpc*="">
+order deny,allow
+deny from all
+</files>
 # END Security
 
 # BEGIN PAGE SPEED OPTIMIZATION
