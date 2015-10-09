@@ -1,9 +1,9 @@
 <?php
 
 /*
-Plugin Name:    WP Site Installer
+Plugin Name:    WP Site DNA
 Plugin URI:     http://wp.cbos.ca
-Description:    Capable of installing pages, posts, menus, featured images, categories, tags and users. Also capable of setting permalinks, timezones, the front and posts page, etc. Remove once complete. Can be retained for restoring site to user specified factory default. 
+Description:    Securely holds the complete site configuration (with very little "junk" DNA) in a repeating set of files and arrays. Capable of installing pages, posts, menus, featured images, categories, tags and users. Also capable of setting permalinks, timezones, the front and posts page, etc. Ideally stored elsewhere once used. Can be retained for restoring site to user specified factory default. 
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
@@ -331,9 +331,3 @@ function wpsi_function() {
     $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice.</p>';
     echo $str;
 }
-
-function output_sw(){
-    global $sidebars_widgets;
-    var_dump( $sidebars_widgets );
-}
-//add_action( 'wp_loaded', 'output_sw' );
