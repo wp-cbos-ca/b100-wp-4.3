@@ -66,8 +66,8 @@ function get_users_data() {
          'admin_color' => 'light',
          'show_welcome_panel', 0,
          'rich_editing' => 0,
-         'first_name' => 'C.',
-         'last_name' => 'Site',
+         'first_name' => 'Site',
+         'last_name' => 'Subscriber',
          'role' => 'subscriber',
          ) 
     );
