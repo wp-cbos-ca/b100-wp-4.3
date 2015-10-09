@@ -17,10 +17,8 @@ function get_menu_assign_data() {
         2 => array ( 
             'name' => 'Footer Menu' , 
             'location' => 'footer' ,
-            'assign' => 1 ,
+            'assign' => 0 ,
         )
     );
     return $items;
 }
-
-    
