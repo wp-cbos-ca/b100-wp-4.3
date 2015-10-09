@@ -79,7 +79,7 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
-define('WP_DEFAULT_THEME', 'twentytwelve' );
+define('WP_DEFAULT_THEME', 'twentytwelve');
 
 /* That's all, stop editing! Happy blogging. */
 
