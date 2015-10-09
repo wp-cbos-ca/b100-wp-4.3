@@ -79,8 +79,21 @@ $table_prefix  = 'wp_';
  * visit the Codex.
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
+ * This will log all errors notices and warnings to a file called debug.log in
+ * wp-content only when WP_DEBUG is true. if Apache does not have write permission,
+ * you may need to create the file first and set the appropriate permissions (i.e. use 666).
  */
-define('WP_DEBUG', false);
+define( 'WP_DEBUG', false ); // Or false
+if ( WP_DEBUG ) {
+    define( 'WP_DEBUG_LOG', true );
+    define( 'WP_DEBUG_DISPLAY', false );
+    @ini_set( 'display_errors', 0 );
+}
+
+/**
+* set to true to show uncompressed versions
+*/
+define( 'SCRIPT_DEBUG', false );
 
 /**
 *set to theme used for more reliable fallback.

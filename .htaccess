@@ -2,9 +2,13 @@
 # BEGIN Security
 Options -Indexes
 <files xmlrpc*="">
-order deny,allow
-deny from all
+    Order allow,deny
+    Deny from all
 </files>
+<Files debug.log>
+    Order allow,deny
+    Deny from all
+</Files>
 # END Security
 
 # BEGIN PAGE SPEED OPTIMIZATION
