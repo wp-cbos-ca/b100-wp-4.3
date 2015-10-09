@@ -79,7 +79,22 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+/**
+*set to theme used for more reliable fallback.
+*/
 define('WP_DEFAULT_THEME', 'twentytwelve');
+
+/**
+* set to true for enhanced security
+* 
+* @link https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/
+*/
+define( 'DISALLOW_UNFILTERED_HTML', false); 
+
+/**
+* set to true and set up a server side cron for enhanced site performance
+*/
+define('DISABLE_WP_CRON', false);
 
 /* That's all, stop editing! Happy blogging. */
 
