@@ -19,11 +19,11 @@ function get_widget_theme_data() {
 
 function get_sidebars_widget_data() {
     $items = array(
-        'wp_inactive_widgets' =>  array(),
-        'sidebar-1' =>  array( 'search-2' ),
-        'sidebar-2' =>  array(),
-        'sidebar-3' =>  array(),
-        'array_version' =>  3,
+        'wp_inactive_widgets' => array( 'update' => 1, 'contents' => array() ),
+        'sidebar-1' =>  array( 'update' => 1, 'contents' => array( 'search-2' ) ),
+        'sidebar-2' =>  array( 'update' => 0, 'contents' => array() ),
+        'sidebar-3' =>  array( 'update' => 0, 'contents' => array() ),
+        'array_version' =>  array( 'update' => 0, 'contents' => 3 ),
         );
     return $items;
 }

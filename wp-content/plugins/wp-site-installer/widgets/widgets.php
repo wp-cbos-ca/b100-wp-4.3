@@ -16,9 +16,10 @@ function configure_widgets() {
 }
 
 function update_sidebars_widgets() {  
-    $widgets = get_sidebars_widget_data();
     $existing = get_option( 'sidebars_widgets' );
-    update_option( 'sidebars_widgets', $widgets );
+    $widgets = get_sidebars_widget_data();
+    $updated = build_sidebars_widgets_array( $existing, $widgets );
+    update_option( 'sidebars_widgets', $updated );
     $new = get_option( 'sidebars_widgets' );
 } 
 
