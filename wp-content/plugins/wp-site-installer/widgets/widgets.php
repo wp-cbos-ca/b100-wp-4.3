@@ -2,9 +2,12 @@
 
 defined( 'ABSPATH' ) || die();
 
+global $sidebars_widgets;
+$sidebars_widgets = null;
+
 function configure_widgets() {
-    wp_cache_delete ( 'alloptions', 'options' );
     require_once( dirname(__FILE__) . '/data.php' );
+    
     $theme = get_widget_theme_data();
     if ( $theme['name'] == get_option('template' ) ) {
         update_sidebars_widgets();
@@ -15,16 +18,17 @@ function configure_widgets() {
 function update_sidebars_widgets() {  
     $widgets = get_sidebars_widget_data();
     $existing = get_option( 'sidebars_widgets' );
-    wdump( $existing, 0 );
+    wdump( $existing, 1 );
     update_option( 'sidebars_widgets', $widgets );
     $new = get_option( 'sidebars_widgets' );
-    wdump( $new, 0 );
+    wdump( $new, 1 );
 } 
 
 function update_widgets(){
     $search = get_search_widget_data();
     $existing = get_option( 'widget_search' );
     wdump( $existing, 0 );
+    update_option( 'widget_search', '' );
     if ( $search['update'] ) {        
         update_option( 'widget_search', $search['widget'] );    
     }    

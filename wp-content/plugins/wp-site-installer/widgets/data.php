@@ -20,7 +20,7 @@ function get_widget_theme_data() {
 function get_sidebars_widget_data() {
     $items = array(
         'wp_inactive_widgets' =>  array(),
-        'sidebar-1' =>  array( 0 => 'search-2' ),
+        'sidebar-1' =>  array( 'search-2' ),
         'sidebar-2' =>  array(),
         'sidebar-3' =>  array(),
         'array_version' =>  3,

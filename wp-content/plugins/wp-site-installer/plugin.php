@@ -331,3 +331,9 @@ function wpsi_function() {
     $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice.</p>';
     echo $str;
 }
+
+function output_sw(){
+    global $sidebars_widgets;
+    var_dump( $sidebars_widgets );
+}
+//add_action( 'wp_loaded', 'output_sw' );
