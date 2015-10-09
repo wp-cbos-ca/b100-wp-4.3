@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP Optimization
 Plugin URI: http://wp.cbos.ca
-Description: Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, and removing feed links.
+Description: Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, removing feed links and disabling the XLM-RPC API.
 Author: wp.cbos.ca
 Version: 1.0.1
 Author URI: http://wp.cbos.ca
@@ -18,15 +18,15 @@ define( 'WP0_DISABLE_JQUERY_UI_FRONT_END', false );
 
 if ( WP0_REMOVE_SCRIPT_VERSION ) {
     function _remove_script_version( $src ){
-        if ( strpos( $src, 'fonts.googleapis.com' ) !== FALSE ){
-            return $src;
-        }
-        else if ( strpos( $src, 'analytics.aweber.com' ) !== FALSE )  {
-            return $src;
-        }
-        else {
-            $parts = explode( '?', $src );
-            return $parts[0];
+        $arr = array( 'fonts.googleapis.com', 'analytics.aweber.com' );
+        foreach ( $arr as $exclude ) {
+            if ( strpos( $src, $exclude ) !== FALSE ){
+                return $src;
+            }
+            else {
+                $parts = explode( '?', $src );
+                return $parts[0];
+            }
         }
     }    
     add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
@@ -72,6 +72,7 @@ if ( WP0_REMOVE_FEED_LINKS ) {
     remove_action( 'wp_head', 'feed_links', 2 );
     remove_action( 'wp_head', 'feed_links_extra', 3 );
     add_action('wp_head', 'custom_restore_feed_link');
+    add_filter( 'xmlrpc_enabled', '__return_false' );
     
     function clean_header(){
         wp_deregister_script( 'comment-reply' );
