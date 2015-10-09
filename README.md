@@ -16,7 +16,7 @@ on install, and fewer keystrokes and clicks to establish the initial settings.
 This method could be used to ascertain and capture the user configuration 
 in advance of the site actually being built so that, once a site is 
 actually installed, this pre-captured configuration can then be implemented
-with a single click.  This method is also adaptaple, so that if the 
+with a single click.  This method is also adaptable, so that if the 
 core configuration changes, the DNA (or RNA actually), can be modified
 to follow suit.
 
