@@ -1,7 +1,7 @@
 
 # BEGIN Security
 Options -Indexes
-<files xmlrpc*="">
+<files xmlrpc.php>
     Order allow,deny
     Deny from all
 </files>
