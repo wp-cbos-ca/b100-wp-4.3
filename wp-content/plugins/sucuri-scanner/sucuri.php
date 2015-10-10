@@ -235,6 +235,7 @@ if ( defined( 'SUCURISCAN' ) ) {
     );
 
     $sucuriscan_maximum_failed_logins = array(
+        '4' => '4 failed logins per hour',
         '30' => '30 failed logins per hour',
         '60' => '60 failed logins per hour',
         '120' => '120 failed logins per hour',

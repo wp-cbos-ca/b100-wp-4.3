@@ -66,12 +66,11 @@ if ( WP0_LOCAL_GRAVATAR_ONLY ) {
 }
 
 if ( WP0_REMOVE_FEED_LINKS ) {
-    add_action('init','clean_header');
-    add_filter('wp_headers', 'remove_x_pingback');
+    add_action( 'init','clean_header' );
+    add_filter( 'wp_headers', 'remove_x_pingback' );
     remove_action( 'wp_head', 'rsd_link' );
     remove_action( 'wp_head', 'feed_links', 2 );
     remove_action( 'wp_head', 'feed_links_extra', 3 );
-    add_action('wp_head', 'custom_restore_feed_link');
     add_filter( 'xmlrpc_enabled', '__return_false' );
     
     function clean_header(){
@@ -81,12 +80,7 @@ if ( WP0_REMOVE_FEED_LINKS ) {
     function remove_x_pingback($headers) {
         unset($headers['X-Pingback']);
         return $headers;
-    }
-
-    // Add link to RSS feed to HEAD
-    function custom_restore_feed_link() {
-        echo '<link rel="alternate" type="application/rss+xml" title="'.get_bloginfo('name').' Feed" href="'.get_home_url().'/feed/" />' . "\n";
-    }
+    }    
 }
 
 if ( WP0_DISABLE_JQUERY_UI_FRONT_END ) {

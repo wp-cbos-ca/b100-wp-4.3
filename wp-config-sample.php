@@ -90,7 +90,7 @@ define('WP_DEFAULT_THEME', 'twentytwelve');
 * 
 * @link https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/
 */
-define( 'DISALLOW_UNFILTERED_HTML', false); 
+define( 'DISALLOW_UNFILTERED_HTML', true); 
 
 /**
 * set to true and set up a server side cron for enhanced site performance
