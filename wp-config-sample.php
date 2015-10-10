@@ -77,13 +77,8 @@ $table_prefix  = 'wp_';
  *
  * For information on other constants that can be used for debugging,
  * visit the Codex.
- *
- * @link https://codex.wordpress.org/Debugging_in_WordPress
- * This will log all errors notices and warnings to a file called debug.log in
- * wp-content only when WP_DEBUG is true. if Apache does not have write permission,
- * you may need to create the file first and set the appropriate permissions (i.e. use 666).
  */
-define( 'WP_DEBUG', false ); // Or false
+define( 'WP_DEBUG', false);
 
 /**
 *set to theme used for more reliable fallback.
