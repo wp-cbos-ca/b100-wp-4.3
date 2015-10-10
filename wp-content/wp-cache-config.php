@@ -33,7 +33,7 @@ $cache_enabled = true; //Added by WP-Cache Manager
 $super_cache_enabled = true; //Added by WP-Cache Manager
 $cache_max_time = 86400; //Added by WP-Cache Manager
 //$use_flock = true; // Set it true or false if you know what to use
-$cache_path = WP_CONTENT_DIR . '/cache/';
+$cache_path = 'C:\xampp\htdocs\wp\frozen\bundle\b100\wp-content/cache'; //Added by WP-Cache Manager
 $file_prefix = 'wp-cache-';
 $ossdlcdn = 0;
 

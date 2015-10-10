@@ -31,6 +31,11 @@ if ( WP0_REMOVE_SCRIPT_VERSION ) {
     }    
     add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
     add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+    
+    function deregister_scripts() {
+        wp_deregister_style( 'open-sans' ) ;
+    }
+    add_action( 'wp_enqueue_scripts', 'deregister_scripts' );
 }
 
 if ( WP0_DISABLE_EMOJIS ) {

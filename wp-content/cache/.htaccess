@@ -19,4 +19,10 @@
   ExpiresActive On
   ExpiresByType text/html A864000
 </IfModule>
+Options -Indexes
+
 # END supercache
+
+# BEGIN INDEX
+Options -Indexes
+# END INDEX
