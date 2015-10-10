@@ -5,6 +5,10 @@ Options -Indexes
     Order allow,deny
     Deny from all
 </files>
+<Files .wpcli>
+    Order allow,deny
+    Deny from all
+</Files>
 <Files debug.log>
     Order allow,deny
     Deny from all

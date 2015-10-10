@@ -103,7 +103,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	if ( is_array( $extra_stats ) )
 		$post_body = array_merge( $post_body, $extra_stats );
 
-	$url = $http_url = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
+	$url = $http_url = 'https://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, null, '&' );
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
 		$url = set_url_scheme( $url, 'https' );
 
