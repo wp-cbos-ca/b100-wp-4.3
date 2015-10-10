@@ -84,16 +84,6 @@ $table_prefix  = 'wp_';
  * you may need to create the file first and set the appropriate permissions (i.e. use 666).
  */
 define( 'WP_DEBUG', false ); // Or false
-if ( WP_DEBUG ) {
-    define( 'WP_DEBUG_LOG', true );
-    define( 'WP_DEBUG_DISPLAY', false );
-    @ini_set( 'display_errors', 0 );
-}
-
-/**
-* set to true to show uncompressed versions
-*/
-define( 'SCRIPT_DEBUG', false );
 
 /**
 *set to theme used for more reliable fallback.
