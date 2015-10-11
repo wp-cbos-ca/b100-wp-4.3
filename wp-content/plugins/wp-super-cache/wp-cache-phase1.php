@@ -587,7 +587,7 @@ function get_current_url_supercache_dir( $post_id = 0 ) {
 			}
 		} else {
 			$uri = str_replace( $site_url, '', $permalink );
-			if ( strpos( $uri, $wp_cache_home_path ) !== 0 )
+            if ( strpos( $uri, $wp_cache_home_path ) !== 0 )
 				$uri = rtrim( $wp_cache_home_path, '/' ) . $uri;
 		}
 	} else {

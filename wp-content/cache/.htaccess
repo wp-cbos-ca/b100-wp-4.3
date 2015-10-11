@@ -1,4 +1,8 @@
 
+# BEGIN INDEX
+Options -Indexes
+# END INDEX
+
 # BEGIN supercache
 <IfModule mod_mime.c>
   <FilesMatch "\.html\.gz$">
@@ -22,7 +26,3 @@
 Options -Indexes
 
 # END supercache
-
-# BEGIN INDEX
-Options -Indexes
-# END INDEX

@@ -4,10 +4,10 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_data() {
     $items = array( 
-        'page_title' => 'WP Site Installer',
-        'menu_title' => 'WP Site Installer',
+        'page_title' => 'WP Site DNA',
+        'menu_title' => 'WP Site DNA',
         'capability' => 'manage_options',
-        'menu_slug' => 'wp-site-installer',
+        'menu_slug' => 'wp-site-dna',
         'function' => 'the_site_installer_template',
         );
         return $items;
@@ -15,9 +15,9 @@ function get_installer_data() {
 
 function get_template_data(){
     $items = array(
-        'title' => 'Run Installer',
+        'title' => 'Run Site DNA',
         'desc' => 'See plugin file for detail settings.',
-        'button_text' => 'Run Installer',
+        'button_text' => 'Run Site DNA',
         'help' => get_help_data(),
     );
     return $items;

@@ -18,17 +18,17 @@ if ( ! defined( 'WP_POST_TYPE' ) ) {
 if ( ! defined( 'WP_POST_TYPE_ALT' ) ) {
     define( 'WP_POST_TYPE_ALT', 'custom' ); //change as needed
 }
-
-require_once( dirname(__FILE__) . '/includes/template/template.php' );
-
-function wp_install_site_data() {
-    require_once( dirname(__FILE__) . '/data.php' );        
-    require_once( dirname(__FILE__) . '/includes/functions.php' );
+                                                                          
+function wp_site_installer_menu(){
+    require_once( dirname(__FILE__) . '/includes/template/template.php' );
+    require_once( dirname(__FILE__) . '/includes/template/data.php' );
+    $args = get_installer_data();
+    add_management_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
 }
-add_action( 'admin_init', 'wp_install_site_data' );
+add_action( 'admin_menu', 'wp_site_installer_menu' );
 
-// called from includes/template
 function run_site_installer(){
+    require_once( dirname(__FILE__) . '/data.php' );        
     $items = get_installer_run_data();
     if ( $items['site']['run'] ) {
         load_site_files();
@@ -305,7 +305,7 @@ function global_remove_welcome_panel() {
 add_action( 'wp_dashboard_setup', 'global_remove_welcome_panel' );
 
 function sort_dashboard_widgets() {
-    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site Installer', 'function' => 'wpsi_function' );
+    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site DNA', 'function' => 'wpsi_function' );
     wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
     global $wp_meta_boxes;
     $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
@@ -316,18 +316,18 @@ function sort_dashboard_widgets() {
 } 
 
 function wpsi_add_dashboard_widget() {
-    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site Installer', 'function' => 'wpsi_function' );
+    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site DNA', 'function' => 'wpsi_function' );
     wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
 }
 add_action( 'wp_dashboard_setup', 'sort_dashboard_widgets' );
 
 function wpsi_function() {
-    $str = sprintf( 'The WP Site Installer can be found at <strong><a href="%s">Tools: WP Site Installer</a>.</strong>', admin_url( '/tools.php?page=wp-site-installer' ) );
-    $str .= '<p>Click <strong>Run Installer</strong> to run the installer. ';
+    $str = sprintf( 'WP Site DNA can be found at <strong><a href="%s">Tools: WP Site DNA</a>.</strong>', admin_url( '/tools.php?page=wp-site-dna' ) );
+    $str .= '<p>Click <strong>Run Site DNA</strong> to run the installer. ';
     $str .= 'The settings are found in the plugin file and can be edited ';
     $str .= 'with a simple text editor and uploaded with your favourite ftp program. ';
     $str .= 'This approach is chosen to make these settings less prone to change as once ';
     $str .= 'configured the entire site configuration can be stored here. ';
-    $str .= 'Click "Screen Options" above, and then uncheck "WP Site Installer" to dismiss this notice.</p>';
+    $str .= 'Click "Screen Options" above, and then uncheck "WP Site DNA" to dismiss this notice.</p>';
     echo $str;
 }
