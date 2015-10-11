@@ -40,3 +40,4 @@ function get_maintenance_plugins_data(){
         );
         return $items;
 }
+
