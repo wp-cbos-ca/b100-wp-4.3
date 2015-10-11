@@ -30,7 +30,7 @@ function get_maintenance_header(){
 }
 
 function get_maintenance_footer(){
-    $str = '<p><small>For best results, delete after use (Decreases server load and security risk).</small></p>';
+    $str = '<p><small>For best results, delete listed plugins after use (Decreases server load and security risk).</small></p>';
     return $str;
 }
 
