@@ -69,6 +69,14 @@ function get_plugins_data() {
                             array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
                             ),
                     ),    
+                array ( 
+                'name' => 'WP Maintain', 'folder' => 'wp-maintain', 'file' => 'plugin.php', 'activate' => 1, 
+                'local' => 1, 'online' => 1,
+                    'configure' => 0, 
+                    'settings' => array (
+                            array ( 'option_name' => '', 'option_value' => '', 'set' => 0 ),
+                            ),
+                    ),    
         ); 
     return $plugins;
 }
