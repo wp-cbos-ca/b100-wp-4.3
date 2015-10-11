@@ -19,7 +19,15 @@ function get_maintenance_plugins_data(){
             'name' => 'image-cleanup', 
             'uri' => 'https://wordpress.org/plugins/image-cleanup/', 
             'details' => 'image+cleanup',
-            'notes' => '', 
+            'notes' => 'DB and file backup recommended.', 
+            ),
+        array( 
+            'display' => 1,
+            'category' => 'optimization', 
+            'title' => 'WP-Sweep', 
+            'name' => 'wp-sweep', 
+            'uri' => 'https://wordpress.org/plugins/wp-sweep/', 
+            'notes' => 'DB backup recommended.', 
             ),
         array( 
             'display' => 1,
@@ -27,16 +35,8 @@ function get_maintenance_plugins_data(){
             'title' => 'WP Smush', 
             'name' => 'wp-smushit', 
             'uri' => 'https://wordpress.org/plugins/wp-smushit/', 
-            'notes' => '',
-            ),
-        array( 
-            'display' => 1,
-            'category' => '', 
-            'title' => '', 
-            'name' => '', 
-            'uri' => '', 
-            'notes' => '', 
-            ),
+            'notes' => 'DB and file backup suggested.',
+            ),        
         );
         return $items;
 }

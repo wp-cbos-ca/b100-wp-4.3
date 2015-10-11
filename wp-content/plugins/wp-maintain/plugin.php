@@ -41,12 +41,23 @@ function get_maintenance_plugins(){
         $str = '';
         foreach ( $items as $item ) {
             if ( $item['display'] && ! empty( $item['title'] ) ) {
-                $str .= sprintf('<p><strong><a href="%s" target="_blank">%s</a>:</strong> [<a href="%s">Details and Install</a>]</p>', 
-                    $item['uri'], $item['title'],  get_plugin_detail_link( $item['name'] ), $item['notes'], PHP_EOL 
+                $str .= sprintf('<p><strong><a href="%s" target="_blank">%s</a>:</strong> [<a href="%s">Details and Install</a>] %s</p>', 
+                    $item['uri'], $item['title'],  get_plugin_detail_link( $item['name'] ), get_notes_html( $item['notes'] ), PHP_EOL 
                 );
             }
         }
         return $str;
+    }
+    else {
+        return false;
+    }
+}
+
+function get_notes_html( $notes ) {
+    $show_notes = false;
+    if ( ! empty( $notes ) && $show_notes ) {
+        $str = sprintf( '&nbsp;<small>(%s)</small>', $notes );
+      return $str;
     }
     else {
         return false;
