@@ -304,22 +304,11 @@ function global_remove_welcome_panel() {
 }
 add_action( 'wp_dashboard_setup', 'global_remove_welcome_panel' );
 
-function sort_dashboard_widgets() {
-    $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site DNA', 'function' => 'wpsi_function' );
-    wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
-    global $wp_meta_boxes;
-    $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
-    $widget_backup = array( 'wpsi_dashboard_widget' => $normal_dashboard['wpsi_dashboard_widget'] );
-    unset( $normal_dashboard['wpsi_dashboard_widget'] );
-    $sorted_dashboard = array_merge( $widget_backup, $normal_dashboard );
-    $wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
-} 
-
 function wpsi_add_dashboard_widget() {
     $args = array( 'slug' => 'wpsi_dashboard_widget', 'title' => 'WP Site DNA', 'function' => 'wpsi_function' );
     wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
 }
-add_action( 'wp_dashboard_setup', 'sort_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'wpsi_add_dashboard_widget' );
 
 function wpsi_function() {
     $str = sprintf( 'WP Site DNA can be found at <strong><a href="%s">Tools: WP Site DNA</a>.</strong>', admin_url( '/tools.php?page=wp-site-dna' ) );
