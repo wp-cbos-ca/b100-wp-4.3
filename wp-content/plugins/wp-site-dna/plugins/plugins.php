@@ -12,7 +12,7 @@ function configure_plugins(){
                 if ( $plugin['activate'] ) {
                     if ( ( $plugin['local'] && is_localhost() ) || ( $plugin['online'] && ! is_localhost() ) ) {
                         activate_plugin( $file );
-                        if ( $plugin['configure'] ) {
+                        if ( isset( $plugin['configure'] ) && $plugin['configure'] && isset( $plugin['settings'] ) ) {
                             foreach ( $plugin['settings'] as $setting ) {
                                 update_option( $setting['option_name'], $setting['option_value'] );
                             }
