@@ -21,7 +21,7 @@ function the_analytics_script() {?>
 
 // NON EDITABLE 
 function load_restrained_analytics() {
-    if ( ! current_user_can( 'manage_options' ) && RESTRAINED_ANALTYICS_BREAKER_ON ) {
+    if ( RESTRAINED_ANALTYICS_BREAKER_ON && ! current_user_can( 'manage_options' ) ) {
         the_analytics_timer();
     }
 }
