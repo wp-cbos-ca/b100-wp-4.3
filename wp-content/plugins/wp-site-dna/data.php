@@ -8,7 +8,7 @@ function get_installer_run_data(){
         'settings'  => array ( 'run' => 1, 'ran' => 0 ),
         'content'   => array ( 'run' => 1, 'ran' => 0 ),
         'images'    => array ( 'run' => 1, 'ran' => 0 ),
-        'sorting'   => array ( 'run' => 1, 'ran' => 0 ),
+        'sorting'   => array ( 'run' => 0, 'ran' => 0 ),
     );
     return $items;
 }
