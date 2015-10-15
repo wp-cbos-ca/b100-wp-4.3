@@ -2,7 +2,7 @@
 /*
 Plugin Name: Restrained Analytics
 Plugin URI: http://wp.cbos.ca/plugins/?plugin=restrained-analytics&view=summary
-Description:  Uses a timer to fire analytics script only after page has loaded for more than five seconds. This helps eliminate drag on your website, improves performance and helps ensure that the visitors that are tracked are those of better quality.
+Description:  Restrains analytics with a five second delay to enhance performance. Add your code snippet and turn on in code editor.
 Version: 1.0.0.
 Author: wp.cbos.ca
 Author URI: http://wp.cbos.ca
