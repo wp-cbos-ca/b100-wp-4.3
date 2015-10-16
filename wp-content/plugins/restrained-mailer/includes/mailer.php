@@ -58,7 +58,7 @@ function mail_contact_form( $mail_admin, $items ) {
     $str  = isset( $items['contact_name'] ) ? $data['from'] . $items['contact_name'] . "\r\n" : $data['from'] . ' ' . $data['na'];
     $str .= isset( $items['contact_email'] ) ? $data['email'] . $items['contact_email'] . "\r\n" : $data['email'] . ' ' . $data['na'];
     $str .= isset( $items['contact_message'] ) ? $items['contact_message'] . "\r\n" : $data['message'] . ' ' . $data['na']; 
-    $str .= $data['message_sent_from'] . get_bloginfo(' title' ). "\r\n";
+    $str .= sprintf( '%s %s.', $data['message_sent_from'], get_bloginfo(' title' ) , "\r\n" ) ;
     $contact_name = isset( $items['contact_name'] ) ? $items['contact_name'] : $data['na'];
     $contact_email = isset( $items['contact_email'] ) ? $items['contact_email'] : $data['na'];
     $headers = 'From: ' . $contact_name . ' <' . $contact_email . '>' . "\r\n";
