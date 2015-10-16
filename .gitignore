@@ -19,4 +19,8 @@ wp-content/plugins/wp-scientific/
 wp-content/plugins/wp-code-counter/
 wp-content/plugins/restrained-analytics/
 wp-content/plugins/restrained-social/
+wp-content/plugins/restrained-menus/
+wp-content/plugins/restrained-comments/
+wp-content/plugins/restrained-widgets/
+wp-content/plugins/restrained-fonts/
 wp-content/wp-cache-config.php
