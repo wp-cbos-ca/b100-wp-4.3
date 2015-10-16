@@ -1,7 +1,8 @@
 
 <IfModule mod_rewrite.c>
-    # comment below three lines if not on https. https recommended
     RewriteEngine On
+    # RewriteCond %{HTTP_HOST} !^www\.
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
