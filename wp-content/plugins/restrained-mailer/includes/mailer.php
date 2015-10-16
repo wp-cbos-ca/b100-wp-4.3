@@ -20,10 +20,10 @@ function process_contact_form(){
             $response['contact_subject'] = $data['sent_from'];
             $r = mail_contact_form( get_mail_admin(), $response );
            if ( $r === true ){
-               $response['msg'] = $data['success'];
+               $response['message'] = $data['success'];
            }
            else {
-               $response['msg'] = $data['failure'];
+               $response['message'] = $data['failure'];
            }
            
         }
