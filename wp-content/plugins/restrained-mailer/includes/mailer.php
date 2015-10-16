@@ -10,7 +10,7 @@ function process_contact_form(){
           return;
         }
         $items = array( 'contact_name', 'contact_email', 'contact_subject', 'contact_message' );
-        $response = Array();
+        $response['message'] = '';
         foreach ( $_POST as $key => $value ) {
             if ( in_array( $key, $items ) ){
                 $response[$key] = esc_attr( $_POST[$key] );
@@ -20,10 +20,10 @@ function process_contact_form(){
             $response['contact_subject'] = $data['sent_from'];
             $r = mail_contact_form( get_mail_admin(), $response );
            if ( $r === true ){
-               $response['message'] = $data['success'];
+               $response['form_response'] = $data['success']['text'];
            }
            else {
-               $response['message'] = $data['failure'];
+               $response['form_response'] = $data['failure']['text'];
            }
            
         }

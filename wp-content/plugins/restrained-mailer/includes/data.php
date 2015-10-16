@@ -21,8 +21,8 @@ function get_contact_form_data_meta() {
 
 function get_mailer_data(){
     $items = array( 
-        'success' => array( 'Your message was sent succesfully.', 'display' => 1 ),
-        'failure' => array( 'There was an error sending your message.', 'display' => 1 ),
+        'success' => array( 'text' => 'Your message was sent succesfully.', 'display' => 1 ),
+        'failure' => array( 'text' => 'There was an error sending your message.', 'display' => 1 ),
         'sent_from' => 'Sent from the contact form on ' . get_bloginfo( 'title' ),
         'from' => 'From: ',
         'email' => 'Email: ',
