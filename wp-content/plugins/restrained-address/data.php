@@ -1,0 +1,19 @@
+<?php
+
+defined( 'ABSPATH' ) || die();
+
+function get_address_data() {
+    $items = array( 
+        array( 'name' => 'company', 'title' => 'Company', 'display' => 1 ),
+        array( 'name' => 'address_1', 'title' => 'Address 1', 'display' => 1 ),
+        array( 'name' => 'address_2', 'title' => 'Address 2', 'display' => 1 ),
+        array( 'name' => 'city', 'title' => 'City', 'display' => 1 ),
+        array( 'name' => 'state_prov', 'title' => 'State/Prov.', 'display' => 1 ),
+        array( 'name' => 'zip_postal', 'title' => 'Zip/Postal', 'display' => 1 ),
+        array( 'name' => 'country', 'title' => 'Country', 'display' => 1 ),
+        array( 'name' => 'phone', 'title' => 'Phone', 'display' => 1 ),
+        array( 'name' => 'fax', 'title' => 'Fax', 'display' => 1 ),
+        array( 'name' => 'mobile', 'title' => 'Mobile', 'display' => 1 ),
+        );
+        return $items;                
+}
