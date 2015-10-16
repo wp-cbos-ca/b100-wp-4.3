@@ -20,7 +20,7 @@ function get_pages_data() {
         array ( 
             'build' => 1,
             'post_title' => 'Contact', 'post_name' => 'contact', 'template' => 'default',
-            'post_content' => '',
+            'post_content' => '[contact-form]',
         ), 
         array ( 
             'build' => 1,
