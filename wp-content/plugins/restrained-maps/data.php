@@ -78,3 +78,8 @@ function get_maps_address_data(){
         );
     return $items;
 }
+
+function get_page_list_maps(){
+    $items = array( 'maps' );
+    return $items;
+}

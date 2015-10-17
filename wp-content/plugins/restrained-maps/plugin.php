@@ -11,25 +11,33 @@ Author URI:     http://wp.cbos.ca
 
 defined( 'ABSPATH' ) || die();
 
-function restrained_map_scripts() {
-    wp_enqueue_style( 'restrained-maps', plugin_dir_url(__FILE__) . 'css/style.css' );
-    wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?v=3', array( 'jquery' ), '1.0', true );
-    wp_enqueue_script( 'restrained-maps', plugin_dir_url(__FILE__) . 'js/map.js', array( 'google-maps-api' ), '1.0', true );
+function register_map_scripts() {
+    wp_register_style( 'restrained-maps', plugin_dir_url(__FILE__) . 'css/style.css' );
+    wp_register_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?v=3', array( 'jquery' ), '1.0', true );
+    wp_register_script( 'restrained-maps-js', plugin_dir_url(__FILE__) . '/js/map.js', array( 'google-maps-api' ), '1.0', true );
 }
-add_action( 'wp_enqueue_scripts', 'restrained_map_scripts', 15 );
+add_action( 'init', 'register_map_scripts' );
 
-
+function print_map_scripts() {
+    global $add_maps_script;
+    if ( $add_maps_script ) {       
+        echo get_map_script_data();
+        wp_enqueue_style( 'restrained-maps' ); //this is css, yes, but it works...
+        wp_print_scripts( 'google-maps-api' );
+        wp_print_scripts( 'restrained-maps-js' );
+    }
+}
+add_action('wp_footer', 'print_map_scripts');
+ 
 function restrained_maps( ){
+    require_once( dirname(__FILE__) . '/data.php' );
+    global $add_maps_script;
+    $add_maps_script = true;
     $items = get_restrained_maps_data();
     $str = sprintf( '<div id="map-canvas" class="%s;" style="width: %s; height: %s;"></div>', $items['align'], $items['width'], $items['height']);
     return $str;
 }
 add_shortcode( 'map', 'restrained_maps', 15 );
-
-function the_map_script_data() {
-    echo get_map_script_data();
-}
-add_action( 'wp_head', 'the_map_script_data', 8 );
 
 function get_map_script_data() {
     require_once( dirname(__FILE__) . '/data.php' );
