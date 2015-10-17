@@ -27,7 +27,7 @@ $_wp_opt = array(
 
 if ( $_wp_opt['remove_script_version'] ) {
     function _remove_script_version( $src ){
-        $arr = array( 'fonts.googleapis.com', 'analytics.aweber.com' );
+        $arr = array( 'fonts.googleapis.com', 'maps.googleapis.com', 'analytics.aweber.com' );
         foreach ( $arr as $exclude ) {
             if ( strpos( $src, $exclude ) !== FALSE ){
                 return $src;

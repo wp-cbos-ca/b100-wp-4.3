@@ -5,6 +5,8 @@ defined( 'ABSPATH' ) || die();
 function get_address_data() {
     $items = array( 
         array( 'name' => 'company', 'title' => 'Company', 'display' => 1 ),
+        array( 'name' => 'lat', 'title' => 'Latitude', 'display' => 1 ),
+        array( 'name' => 'lng', 'title' => 'Longitude', 'display' => 1 ),
         array( 'name' => 'address_1', 'title' => 'Address 1', 'display' => 1 ),
         array( 'name' => 'address_2', 'title' => 'Address 2', 'display' => 1 ),
         array( 'name' => 'city', 'title' => 'City', 'display' => 1 ),
