@@ -40,8 +40,8 @@ function get_map_script_data() {
     $str .= sprintf( 'center.lng = %s;%s', $items['center']['lng'], PHP_EOL );
     $str .= sprintf( 'var zoom = %s;%s', $items['zoom'], PHP_EOL );
     $str .= sprintf( 'var url = "%s";%s', plugin_dir_url(__FILE__), PHP_EOL );
-    $str .= sprintf( 'var title = "%s";%s', $items['info_window']['title'], PHP_EOL );
-    $str .= sprintf( 'var contentString = \'' . $items['info_window']['content_string'] . '\'' . PHP_EOL );
+    $str .= sprintf( 'var title = "%s";%s', $items['info_window']['company'], PHP_EOL );
+    $str .= sprintf( 'var contentString = \'' . $items['info_window']['content_string'] . '\';' . PHP_EOL );
     $str .= '</script>' . PHP_EOL;
     return $str;
 }

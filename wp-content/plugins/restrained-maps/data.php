@@ -26,7 +26,7 @@ function get_restrained_maps_data() {
 function get_maps_info_window(){
     $items = get_maps_address_fields();
     $arr = array( 
-            'title' => $items['title'],
+            'company' => $items['company'],
             'content_string' => get_content_string_html( $items ),
             'load' => 1 
         );
