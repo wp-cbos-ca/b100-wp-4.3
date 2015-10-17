@@ -16,21 +16,19 @@ add_action( 'show_user_profile', 'user_social_media', 1 );
 add_action( 'edit_user_profile', 'user_social_media', 1 );
 add_action( 'personal_options_update', 'save_social_media' );
 add_action( 'edit_user_profile_update', 'save_social_media' );
-add_shortcode( 'social-media', 'social_media' );
 
 function social_media( $args ){
     require_once( dirname(__FILE__) . '/template.php' );    
     $str = get_social_media_html( $args );
     return $str;
 }            
+add_shortcode( 'social', 'social_media' );
 
-function social_media_scripts() {
-    // Please ensure no duplicates. Uses .woff only.
+function enqueue_social_scripts() {
     wp_enqueue_style( 'genericons', plugin_dir_url(__FILE__) . 'css/genericons.css', array() );
     wp_enqueue_style( 'social-media', plugin_dir_url(__FILE__) . 'css/style.css' );    
 }
-add_action( 'wp_enqueue_scripts', 'social_media_scripts', 15 );
-
+add_action( 'wp_enqueue_scripts', 'enqueue_social_scripts', 30 );
 
 function user_social_media( $user ) { 
     require_once( dirname(__FILE__) . '/data.php' );
