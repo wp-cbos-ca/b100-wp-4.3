@@ -9,7 +9,7 @@ function get_social_media_html( $args='' ){
         $str = '<ul class="social-media">' . PHP_EOL;
         foreach ( $items as $item ) {        
             if ( $item['display'] ) {
-                $url = get_user_meta( get_current_user_id(), $item['name'], true );
+                $url = get_user_meta( get_admin_id_social(), $item['name'], true );
                 if ( ! empty( $url ) ) {
                     $str .= sprintf( '<li><a class="genericon genericon-%s" href="%s" title="%s"></a></li>%s',  $item['name'], $url, $item['title'], PHP_EOL );
                 }
@@ -21,4 +21,11 @@ function get_social_media_html( $args='' ){
     else {
         return false;
     }
+}
+
+function get_admin_id_social(){
+    $admin_email = get_option( 'admin_email' );
+    $user = get_user_by_email( $admin_email );    
+    $user_id = $user->ID;
+    return $user_id;
 }

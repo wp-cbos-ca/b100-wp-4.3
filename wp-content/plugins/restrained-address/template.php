@@ -14,7 +14,7 @@ function get_address_html( $args='' ){
                     continue;
                 }
                 if ( ! empty( $item['name'] ) ) {
-                    $value = get_user_meta( get_current_user_id(), $item['name'], true );
+                    $value = get_user_meta( get_admin_id_address(), $item['name'], true );
                     if ( ! empty ( $value ) ) {
                         $str .= sprintf( '%s<br />%s', $value, PHP_EOL );
                     }
@@ -29,3 +29,11 @@ function get_address_html( $args='' ){
         return false;
     }
 }
+
+function get_admin_id_address(){
+    $admin_email = get_option( 'admin_email' );
+    $user = get_user_by_email( $admin_email );    
+    $user_id = $user->ID;
+    return $user_id;
+}
+

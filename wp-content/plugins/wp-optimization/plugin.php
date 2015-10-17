@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || die();
 $_wp_opt = array( 
     'remove_script_version' => 1,
     'deregister_open_sans' => 1,
+    'deregister_open_sans_logged_in' => 0,
     'remove_emoji_scripts' => 1,
     'remove_gravatar_useage' => 1,
     'deregister_comment_reply' => 1,
@@ -46,9 +47,20 @@ if ( $_wp_opt['deregister_open_sans'] ) {
     function deregister_open_sans() {
         if ( ! is_user_logged_in() ) {
             wp_deregister_style( 'open-sans' ) ;
+            wp_deregister_style( 'twentytwelve-fonts' );
         }
     }
-    add_action( 'wp_enqueue_scripts', 'deregister_open_sans' );
+    add_action( 'wp_enqueue_scripts', 'deregister_open_sans', 15 );
+}
+
+if ( $_wp_opt['deregister_open_sans_logged_in'] ) {
+    function deregister_open_sans_logged_in() {
+        if ( is_user_logged_in() ) {
+            wp_deregister_style( 'open-sans' ) ;
+            wp_deregister_style( 'twentytwelve-fonts' );
+        }
+    }
+    add_action( 'wp_enqueue_scripts', 'deregister_open_sans_logged_in', 15 );
 }
 
 if ( $_wp_opt['remove_emoji_scripts'] ) {

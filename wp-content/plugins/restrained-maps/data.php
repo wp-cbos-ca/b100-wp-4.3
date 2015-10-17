@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || die();
 function get_restrained_maps_data() {
     $default['lat'] = '42.5';
     $default['lng'] = '-82.5';
-    $user_id = get_current_user_id();
+    $user_id = get_admin_id_maps();
     $lat = ! empty( get_user_meta( $user_id, 'lat', true ) ) ? get_user_meta( $user_id, 'lat', true ): $default['lat'];
     $lng = ! empty( get_user_meta( $user_id, 'lng', true ) ) ? get_user_meta( $user_id, 'lng', true ): $default['lng'];
     $items = array( 
@@ -48,7 +48,7 @@ function get_content_string_html( $items = Array() ){
 
 function get_maps_address_fields(){
     $items = get_maps_address_data();
-    $user_id = get_current_user_id();
+    $user_id = get_admin_id_maps();
     if ( ! empty( $items ) ) {
         $arr = Array();
         foreach ( $items as $k => $v ){
@@ -83,3 +83,11 @@ function get_page_list_maps(){
     $items = array( 'maps' );
     return $items;
 }
+
+function get_admin_id_maps(){
+    $admin_email = get_option( 'admin_email' );
+    $user = get_user_by_email( $admin_email );    
+    $user_id = $user->ID;
+    return $user_id;
+}
+
