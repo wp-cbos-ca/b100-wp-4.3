@@ -35,10 +35,10 @@ function get_maps_info_window(){
 
 function get_content_string_html( $items = Array() ){
     $str = '<div class="info-window">';
-    $str .= ! empty( $items['title'] ) ? sprintf( '<h4>%s</h4>', $items['title'] ) : '';
+    $str .= ! empty( $items['company'] ) ? sprintf( '<h4>%s</h4>', $items['company'] ) : '';
     $str .= '<p>';
     $str .= ! empty( $items['address_1'] ) ? sprintf( '%s<br />', $items['address_1'] ) : '';
-    $str .= ! empty( $items['address_2'] ) ? sprintf( '%s<br />', $items['address_1'] ) : '';
+    $str .= ! empty( $items['address_2'] ) ? sprintf( '%s<br />', $items['address_2'] ) : '';
     $str .= ! empty( $items['city'] ) ? sprintf( '%s ', $items['city'] ) : '';
     $str .= ! empty( $items['zip_postal'] ) ? $items['zip_postal'] : '';
     $str .= '</p>';
@@ -68,7 +68,7 @@ function get_maps_address_fields(){
 
 function get_maps_address_data(){
     $items = array( 
-        array( 'name' => 'title', 'default' => 'Title', 'show' => 1 ),
+        array( 'name' => 'company', 'default' => 'Company', 'show' => 1 ),
         array( 'name' => 'address_1', 'default' => 'Address 1', 'show' => 1 ),
         array( 'name' => 'address_2', 'default' => 'Address 2', 'show' => 1 ),
         array( 'name' => 'city', 'default' => 'City', 'show' => 1 ),
