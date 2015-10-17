@@ -11,7 +11,7 @@ function get_social_media_html( $args='' ){
             if ( $item['display'] ) {
                 $url = get_user_meta( get_current_user_id(), $item['name'], true );
                 if ( ! empty( $url ) ) {
-                    $str .= sprintf( '<li><a class="genericon genericon-%s" href="%s"></a></li>%s',  $item['name'], $url, PHP_EOL );
+                    $str .= sprintf( '<li><a class="genericon genericon-%s" href="%s" title="%s"></a></li>%s',  $item['name'], $url, $item['title'], PHP_EOL );
                 }
             }
         }
