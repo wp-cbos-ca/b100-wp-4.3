@@ -13,8 +13,8 @@ defined( 'ABSPATH' ) || die();
 
 function restrained_map_scripts() {
     wp_enqueue_style( 'restrained-maps', plugin_dir_url(__FILE__) . 'css/style.css' );
-    wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp', array( 'jquery' ) );
-    wp_enqueue_script( 'restrained-maps', plugin_dir_url(__FILE__) . 'js/map.js', array( 'google-maps-api' ) );
+    wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?v=3', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script( 'restrained-maps', plugin_dir_url(__FILE__) . 'js/map.js', array( 'google-maps-api' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'restrained_map_scripts', 15 );
 
