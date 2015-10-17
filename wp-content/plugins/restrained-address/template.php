@@ -10,12 +10,15 @@ function get_address_html( $args='' ){
         $str .= '<p>' . PHP_EOL;
         foreach ( $items as $item ) {        
             if ( $item['display'] ) {
+                if ( $item['name'] == 'lat' || $item['name'] == 'lng' ) { //does not print out lats or lngs.
+                    continue;
+                }
                 if ( ! empty( $item['name'] ) ) {
                     $value = get_user_meta( get_current_user_id(), $item['name'], true );
                     if ( ! empty ( $value ) ) {
                         $str .= sprintf( '%s<br />%s', $value, PHP_EOL );
                     }
-                }
+                }                
             }
         }
         $str .= '</p>' . PHP_EOL;
