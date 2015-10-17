@@ -54,7 +54,10 @@ function save_address( $user_id ) {
         if ( $items = get_address_data() ) {
             foreach ( $items as $item ) {
                 if ( $item['display'] ) {
-                    update_user_meta( $user_id, $item['name'], esc_attr( $_POST[ $item['name'] ] ) );
+                    $value = isset( $_POST[ $item['name'] ] ) ? esc_attr( $_POST[ $item['name'] ] ) : '';
+                    if ( ! empty ( $value ) ) {
+                        update_user_meta( $user_id, $item['name'], $value );
+                    }                    
                 }
             }
         }
