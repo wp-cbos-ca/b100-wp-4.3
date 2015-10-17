@@ -33,11 +33,27 @@ function get_plugins_data() {
             ),
         ),
         array ( 
+        'name' => 'Restrained Analytics', 'folder' => 'restrained-analytics', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
+        ),
+        array ( 
         'name' => 'Restrained Mailer', 'folder' => 'restrained-mailer', 'file' => 'plugin.php', 
         'activate' => 1, 'local' => 1, 'online' => 1,         
         ),
         array ( 
-        'name' => 'Restrained Analytics', 'folder' => 'restrained-analytics', 'file' => 'plugin.php', 
+        'name' => 'Restrained Address', 'folder' => 'restrained-address', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
+        ),
+        array ( 
+        'name' => 'Restrained Maps', 'folder' => 'restrained-maps', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
+        ),
+        array ( 
+        'name' => 'Restrained Video', 'folder' => 'restrained-video', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
+        ),
+        array ( 
+        'name' => 'Restrained Social', 'folder' => 'restrained-social', 'file' => 'plugin.php', 
         'activate' => 1, 'local' => 1, 'online' => 1,         
         ),
         array ( 
