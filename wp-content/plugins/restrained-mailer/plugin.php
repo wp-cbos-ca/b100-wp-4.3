@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || die();
 
 function contact_form_scripts() {
     wp_enqueue_style( 'contact-form', plugin_dir_url(__FILE__) . 'css/style.css' );
-    wp_enqueue_script( 'contact-form-js', plugin_dir_url(__FILE__) . 'js/javascript.js', array( 'jquery' ), '1.0.1', false );
+    wp_enqueue_script( 'contact-form-js', plugin_dir_url(__FILE__) . 'js/javascript.js', array( 'jquery' ), '1.0.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'contact_form_scripts', 25 );
 
