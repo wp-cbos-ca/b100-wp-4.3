@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || die();
 
-function get_contact_form_data() {
+function get_mailer_data() {
     $items = array( 
         array( 'name' => 'name', 'type' => 'text', 'label' => 'Your Name (required)', 'required' => 1, 'maxlength' => 40, 'display' => 1 ),
         array( 'name' => 'email', 'type' => 'text', 'label' => 'Your Email (required)', 'required' => 1, 'maxlength' => 40, 'display' => 1 ),
@@ -12,14 +12,14 @@ function get_contact_form_data() {
     return $items;
 }
 
-function get_contact_form_data_meta() {
+function get_mailer_data_meta() {
     $items = array( 
         'submit' => array( 'title' => 'Send', 'display' => 1 ),
         );
         return $items;
 }
 
-function get_mailer_data(){
+function get_mailer_data_email(){
     $items = array( 
         'success' => array( 'text' => 'Your message was sent succesfully.', 'display' => 1 ),
         'failure' => array( 'text' => 'There was an error sending your message.', 'display' => 1 ),

@@ -2,9 +2,9 @@
  
 defined( 'ABSPATH' ) || die();
 
-function get_contact_form() {
-    $items = get_contact_form_data();
-    $meta = get_contact_form_data_meta();
+function get_mailer_form() {
+    $items = get_mailer_data();
+    $meta = get_mailer_data_meta();
     $response = process_contact_form();
     $str = '<div class="contact-form">' . PHP_EOL;
     $str .= sprintf( '<form action="" method="post">%s', PHP_EOL );

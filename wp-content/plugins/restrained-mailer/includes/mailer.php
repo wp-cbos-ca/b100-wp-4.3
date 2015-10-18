@@ -18,7 +18,7 @@ function process_contact_form(){
         }
         if ( ! empty ( $response ) ){
             $response['contact_subject'] = $data['sent_from'];
-            $r = mail_contact_form( get_mail_admin(), $response );
+            $r = mail_message( get_mail_admin(), $response );
            if ( $r === true ){
                $response['form_response'] = $data['success']['text'];
            }
@@ -53,8 +53,8 @@ function get_mail_admin() {
     }
 }
 
-function mail_contact_form( $mail_admin, $items ) {
-    $data = get_mailer_data();
+function mail_message( $mail_admin, $items ) {
+    $data = get_mailer_data_email();
     $str  = isset( $items['contact_name'] ) ? $data['from'] . $items['contact_name'] . "\r\n" : $data['from'] . ' ' . $data['na'];
     $str .= isset( $items['contact_email'] ) ? $data['email'] . $items['contact_email'] . "\r\n" : $data['email'] . ' ' . $data['na'];
     $str .= isset( $items['contact_message'] ) ? $items['contact_message'] . "\r\n" : $data['message'] . ' ' . $data['na']; 
