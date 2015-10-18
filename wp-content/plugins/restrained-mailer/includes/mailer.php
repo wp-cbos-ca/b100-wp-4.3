@@ -10,7 +10,7 @@ function process_contact_form(){
           return;
         }
         $items = array( 'contact_name', 'contact_email', 'contact_subject', 'contact_message' );
-        $response['message'] = '';
+        $response['form_response'] = '';
         foreach ( $_POST as $key => $value ) {
             if ( in_array( $key, $items ) ){
                 $response[$key] = esc_attr( $_POST[$key] );
@@ -19,11 +19,12 @@ function process_contact_form(){
         if ( ! empty ( $response ) ){
             $response['contact_subject'] = $data['sent_from'];
             $r = mail_message( get_mail_admin(), $response );
+            $meta = get_mailer_data_meta();
            if ( $r === true ){
-               $response['form_response'] = $data['success']['text'];
+               $response['form_response'] = $meta['success']['text'];
            }
            else {
-               $response['form_response'] = $data['failure']['text'];
+               $response['form_response'] = $meta['failure']['text'];
            }
            
         }
