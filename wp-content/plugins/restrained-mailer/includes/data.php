@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || die();
 function get_mailer_data() {
     $items = array( 
         array( 'name' => 'name', 'type' => 'text', 'label' => 'Your Name (required)', 'required' => 1, 'maxlength' => 40, 'display' => 1 ),
-        array( 'name' => 'email', 'type' => 'text', 'label' => 'Your Email (required)', 'required' => 1, 'maxlength' => 40, 'display' => 1 ),
+        array( 'name' => 'email', 'type' => 'email', 'label' => 'Your Email (required)', 'required' => 1, 'maxlength' => 40, 'display' => 1 ),
         array( 'name' => 'subject',  'type' => 'text', 'label' => 'Subject', 'required' => 0, 'maxlength' => 40, 'display' => 1 ),
         array( 'name' => 'message',  'type' => 'textarea', 'label' => 'Your Message', 'required' => 0, 'maxlength' => 400, 'display' => 1 ),
     );
