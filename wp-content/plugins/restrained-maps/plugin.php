@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || die();
 function register_map_scripts() {
     wp_register_style( 'restrained-maps', plugin_dir_url(__FILE__) . 'css/style.css' );
     wp_register_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?v=3', array( 'jquery' ), '1.0', true );
-    wp_register_script( 'restrained-maps-js', plugin_dir_url(__FILE__) . '/js/map.js', array( 'google-maps-api' ), '1.0', true );
+    wp_register_script( 'restrained-maps-js', plugin_dir_url(__FILE__) . 'js/map.js', array( 'google-maps-api' ), '1.0', true );
 }
 add_action( 'init', 'register_map_scripts' );
 

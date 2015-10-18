@@ -63,7 +63,7 @@ function mail_message( $mail_admin, $items ) {
     $contact_name = isset( $items['contact_name'] ) ? $items['contact_name'] : $data['na'];
     $contact_email = isset( $items['contact_email'] ) ? $items['contact_email'] : $data['na'];
     $headers = 'From: ' . $contact_name . ' <' . $contact_email . '>' . "\r\n";
-    $contact_subject = isset( $items['contact_subject'] ) ? $items['contact_subject'] : $data['na'];
+    $contact_subject = isset( $items['contact_subject'] ) ? $items['contact_subject'] : $data['no_subject'];
     $r = wp_mail( $mail_admin, $contact_subject, $str, $headers );
     return $r;
 }

@@ -28,6 +28,7 @@ function get_mailer_data_email(){
         'email' => 'Email: ',
         'message' => 'Message: ',
         'message_sent_from' => 'This message was sent from the contact form on ',
+        'no_subject' => '',
         'na' => 'N/A',
         );
     return $items;    
