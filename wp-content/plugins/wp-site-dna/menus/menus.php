@@ -29,7 +29,8 @@ function create_nav_menu( $menu ) {
 function add_items_to_menu( $menu_id, $slug, $items ) {
     if ( $items ) foreach ( $items as $item ) {
         if ( $item['build'] ) {
-            if ( ! menu_item_exists( $item, $menu_id ) ) {
+            $slug = ( $item['title'] == 'Home' ) ? 'home' : $item['slug'];
+            if ( ! menu_item_exists( $slug, $menu_id ) ) {
                 wp_update_nav_menu_item( $menu_id, 0, array (
                     'menu-item-title' =>  __( $item['title'] ),
                     'menu-item-classes' => '',
@@ -41,7 +42,7 @@ function add_items_to_menu( $menu_id, $slug, $items ) {
     }
 }
 
-function menu_item_exists( $item, $menu_id ) {
+function menu_item_exists( $slug, $menu_id ) {
     $args = array(
         'order'                  => 'ASC',
         'orderby'                => 'menu_order',
@@ -55,7 +56,7 @@ function menu_item_exists( $item, $menu_id ) {
     $existing = wp_get_nav_menu_items( $menu_id, $args );
     $found = false;
     foreach ( $existing as $exists ) {
-        if( strpos( $exists->post_name, $item['slug'] ) !== FALSE  ) {  //pretty good search (not exact).
+        if( strpos( $exists->post_name, $slug ) !== FALSE  ) {  //pretty good search (not exact).
             $found = true;
             break;
         }
