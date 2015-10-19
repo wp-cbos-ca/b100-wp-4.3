@@ -6,19 +6,23 @@ function install_menus() {
     require_once dirname( __FILE__) . '/data.php';
     $menus = get_menus_data();
     if ( ! empty ( $menus ) ) foreach ( $menus as $menu ) {
-        if ( $menu['build'] ) {
-            if ( $exists = wp_get_nav_menu_object( $menu['name'] ) ) {
-                $menu_id = $exists -> term_id;
-                  if ( empty ( $menu_id ) ) {
-                    $menu_id = wp_create_nav_menu( $menu['name'] );
-                } 
-            }
-            else {
-                $menu_id = wp_create_nav_menu( $menu['name'] );
-            }
+            create_nav_menu( $menu );
             add_items_to_menu( $menu_id, $menu['slug'], $menu['items'] );
         }
     }
+}
+
+function create_nav_menu() {
+    if ( $menu['build'] ) {
+        if ( $exists = wp_get_nav_menu_object( $menu['name'] ) ) {
+            $menu_id = $exists -> term_id;
+              if ( empty ( $menu_id ) ) {
+                $menu_id = wp_create_nav_menu( $menu['name'] );
+            } 
+        }
+        else {
+            $menu_id = wp_create_nav_menu( $menu['name'] );
+        }
 }
 
 function add_items_to_menu( $menu_id, $slug, $items ) {

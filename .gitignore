@@ -1,4 +1,3 @@
-.htaccess
 wp-config.php
 wp-content/server/
 wp-content/uploads/
@@ -35,5 +34,3 @@ wp-content/plugins/iq-solar/
 wp-content/plugins/iq-dials/
 wp-content/plugins/iq-theme/
 wp-content/plugins/galleries/
-
-

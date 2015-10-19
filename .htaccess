@@ -1,11 +1,13 @@
 
+# BEGIN Https
 <IfModule mod_rewrite.c>
-    RewriteEngine On
+    # RewriteEngine On
     # RewriteCond %{HTTP_HOST} !^www\.
     # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
     # RewriteCond %{HTTPS} off
     # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
+# END Https
 
 # BEGIN Security
 Options -Indexes
@@ -25,12 +27,9 @@ Options -Indexes
     Order allow,deny
     Deny from all
 </Files>
-
 # END Security
 
 # BEGIN PAGE SPEED OPTIMIZATION
-
-# BEGIN Compress text files
 <ifModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/xml text/css text/plain
   AddOutputFilterByType DEFLATE image/svg+xml application/xhtml+xml application/xml
@@ -90,7 +89,6 @@ FileETag None
 AddCharset UTF-8 .html
 AddType text/cache-manifest .appcache
 # End Charset and Cache Manifest
-
 # END PAGE SPEED OPTIMIZATION
 
 # BEGIN WPSuperCache

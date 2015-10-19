@@ -30,9 +30,14 @@ add_action( 'admin_menu', 'wp_site_installer_menu' );
 function run_site_installer(){
     require_once( dirname(__FILE__) . '/data.php' );        
     $items = get_installer_run_data();
-    if ( $items['site']['run'] ) {
-        load_site_files();
-        run_site_files();
+    if ( $items['site_one']['run'] ) {
+        load_site_one_files();
+        run_site_one_files();
+    }
+    $items = get_installer_run_data();
+    if ( $items['site_two']['run'] ) {
+        load_site_two_files();
+        run_site_two_files();
     }
     if ( $items['settings']['run'] ) {
         load_settings_files();
@@ -52,8 +57,50 @@ function run_site_installer(){
     }
 }
 
-function load_site_files() {
-    $items = get_site_data();
+function load_site_one_files() {
+    $items = get_site_one_data();
+    if ( ! empty ( $items ) && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                if ( file_exists( $file ) ) {
+                    require_once( $file );
+                }
+            }
+        }
+    }
+}
+
+function run_site_one_files() {
+    $items = get_site_one_data();
+    if ( ! empty ( $items )  && is_array( $items ) ) {
+        foreach ( $items as $item ) {
+            if ( $item['run'] && ! $item['ran'] ) {
+                switch( $item['name'] ) {
+                    case 'https':
+                        configure_https();
+                        break;    
+                    case 'dashboard':
+                        configure_dashboard_user();
+                        break;    
+                    case 'themes':
+                        activate_themes();
+                        break;
+                    case 'plugins':
+                        configure_plugins();
+                        break;
+                    case 'users':
+                        install_users();
+                        break;
+                    default:   
+                }
+            }
+        }
+    }
+}
+
+function load_site_two_files() {
+    $items = get_site_two_data();
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
@@ -71,8 +118,8 @@ function load_site_files() {
     }
 }
 
-function run_site_files() {
-    $items = get_site_data();
+function run_site_two_files() {
+    $items = get_site_two_data();
     if ( ! empty ( $items )  && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
@@ -86,21 +133,9 @@ function run_site_files() {
                     case 'menu-assign':
                         assign_menus();
                         break;
-                    case 'users':
-                        install_users();
-                        break;
                     case 'widgets':
                         configure_widgets();
                         break;
-                    case 'themes':
-                        activate_themes();
-                        break;
-                    case 'plugins':
-                        configure_plugins();
-                        break;
-                    case 'dashboard':
-                        configure_dashboard_user();
-                        break;    
                     default:   
                 }
             }
