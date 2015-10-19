@@ -13,15 +13,16 @@ function get_mailer_form() {
         if ( $item['display'] ) {
             $required = $item['required'] ? 'required' : '';
             $placeholder = ! empty( $item['placeholder'] ) ? 'placeholder="%s"' : '';
+            
             switch( $item['type'] ) {
                 case 'text' :
-                $str .= sprintf('<p>%s<br /><input type="text" name="contact_%s" %s maxlength="%s" %s value="%s" /></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[$item['name']], PHP_EOL );    
+                $str .= sprintf('<p>%s<br /><input type="text" name="contact_%s" %s maxlength="%s" %s value="%s" /></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[ 'contact_' . $item['name'] ], PHP_EOL );    
                 break;
                 case 'email' :
-                $str .= sprintf('<p>%s<br /><input type="email" name="contact_%s" %s maxlength="%s" %s value="%s" /></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[$item['name']], PHP_EOL );    
+                $str .= sprintf('<p>%s<br /><input type="email" name="contact_%s" %s maxlength="%s" %s value="%s" /></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[ 'contact_' . $item['name'] ], PHP_EOL );    
                 break;
                 case 'textarea' : 
-                $str .= sprintf('<p>%s<br /><textarea name="contact_%s" %s maxlength="%s" %s>%s</textarea></p>%s', $item['label'], $item['name'], $required, $items['maxlength'], $placeholder, $response[$item['name']], PHP_EOL );
+                $str .= sprintf('<p>%s<br /><textarea name="contact_%s" %s maxlength="%s" %s>%s</textarea></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[ 'contact_' . $item['name'] ], PHP_EOL );
                 break;
                 default:
             }            

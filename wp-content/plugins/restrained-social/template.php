@@ -24,8 +24,8 @@ function get_social_media_html( $args='' ){
 }
 
 function get_admin_id_social(){
-    $admin_email = get_option( 'admin_email' );
-    $user = get_user_by_email( $admin_email );    
+    $email = get_option( 'admin_email' );
+    $user = get_user_by( 'email', $email );
     $user_id = $user->ID;
     return $user_id;
 }

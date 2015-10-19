@@ -4,8 +4,8 @@ defined( 'ABSPATH' ) || die();
 
 function get_installer_run_data(){
     $items = array(
-        'site_one'  => array ( 'run' => 1, 'ran' => 0 ),
-        'site_two'  => array ( 'run' => 0, 'ran' => 0 ),
+        'site_one'  => array ( 'run' => 0, 'ran' => 0 ),
+        'site_two'  => array ( 'run' => 1, 'ran' => 0 ),
         'settings'  => array ( 'run' => 0, 'ran' => 0 ),
         'content'   => array ( 'run' => 0, 'ran' => 0 ),
         'images'    => array ( 'run' => 0, 'ran' => 0 ),
@@ -17,9 +17,9 @@ function get_installer_run_data(){
 function get_site_one_data(){
     $items = array(
         array( 'name' => 'https',       'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'dashboard',   'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'themes',      'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'plugins',     'run' => 0, 'ran' => 0 ),        
+        array( 'name' => 'dashboard',   'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'themes',      'run' => 1, 'ran' => 0 ),
+        array( 'name' => 'plugins',     'run' => 1, 'ran' => 0 ),        
         array( 'name' => 'users',       'run' => 0, 'ran' => 0 ),
     );
     return $items;
@@ -28,7 +28,7 @@ function get_site_one_data(){
 function get_site_two_data(){
     $items = array(
         array( 'name' => 'clean',       'run' => 0, 'ran' => 0 ),
-        array( 'name' => 'menus',       'run' => 0, 'ran' => 0 ),
+        array( 'name' => 'menus',       'run' => 1, 'ran' => 0 ),
         array( 'name' => 'menu-assign', 'run' => 0, 'ran' => 0 ),
         array( 'name' => 'widgets',     'run' => 0, 'ran' => 0 ),
         );

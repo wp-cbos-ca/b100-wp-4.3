@@ -17,7 +17,8 @@ function process_contact_form(){
             }
         }
         if ( ! empty ( $response ) ){
-            $response['contact_subject'] = $data['sent_from'];
+            $email = get_mailer_data_email();
+            $response['contact_subject'] = $email['sent_from'];
             $r = mail_message( get_mail_admin(), $response );
             $meta = get_mailer_data_meta();
            if ( $r === true ){
