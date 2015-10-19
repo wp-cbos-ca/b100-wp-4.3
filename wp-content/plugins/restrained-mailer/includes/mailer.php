@@ -23,6 +23,11 @@ function process_contact_form(){
             $meta = get_mailer_data_meta();
            if ( $r === true ){
                $response['form_response'] = $meta['success']['text'];
+               $response['contact_name'] = '';
+               $response['contact_email'] = '';
+               $response['contact_subject'] = '';
+               $response['contact_message'] = '';
+               $response['message'] = '';
            }
            else {
                $response['form_response'] = $meta['failure']['text'];

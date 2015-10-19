@@ -12,8 +12,7 @@ function get_mailer_form() {
     foreach ( $items as $item ) {
         if ( $item['display'] ) {
             $required = $item['required'] ? 'required' : '';
-            $placeholder = ! empty( $item['placeholder'] ) ? 'placeholder="%s"' : '';
-            
+            $placeholder = ! empty( $item['placeholder'] ) ? 'placeholder="%s"' : '';            
             switch( $item['type'] ) {
                 case 'text' :
                 $str .= sprintf('<p>%s<br /><input type="text" name="contact_%s" %s maxlength="%s" %s value="%s" /></p>%s', $item['label'], $item['name'], $required, $item['maxlength'], $placeholder, $response[ 'contact_' . $item['name'] ], PHP_EOL );    
