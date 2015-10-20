@@ -3,14 +3,18 @@
 defined( 'ABSPATH' ) || die();
 
 function get_https_data(){
-    $items = array( 'https' => 1 );
+    $items = array( 
+        'https' => 1,
+        'subdomain' => 1,
+        'www' => 0,
+        );
     return $items;
 }
 
 function get_https_on_arr(){
     $arr = array( 
     '<IfModule mod_rewrite.c>',
-    '  # RewriteEngine On',
+    '  RewriteEngine On',
     '  # RewriteCond %{HTTP_HOST} !^www\.',
     '  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]',
     '  RewriteCond %{HTTPS} off',
