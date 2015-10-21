@@ -20,7 +20,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 This stylesheet uses pixels only for simplicity (and tutorial purposes).  The rem values 
 have been removed. (2015) All other multi-decimal values were rounded to a single decimal 
 value using standard rounding practices, except for widths which were rounded down to a 
-single decimal place.
+single decimal place. Reducing the number of characters in a file reduces load time and
+helps to optimize the site. Faster loading sites are more user friendly.
 
 ---------- Vertical spacing
 
