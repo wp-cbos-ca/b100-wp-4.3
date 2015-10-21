@@ -79,7 +79,7 @@ function get_iq_dashboard() {
     $str .= '</td><td>';
     $str .= sprintf( 'SOCIAL: <strong>%s</strong>', $social );
     $str .= '</td><td>';
-    
+    $str .= sprintf( 'ANALYTICS: <strong>%s</strong>', $analytics );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
