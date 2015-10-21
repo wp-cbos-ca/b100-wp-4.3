@@ -74,7 +74,7 @@ function get_iq_dashboard() {
     $str .= '<tr><td>';
     $str .= sprintf( 'ANALYTICS: <strong>%s</strong>', $analytics );
     $str .= '</td><td>';
-    $str .= sprintf( 'XML-RPC: <strong>%s</strong>', $xmlrpc );
+    $str .= sprintf( 'XMLRPC: <strong>%s</strong>', $xmlrpc );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
