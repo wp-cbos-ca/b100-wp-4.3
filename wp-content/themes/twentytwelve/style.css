@@ -17,7 +17,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* =Notes
 --------------------------------------------------------------
 
-This stylesheet uses pixels only for simplicity.  The rem values have been removed. (2015)
+This stylesheet uses pixels only for simplicity (and tutorial purposes).  The rem values 
+have been removed. (2015) All other multi-decimal values were rounded to a single decimal 
+value using standard rounding practices, except for widths which were rounded down to a 
+single decimal place.
 
 ---------- Vertical spacing
 
@@ -175,7 +178,7 @@ article.format-quote footer.entry-meta,
 article.format-link footer.entry-meta,
 article.format-status footer.entry-meta {
 	font-size: 11px;
-	line-height: 2;
+	line-height: 2.2;
 }
 
 /* Form fields, general styles first */
@@ -496,7 +499,6 @@ a:hover {
 /* Page structure */
 .site {
 	padding: 0 24px;
-    padding: 0 1.714285714rem;
 	background-color: #fff;
 }
 .site-content {
