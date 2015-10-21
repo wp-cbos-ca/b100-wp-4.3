@@ -123,10 +123,6 @@ if ( $_wp_opt['remove_x_pingback'] ) {
 if ( $_wp_opt['disable_xmlrpc'] ) { 
     add_filter( 'xmlrpc_enabled', '__return_false' );
 }
-                                                     
-if ( $_wp_opt['disable_xmlrpc'] ) { 
-    add_filter( 'xmlrpc_enabled', '__return_false' );    
-}
 
 if ( $_wp_opt['deregister_jquery_ui_core'] ) {
     function deregister_jquery_ui_core() {        
