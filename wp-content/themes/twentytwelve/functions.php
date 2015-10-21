@@ -246,7 +246,17 @@ function twentytwelve_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
+    
+    register_sidebar( array(
+        'name' => __( 'Header Right', 'twentytwelve' ),
+        'id' => 'header-right',
+        'description' => __( 'Useful for a search bar', 'twentytwelve' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '',
+        'after_title' => '',
+    ) );
+    
 	register_sidebar( array(
 		'name' => __( 'First Front Page Widget Area', 'twentytwelve' ),
 		'id' => 'sidebar-2',

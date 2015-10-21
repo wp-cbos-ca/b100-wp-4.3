@@ -9,7 +9,6 @@ function configure_https() {
     $file = ABSPATH . '.htaccess';
     if ( $items['https'] ) {
         $https_on = get_https_on_arr();
-        //wp-admin/includes/misc.php
         insert_with_markers( $file, $marker, $https_on );
     }
     else {

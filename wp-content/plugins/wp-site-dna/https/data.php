@@ -13,14 +13,14 @@ function get_https_data(){
 
 function get_https_on_arr(){
     $arr = array( 
-    '<IfModule mod_rewrite.c>',
-    '  RewriteEngine On',
-    '  # RewriteCond %{HTTP_HOST} !^www\.',
-    '  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]',
-    '  RewriteCond %{HTTPS} off',
-    '  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]',
-    '</IfModule>',
-    );
+        '<IfModule mod_rewrite.c>',
+        '  RewriteEngine On',
+        '  # RewriteCond %{HTTP_HOST} !^www\.',
+        '  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]',
+        '  RewriteCond %{HTTPS} off',
+        '  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]',
+        '</IfModule>',
+        );
     return $arr;
 }
 
