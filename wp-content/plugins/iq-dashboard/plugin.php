@@ -27,12 +27,13 @@ function get_iq_dashboard() {
     $xmlrpc = is_xmlrpc_on() ? 'PRESENT' : 'ABSENT';
     $maintain = is_maintenance_on() ? 'ON' : 'OFF';
     $cron = is_cron_on() ? 'ON' : 'OFF';
+    
     $debug = is_debug_on() ? 'ON' : 'OFF';
     $optimize = is_optimization_on() ? 'ON' : 'OFF';
-    
     $caching = is_caching_on() ? 'ON' : 'OFF';
     $file_edits = is_file_edits_on() ? 'ON' : 'OFF';
     $analytics = is_analytics_on() ? 'ON' : 'OFF';
+    
     $address = is_address_on() ? 'ON' : 'OFF';
     $mailer = is_mailer_on() ? 'ON' : 'OFF';
     $map = is_maps_on() ? 'ON' : 'OFF';
