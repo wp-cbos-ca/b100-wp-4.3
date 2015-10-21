@@ -31,6 +31,7 @@ function get_iq_dashboard() {
     $optimize = is_optimization_on() ? 'ON' : 'OFF';
     
     $caching = is_caching_on() ? 'ON' : 'OFF';
+    $file_edits = is_file_edits_on() ? 'ON' : 'OFF';
     $analytics = is_analytics_on() ? 'ON' : 'OFF';
     $address = is_address_on() ? 'ON' : 'OFF';
     $mailer = is_mailer_on() ? 'ON' : 'OFF';
@@ -39,48 +40,61 @@ function get_iq_dashboard() {
     $social = is_social_on() ? 'ON' : 'OFF';
     
     $str = '<table style="width: 100%;">' . PHP_EOL;
-    $str .= '<tr><td style="width: 50%;"></td><td style="width: 50%;"></td></tr>';
+    $str .= '<tr><td style="width: 33%;"></td><td style="width: 33%;"></td><td style="width: 33%;"></td></tr>';
     
     $str .= '<tr><td>';
     $str .= sprintf( 'BACKUP: <strong>%s</strong>', $backup );
     $str .= '</td><td>';
     $str .= sprintf( 'ADDRESS: <strong>%s</strong>', $address );
+    $str .= '</td><td>';
+    $str .= sprintf( 'WP DEBUG: <strong>%s</strong>', $debug );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
     $str .= sprintf( 'SECURITY: <strong>%s</strong>', $security );
     $str .= '</td><td>';
     $str .= sprintf( 'MAILER: <strong>%s</strong>', $mailer );
+    $str .= '</td><td>';
+    $str .= sprintf( 'WP CRON: <strong>%s</strong>', $cron );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
     $str .= sprintf( 'MAINTAIN: <strong>%s</strong>', $maintain );
     $str .= '</td><td>';
     $str .= sprintf( 'MAP: <strong>%s</strong>', $map );
+    $str .= '</td><td>';
+    $str .= sprintf( 'FILE EDITS: <strong>%s</strong>', $file_edits );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
     $str .= sprintf( 'CACHING: <strong>%s</strong>', $caching );
     $str .= '</td><td>';
     $str .= sprintf( 'VIDEO: <strong>%s</strong>', $video );
+    $str .= '</td><td>';
+    $str .= sprintf( 'XMLRPC: <strong>%s</strong>', $xmlrpc );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
     $str .= sprintf( 'OPTIMIZATION: <strong>%s</strong>', $optimize );
     $str .= '</td><td>';
     $str .= sprintf( 'SOCIAL: <strong>%s</strong>', $social );
+    $str .= '</td><td>';
+    
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'ANALYTICS: <strong>%s</strong>', $analytics );
     $str .= '</td><td>';
-    $str .= sprintf( 'XMLRPC: <strong>%s</strong>', $xmlrpc );
+    
+    $str .= '</td><td>';
+    
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'WP CRON: <strong>%s</strong>', $cron );
+    
     $str .= '</td><td>';
-    $str .= sprintf( 'WP DEBUG: <strong>%s</strong>', $debug );
+    
+    $str .= '</td><td>';
+    
     $str .= '</td></tr>';
     
     $str .= '</table>';
@@ -219,4 +233,11 @@ function is_video_on(){
     }
 }
 
-//define('DISALLOW_FILE_EDIT', TRUE);
+function is_file_edits_on(){
+    if ( DISALLOW_FILE_EDIT ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
