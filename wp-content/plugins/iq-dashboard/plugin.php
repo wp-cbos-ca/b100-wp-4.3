@@ -82,21 +82,6 @@ function get_iq_dashboard() {
     $str .= sprintf( 'ANALYTICS: <strong>%s</strong>', $analytics );
     $str .= '</td></tr>';
     
-    $str .= '<tr><td>';
-    $str .= '</td><td>';
-    
-    $str .= '</td><td>';
-    
-    $str .= '</td></tr>';
-    
-    $str .= '<tr><td>';
-    
-    $str .= '</td><td>';
-    
-    $str .= '</td><td>';
-    
-    $str .= '</td></tr>';
-    
     $str .= '</table>';
     echo $str;
 }
