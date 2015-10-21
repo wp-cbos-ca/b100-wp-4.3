@@ -57,6 +57,10 @@ function get_plugins_data() {
         'activate' => 1, 'local' => 1, 'online' => 1,         
         ),
         array ( 
+        'name' => 'Intelligent Dashboard', 'folder' => 'iq-dashboard', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
+        ),
+        array ( 
         'name' => 'Autoptimize', 'folder' => 'autoptimize', 'file' => 'autoptimize.php', 
         'activate' => 1, 'local' => 1, 'online' => 1, 'configure' => 1, 'settings' => array (
             array ( 'option_name' => 'autoptimize_html',               'option_value' => 'on',  'set' => 1 ),
