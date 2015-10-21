@@ -83,8 +83,6 @@ function get_iq_dashboard() {
     $str .= sprintf( 'WP DEBUG: <strong>%s</strong>', $debug );
     $str .= '</td></tr>';
     
-    
-    
     $str .= '</table>';
     echo $str;
 }
