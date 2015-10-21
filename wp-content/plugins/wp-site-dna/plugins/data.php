@@ -19,6 +19,10 @@ function get_plugins_data() {
         array ( 
         'name' => 'WP Ice Age', 'folder' => 'wp-ice-age', 'file' => 'plugin.php',
         'activate' => 1, 'local' => 1, 'online' => 1,
+        ),
+        array ( 
+        'name' => 'WP Bundle Security', 'folder' => 'wp-bundle-security', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,         
         ),    
         array ( 
         'name' => 'WP Super Cache', 'folder' => 'wp-super-cache', 'file' => 'wp-cache.php',
