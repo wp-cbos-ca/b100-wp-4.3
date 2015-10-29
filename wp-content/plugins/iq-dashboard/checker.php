@@ -6,7 +6,7 @@ function get_iq_dashboard_molecule(){
     $molecule = array( 
         'backup' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),
         'address' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),
-        'debug' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),
+        'debug' => array( 'run' => 1, 'resp' => array( 'ON', 'OFF' ) ),
         'security' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),
         'mailer' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),
         'wp_cron' => array( 'run' => 1, 'resp' => array( 'YES', 'NO' ) ),

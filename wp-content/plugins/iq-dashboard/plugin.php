@@ -100,7 +100,7 @@ function _a( $bool, $resp ) {
 }
 
 function _cell( $key, $gene ) {
-   $cell = sprintf( '%s: <strong>%s</strong>', strtoupper( $key ), $gene );
+   $cell = sprintf( '%s: <strong>%s</strong>', str_replace( '_', ' ', strtoupper(  $key ) ), $gene );
    return $cell;
 }
 
