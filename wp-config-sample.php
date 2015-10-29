@@ -97,6 +97,8 @@ define( 'DISALLOW_UNFILTERED_HTML', true);
 */
 define('DISABLE_WP_CRON', false);
 
+define('WP_BUNDLE', 'WP43B100LTS' );
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

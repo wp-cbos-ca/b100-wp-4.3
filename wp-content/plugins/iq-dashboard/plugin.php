@@ -4,7 +4,7 @@
 Plugin Name:    Intelligent Dashboard
 Plugin URI:     http://wp.cbos.ca
 Description:    Intelligently adds indicators to your dashboard to help you monitor your site.
-Version:        0.5.0
+Version:        0.99
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
 License:        GPLv2+
@@ -14,216 +14,157 @@ defined( 'ABSPATH' ) || die();
 
 define( 'IQ_DASHBOARD_BREAKER_ON', true );
 
-function iq_dashboard() {
-    $args = array( 'slug' => 'iq_dashboard', 'title' => 'Intelligent Dashboard', 'function' => 'get_iq_dashboard' );
-    wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+if ( IQ_DASHBOARD_BREAKER_ON ) {
+    function iq_dashboard() {
+        $args = array( 'slug' => 'iq_dashboard', 'title' => 'Intelligent Dashboard', 'function' => 'get_iq_dashboard' );
+        wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+    }
+    add_action( 'wp_dashboard_setup', 'iq_dashboard' );
 }
-add_action( 'wp_dashboard_setup', 'iq_dashboard' );
+
+function _q( $key ) {
+    switch( $key ) {        
+        case 'backup' :
+            return is_backup_on();
+            break;
+        
+        case 'address' :
+            return is_address_on();
+            break;
+            
+        case 'debug' :
+            return is_debug_on();
+            break;
+        
+        case 'security' :
+            return is_security_on();
+            break;
+        
+        case 'mailer' :
+            return is_mailer_on();
+            break;
+        
+        case 'wp_cron' :
+            return is_wp_cron_on();
+            break;
+            
+        case 'maintain' :
+            return is_maintenance_on();
+            break;
+        
+        case 'maps' :
+            return is_maps_on();
+            break;
+                
+        case 'file_edits' :
+            return is_file_edits_on();
+            break;
+        
+        case 'caching' :
+            return is_caching_on();
+            break;
+            
+        case 'video' :
+            return is_video_on();
+            break;
+        
+        case 'xmlrpc' :
+            return is_xmlrpc_on();
+            break;
+            
+        case 'optimization' :
+            return is_optimization_on();
+            break;
+            
+        case 'social' :
+            return is_social_on();
+            break;
+        
+        case 'analytics' :
+            return is_analytics_on();
+            break;
+            
+        default: 
+            return null;
+        
+    }
+}
+
+function _a( $bool, $resp ) {
+    if ( $bool ) {
+        return $resp[0];
+    }
+    else {
+        return $resp[1];
+    }
+}
+
+function _cell( $key, $gene ) {
+   $cell = sprintf( '%s: <strong>%s</strong>', strtoupper( $key ), $gene );
+   return $cell;
+}
+
+function _rna( $key, $m ) {
+    $genome = $m[ $key ]['run'] ? _cell( $key , _a( _q( $key ), $m[ $key ]['resp'] ) ) : _cell( $key , 'N/A' );
+    return $genome;
+}
+
+function get_iq_dashboard_files(){
+    if ( defined( 'WP_BUNDLE' ) ) {
+        require_once( dirname(__FILE__) . '/checker.php' );
+    }
+    else {
+        require_once( dirname(__FILE__) . '/checker-alt.php' );
+    }
+}
 
 function get_iq_dashboard() {
-    
-    $backup = is_backup_on() ? 'ON' : 'OFF';
-    $security = is_security_on() ? 'ON' : 'OFF';
-    $xmlrpc = is_xmlrpc_on() ? 'PRESENT' : 'ABSENT';
-    $maintain = is_maintenance_on() ? 'ON' : 'OFF';
-    $cron = is_cron_on() ? 'ON' : 'OFF';
-    
-    $debug = is_debug_on() ? 'ON' : 'OFF';
-    $optimize = is_optimization_on() ? 'ON' : 'OFF';
-    $caching = is_caching_on() ? 'ON' : 'OFF';
-    $file_edits = is_file_edits_on() ? 'ON' : 'OFF';
-    $analytics = is_analytics_on() ? 'ON' : 'OFF';
-    
-    $address = is_address_on() ? 'ON' : 'OFF';
-    $mailer = is_mailer_on() ? 'ON' : 'OFF';
-    $map = is_maps_on() ? 'ON' : 'OFF';
-    $video = is_video_on() ? 'ON' : 'OFF';
-    $social = is_social_on() ? 'ON' : 'OFF';
+    get_iq_dashboard_files();
+    $m = get_iq_dashboard_molecule();
     
     $str = '<table style="width: 100%;">' . PHP_EOL;
     $str .= '<tr><td style="width: 33%;"></td><td style="width: 33%;"></td><td style="width: 33%;"></td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'BACKUP: <strong>%s</strong>', $backup );
+    $str .= _rna( 'backup', $m ); 
     $str .= '</td><td>';
-    $str .= sprintf( 'ADDRESS: <strong>%s</strong>', $address );
+    $str .= _rna( 'address', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'WP DEBUG: <strong>%s</strong>', $debug );
+    $str .= _rna( 'debug', $m );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'SECURITY: <strong>%s</strong>', $security );
+    $str .= _rna( 'security', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'MAILER: <strong>%s</strong>', $mailer );
+    $str .= _rna( 'mailer', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'WP CRON: <strong>%s</strong>', $cron );
+    $str .= _rna( 'wp_cron', $m );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'MAINTAIN: <strong>%s</strong>', $maintain );
+    $str .= _rna( 'maintain', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'MAP: <strong>%s</strong>', $map );
+    $str .= _rna( 'maps', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'FILE EDITS: <strong>%s</strong>', $file_edits );
+    $str .= _rna( 'file_edits', $m );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'CACHING: <strong>%s</strong>', $caching );
+    $str .= _rna( 'caching', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'VIDEO: <strong>%s</strong>', $video );
+    $str .= _rna( 'video', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'XMLRPC: <strong>%s</strong>', $xmlrpc );
+    $str .= _rna( 'xmlrpc', $m );
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= sprintf( 'OPTIMIZATION: <strong>%s</strong>', $optimize );
+    $str .= _rna( 'optimization', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'SOCIAL: <strong>%s</strong>', $social );
+    $str .= _rna( 'social', $m );
     $str .= '</td><td>';
-    $str .= sprintf( 'ANALYTICS: <strong>%s</strong>', $analytics );
+    $str .= _rna( 'analytics', $m );
     $str .= '</td></tr>';
     
     $str .= '</table>';
     echo $str;
-}
-
-function is_backup_on(){
-    if ( is_plugin_active( 'iq-backup/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_security_on(){
-    if ( is_plugin_active( 'sucuri-scanner/sucuri.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_xmlrpc_on(){
-    $file = ABSPATH . 'xmlrpc.php';
-    if ( file_exists( $file ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_maintenance_on(){
-    if ( is_plugin_active( 'wp-maintain/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_cron_on(){
-    if ( defined ( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function is_debug_on(){
-    if ( WP_DEBUG ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_optimization_on(){
-    if ( is_plugin_active( 'autoptimize/autoptimize.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-if ( $cache_enabled ) { 
-    define( 'WP_SUPER_CACHE_ENABLED', true ); 
-} else {
-    define( 'WP_SUPER_CACHE_ENABLED', false ); 
-}
-function is_caching_on(){
-    if ( WP_SUPER_CACHE_ENABLED ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_analytics_on(){
-    if ( is_plugin_active( 'restrained-analytics/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_maps_on(){
-    if ( is_plugin_active( 'restrained-maps/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_address_on(){
-    if ( is_plugin_active( 'restrained-address/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_mailer_on(){
-    if ( is_plugin_active( 'restrained-mailer/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_social_on(){
-    if ( is_plugin_active( 'restrained-social/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_video_on(){
-    if ( is_plugin_active( 'restrained-video/plugin.php' ) ) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function is_file_edits_on(){
-    if ( DISALLOW_FILE_EDIT ) {
-        return false;
-    }
-    else {
-        return true;
-    }
 }
