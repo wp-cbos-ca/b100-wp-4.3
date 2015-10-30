@@ -99,13 +99,13 @@ function _a( $bool, $resp ) {
     }
 }
 
-function _cell( $key, $gene ) {
-   $cell = sprintf( '%s: <strong>%s</strong>', str_replace( '_', ' ', strtoupper(  $key ) ), $gene );
+function _cell( $key, $gene, $desc ) {
+   $cell = sprintf( '<span title="%s">%s</span>: <strong>%s</strong>', $desc, str_replace( '_', ' ', strtoupper(  $key ) ), $gene );
    return $cell;
 }
 
 function _rna( $key, $m ) {
-    $genome = $m[ $key ]['run'] ? _cell( $key , _a( _q( $key ), $m[ $key ]['resp'] ) ) : _cell( $key , 'N/A' );
+    $genome = $m[ $key ]['run'] ? _cell( $key , _a( _q( $key ), $m[ $key ] ), $m[ $key ]['desc'] ) : _cell( $key , 'N/A', $m[ $key ]['desc'] );
     return $genome;
 }
 
