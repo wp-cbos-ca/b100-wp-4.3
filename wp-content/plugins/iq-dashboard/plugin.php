@@ -4,7 +4,7 @@
 Plugin Name:    Intelligent Dashboard
 Plugin URI:     http://wp.cbos.ca
 Description:    Intelligently adds indicators to your dashboard to help you monitor your site.
-Version:        0.99
+Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
 License:        GPLv2+
