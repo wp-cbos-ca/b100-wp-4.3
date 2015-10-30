@@ -91,11 +91,12 @@ function _q( $key ) {
 }
 
 function _a( $bool, $resp ) {
+    
     if ( $bool ) {
-        return $resp[0];
+        return $resp['resp'][0];
     }
     else {
-        return $resp[1];
+        return $resp['resp'][1];
     }
 }
 
