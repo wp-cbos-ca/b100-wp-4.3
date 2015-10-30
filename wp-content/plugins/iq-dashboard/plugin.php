@@ -91,7 +91,6 @@ function _q( $key ) {
 }
 
 function _a( $bool, $resp ) {
-    
     if ( $bool ) {
         return $resp['resp'][0];
     }
