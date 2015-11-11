@@ -93,6 +93,12 @@ define('WP_DEFAULT_THEME', 'twentytwelve');
 define( 'DISALLOW_UNFILTERED_HTML', true); 
 
 /**
+* Prevents users from using the theme and plugin editor in the admin section. 
+* Enhances security. Recommended.
+*/
+define( 'DISALLOW_FILE_EDIT', true);
+
+/**
 * set to true and set up a server side cron for enhanced site performance
 */
 define('DISABLE_WP_CRON', false);

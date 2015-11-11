@@ -8,7 +8,7 @@ function get_site_title(){
 }
 
 function get_tagline(){
-    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 'WP 4.3 Optimized, Secured, Backed Up and Cached', 'update' => 0 );
+    $tagline = array ( 'title' => 'Tagline', 'option_name' => 'blogdescription', 'option_value' => 'WP 4.3 Optimized, Secured, Backed Up and Cached', 'update' => 1 );
     return $tagline;
 }
 

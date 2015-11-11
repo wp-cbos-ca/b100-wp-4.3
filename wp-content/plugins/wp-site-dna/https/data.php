@@ -4,8 +4,8 @@ defined( 'ABSPATH' ) || die();
 
 function get_https_data(){
     $items = array( 
-        'https' => 1,
-        'subdomain' => 1,
+        'https' => 0,
+        'subdomain' => 0,
         'www' => 0,
         );
     return $items;

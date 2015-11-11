@@ -8,7 +8,14 @@ See wp-cache.php for author details.
 if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_PLUGIN_DIR . '/wp-super-cache/' );
 
+//BEGIN additional defaults    
+
+$wp_cache_no_cache_for_get = 1;
+
+//END additional defaults
+    
 $cache_compression = 0; // Super cache compression
+global $cache_enabled;
 $cache_enabled = false;
 $super_cache_enabled = false;
 $cache_max_time = 3600; //in seconds
@@ -79,4 +86,3 @@ $wp_cache_clear_on_post_edit = 0;
 $wp_cache_hello_world = 0;
 $wp_cache_mobile_enabled = 0;
 $wp_cache_cron_check = 0;
-?>

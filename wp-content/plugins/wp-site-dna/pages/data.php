@@ -20,7 +20,7 @@ function get_pages_data() {
         array ( 
             'build' => 1,
             'post_title' => 'Contact', 'post_name' => 'contact', 'template' => 'default',
-            'post_content' => '[contact-form]',
+            'post_content' => '[mailer]',
         ), 
         array ( 
             'build' => 1,
@@ -31,6 +31,11 @@ function get_pages_data() {
             'build' => 1,
             'post_title' => 'Privacy', 'post_name' => 'privacy', 'template' => 'default',
             'post_content' => '',
+        ), 
+        array ( 
+            'build' => 1,
+            'post_title' => 'Site Map', 'post_name' => 'site-map', 'template' => 'default',
+            'post_content' => '[site-map]',
         ), 
 
     );

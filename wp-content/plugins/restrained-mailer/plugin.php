@@ -2,7 +2,7 @@
 /*
 Plugin Name:    Restrained Mailer
 Plugin URI:     http://wp.cbos.ca
-Description:    Just a contact form and mailer.
+Description:    Just a contact form and mailer. Shortcode: [mailer]
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
@@ -38,4 +38,4 @@ function mailer_form( $args ){
     $str = get_mailer_form( $args );
     return $str;
 }
-add_shortcode( 'contact-form', 'mailer_form' );
+add_shortcode( 'mailer', 'mailer_form' );

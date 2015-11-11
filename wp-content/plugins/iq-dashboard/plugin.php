@@ -61,8 +61,12 @@ function _q( $key ) {
             break;
         
         case 'caching' :
-            return is_caching_on();
+            return is_caching_present();
             break;
+            
+       case 'caching_on' :
+            return is_caching_on();
+            break;     
             
         case 'video' :
             return is_video_on();
@@ -91,11 +95,17 @@ function _q( $key ) {
 }
 
 function _a( $bool, $resp ) {
-    if ( $bool ) {
+    if ( $bool === true ) {
         return $resp['resp'][0];
     }
-    else {
+    else if ( $bool === false ) {
         return $resp['resp'][1];
+    }
+    else if ( isset( $resp['resp'][2] ) ) {
+        return $resp['resp'][2];
+    }
+    else {
+        return 'ERR';
     }
 }
 
@@ -110,6 +120,7 @@ function _rna( $key, $m ) {
 }
 
 function get_iq_dashboard_files(){
+    require_once( dirname(__FILE__) . '/data.php' );
     if ( defined( 'WP_BUNDLE' ) ) {
         require_once( dirname(__FILE__) . '/checker.php' );
     }
@@ -158,11 +169,19 @@ function get_iq_dashboard() {
     $str .= '</td></tr>';
     
     $str .= '<tr><td>';
-    $str .= _rna( 'optimization', $m );
+    $str .= _rna( 'caching_on', $m );
     $str .= '</td><td>';
     $str .= _rna( 'social', $m );
     $str .= '</td><td>';
     $str .= _rna( 'analytics', $m );
+    $str .= '</td></tr>';
+    
+    $str .= '<tr><td>';
+    $str .= _rna( 'optimization', $m );
+    $str .= '</td><td>';
+    
+    $str .= '</td><td>';
+    
     $str .= '</td></tr>';
     
     $str .= '</table>';

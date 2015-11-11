@@ -12,5 +12,8 @@ function activate_themes() {
     else if ( ! $template['activate'] && $stylesheet['activate'] ) {
         switch_theme( $template['option_value'], $stylesheet['option_value'] );
     }
+    else if ( $template['activate'] && $stylesheet['activate'] ) {
+        switch_theme( $template['option_value'], $stylesheet['option_value'] );
+    }
     else {}
 }
