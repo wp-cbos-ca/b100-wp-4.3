@@ -9,7 +9,7 @@ function get_pages_data() {
         ),
         array ( 
             'build' => 1,
-            'post_title' => 'Blog', 'post_name' => 'about', 'template' => 'default',
+            'post_title' => 'Blog', 'post_name' => 'blog', 'template' => 'default',
             'post_content' => '',
         ),
         array ( 
