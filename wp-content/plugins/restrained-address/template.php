@@ -31,8 +31,8 @@ function get_address_html( $args='' ){
 }
 
 function get_admin_id_address(){
-    $admin_email = get_option( 'admin_email' );
-    $user = get_user_by_email( $admin_email );    
+    $email = get_option( 'admin_email' );
+    $user = get_user_by_email( 'email', $email );    
     $user_id = $user->ID;
     return $user_id;
 }
