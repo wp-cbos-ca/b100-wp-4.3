@@ -16,7 +16,13 @@ function get_address_html( $args='' ){
                 if ( ! empty( $item['name'] ) ) {
                     $value = get_user_meta( get_admin_id_address(), $item['name'], true );
                     if ( ! empty ( $value ) ) {
-                        $str .= sprintf( '%s<br />%s', $value, PHP_EOL );
+                        if ( isset( $item['next_inline'] ) && $item['next_inline'] ) {
+                            $str .= sprintf( '%s ', $value );    
+                        }
+                        else {
+                            $str .= sprintf( '%s<br />%s', $value, PHP_EOL );
+                        }
+                        
                     }
                 }                
             }
@@ -32,8 +38,7 @@ function get_address_html( $args='' ){
 
 function get_admin_id_address(){
     $email = get_option( 'admin_email' );
-    $user = get_user_by_email( 'email', $email );    
+    $user = get_user_by( 'email', $email );    
     $user_id = $user->ID;
     return $user_id;
 }
-
