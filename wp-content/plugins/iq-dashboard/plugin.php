@@ -16,8 +16,10 @@ define( 'IQ_DASHBOARD_BREAKER_ON', true );
 
 if ( IQ_DASHBOARD_BREAKER_ON ) {
     function iq_dashboard() {
-        $args = array( 'slug' => 'iq_dashboard', 'title' => 'Intelligent Dashboard', 'function' => 'get_iq_dashboard' );
-        wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+        if ( current_user_can( 'manage_options' ) ) {
+            $args = array( 'slug' => 'iq_dashboard', 'title' => 'Intelligent Dashboard', 'function' => 'get_iq_dashboard' );
+            wp_add_dashboard_widget( $args['slug'], $args['title'], $args['function'] );                                                                                
+        }
     }
     add_action( 'wp_dashboard_setup', 'iq_dashboard' );
 }

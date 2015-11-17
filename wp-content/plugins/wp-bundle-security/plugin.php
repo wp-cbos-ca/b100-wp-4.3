@@ -6,7 +6,7 @@ Description:    Helps to maintain and enhance the security features implemented 
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
-
+License:        GPLv2+
 */ 
 
 defined( 'ABSPATH' ) || die();

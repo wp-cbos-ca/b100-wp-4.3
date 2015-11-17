@@ -1,11 +1,12 @@
 <?php
 /*
-Plugin Name: Restrained Analytics
-Plugin URI: http://wp.cbos.ca/plugins/?plugin=restrained-analytics&view=summary
-Description:  Restrains analytics with a five second delay to enhance performance. Add your code snippet and turn on in code editor.
-Version: 1.0.0
-Author: wp.cbos.ca
-Author URI: http://wp.cbos.ca
+Plugin Name:    Restrained Analytics
+Plugin URI:     http://wp.cbos.ca/plugins/?plugin=restrained-analytics&view=summary
+Description:    Restrains analytics with a five second delay to enhance performance. Add your code snippet and turn on in code editor.
+Version:        1.0.0
+Author:         wp.cbos.ca
+Author URI:     http://wp.cbos.ca
+License:        GPLv2+
 */  
 
 defined( 'ABSPATH') || die();

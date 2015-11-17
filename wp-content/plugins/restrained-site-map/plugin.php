@@ -7,7 +7,7 @@ Description:    Displays a site map of your published pages in alphabetical orde
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
-License: GPLv2+
+License:        GPLv2+
 */ 
 
 defined( 'ABSPATH' ) || die();

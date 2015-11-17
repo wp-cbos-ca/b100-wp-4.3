@@ -7,7 +7,7 @@ Description:    Securely holds the complete site configuration (with very little
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
-
+License:        GPLv2+
 */ 
 
 defined( 'ABSPATH' ) || die();
@@ -18,12 +18,15 @@ if ( ! defined( 'WP_POST_TYPE' ) ) {
 if ( ! defined( 'WP_POST_TYPE_ALT' ) ) {
     define( 'WP_POST_TYPE_ALT', 'custom' ); //change as needed
 }
+
                                                                           
 function wp_site_installer_menu(){
-    require_once( dirname(__FILE__) . '/includes/template/template.php' );
-    require_once( dirname(__FILE__) . '/includes/template/data.php' );
-    $args = get_installer_data();
-    add_management_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
+    if ( current_user_can( 'manage_options' ) ) {
+        require_once( dirname(__FILE__) . '/includes/template/template.php' );
+        require_once( dirname(__FILE__) . '/includes/template/data.php' );
+        $args = get_installer_data();
+        add_management_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
+    }
 }
 add_action( 'admin_menu', 'wp_site_installer_menu' );
 

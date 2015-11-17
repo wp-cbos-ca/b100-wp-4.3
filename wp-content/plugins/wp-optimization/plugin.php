@@ -1,11 +1,12 @@
 <?php
 /*
-Plugin Name: WP Optimization
-Plugin URI: http://wp.cbos.ca
-Description: Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, removing feed links and disabling the XLM-RPC API.
-Author: wp.cbos.ca
-Version: 1.0.1
-Author URI: http://wp.cbos.ca
+Plugin Name:    WP Optimization
+Plugin URI:     http://wp.cbos.ca
+Description:    Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, removing feed links and disabling the XLM-RPC API.
+Version:        1.0.1
+Author:         wp.cbos.ca
+Author URI:     http://wp.cbos.ca
+License:        GPLv2+
 */
 
 defined( 'ABSPATH' ) || die();

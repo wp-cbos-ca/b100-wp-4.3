@@ -6,7 +6,7 @@ Description:    Displays a Google Map: [map lat=xx lng=xx] or just [map]. Uses R
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     http://wp.cbos.ca
-
+License:        GPLv2+
 */ 
 
 defined( 'ABSPATH' ) || die();

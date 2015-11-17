@@ -75,7 +75,6 @@ function is_caching_present(){
 
 function is_caching_on(){
     global $cache_enabled;
-    var_dump( $cache_enabled );
     if ( $cache_enabled === true ) {
         return true;
     }

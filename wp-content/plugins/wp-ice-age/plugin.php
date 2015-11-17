@@ -1,11 +1,12 @@
 <?php
 /*
-Plugin Name: WP Ice Age
-Plugin URI: http://wp.cbos.ca
-Description: Freezes all core, theme and plugin updates, and hides <strike>all</strike> (most) update notices.
-Author: wp.cbos.ca
-Version: 1.0.0
-Author URI: http://wp.cbos.ca
+Plugin Name:    WP Ice Age
+Plugin URI:     http://wp.cbos.ca
+Description:    Freezes all core, theme and plugin updates, and hides <strike>all</strike> (most) update notices.
+Version:        1.0.0
+Author:         wp.cbos.ca
+Author URI:     http://wp.cbos.ca
+License:        GPLv2+
 */
 
 defined( 'ABSPATH' ) || die();
