@@ -1,12 +1,11 @@
 <?php
 /*
 Plugin Name:    WP Maintain
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Plugin configuration for enhanced maintanence.
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
-
+Author URI:     https://wp.cbos.ca
 */ 
 
 defined( 'ABSPATH' ) || die();
@@ -25,7 +24,7 @@ function wpm_function() {
 }
 
 function get_maintenance_header(){
-    $str = '<p>Recommended <span class="alignright"><a href="http://wp.cbos.ca/maintain/">Help</a></span></p>';
+    $str = '<p>Recommended <span class="alignright"><a href="https://wp.cbos.ca/maintain/">Help</a></span></p>';
     return $str;
 }
 

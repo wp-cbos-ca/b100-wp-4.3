@@ -1,18 +1,18 @@
 <?php
 /*
 Plugin Name:    WP Optimization
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Capability and flags for removing script versions, disabling emojis (added in 4.2), enabling local gravatars, removing feed links and disabling the XLM-RPC API.
 Version:        1.0.1
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */
 
 defined( 'ABSPATH' ) || die();
   
 $_wp_opt = array( 
-    'remove_script_version' => 1,
+    'remove_script_version' => 0,
     'deregister_open_sans' => 1,
     'deregister_open_sans_logged_in' => 0,
     'remove_emoji_scripts' => 1,

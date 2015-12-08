@@ -49,6 +49,7 @@ function get_content_string_html( $items = Array() ){
 function get_maps_address_fields(){
     $items = get_maps_address_data();
     $user_id = get_admin_id_maps();
+    $name = 'user_name';
     if ( ! empty( $items ) ) {
         $arr = Array();
         foreach ( $items as $k => $v ){

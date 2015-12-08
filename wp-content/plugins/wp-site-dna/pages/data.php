@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || die();
+
 function get_pages_data() {
     $pages = array ( 
         array ( 

@@ -9,14 +9,15 @@
     margin: 5px 0;
 }
 
-.contact-form input {
+.contact-form input, 
+textarea {
     margin: 5px 0 !important;   
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: 75%;    
+    width: 95%;
 }
 
 .contact-form input,

@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || die();
 
 function get_plugins_data() {
-    $plugins = array (
+    $items = array (
         array ( 
         'name' => 'BackUpWordPress', 'folder' => 'backupwordpress', 'file' => 'backupwordpress.php', 
         'activate' => 1, 'local' => 1, 'online' => 1, 
@@ -98,5 +98,27 @@ function get_plugins_data() {
             ),
         ),
     ); 
-    return $plugins;
+    return $items;
+}
+
+function get_plugin_theme_data() {
+    $items = array (
+        array ( 
+        'name' => 'BackUpWordPress', 'folder' => 'backupwordpress', 'file' => 'backupwordpress.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1, 
+        ),
+        array ( 
+        'name' => 'WP Optimization', 'folder' => 'wp-optimization', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1,
+        ),
+        array ( 
+        'name' => 'WP Maintain', 'folder' => 'wp-maintain', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 1, 'online' => 1, 
+        ),
+        array ( 
+        'name' => 'WP Ice Age', 'folder' => 'wp-ice-age', 'file' => 'plugin.php',
+        'activate' => 1, 'local' => 1, 'online' => 1,
+        ),
+        );
+    return $items;
 }

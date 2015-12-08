@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name:    WP Bundle Security
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Helps to maintain and enhance the security features implemented in the WP Bundle package.
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

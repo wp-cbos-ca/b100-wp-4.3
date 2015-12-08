@@ -2,11 +2,11 @@
 
 /*
 Plugin Name:    Restrained Site Map
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Displays a site map of your published pages in alphabetical order with tabbed indents for child pages. Shortcode: [site-map]
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

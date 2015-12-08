@@ -2,11 +2,11 @@
 
 /*
 Plugin Name:    Restrained Address
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Adds address fields to the user profile. Shortcode: [address]. Does not display empty fields. Not formatted. Wrapped in div with class="address".
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

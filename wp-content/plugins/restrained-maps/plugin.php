@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name:    Restrained Maps
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Displays a Google Map: [map lat=xx lng=xx] or just [map]. Uses Restrained Address lat lng coordinates if installed and defined.
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

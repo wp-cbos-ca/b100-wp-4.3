@@ -22,11 +22,9 @@ function install_reading_settings() {
 }
 
 function update_page_for_posts( $slug ) {
-
-    $page = get_page_by_title ( $slug, OBJECT, 'page' );
-
-    update_option( 'page_for_posts', $page -> ID );
-
+    if ( $page = get_page_by_title ( $slug, OBJECT, 'page' ) ) {
+        update_option( 'page_for_posts', $page->ID );
+    }
 }
 
 function update_page_on_front( $slug ) {

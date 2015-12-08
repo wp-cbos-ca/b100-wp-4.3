@@ -1,12 +1,11 @@
 <?php
-
 /*
 Plugin Name:    WP Site DNA
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Securely holds the complete site configuration (with very little "junk" DNA) in a repeating set of files and arrays. Capable of installing pages, posts, menus, featured images, categories, tags and users. Also capable of setting permalinks, timezones, the front and posts page, etc. Ideally stored elsewhere once used. Can be retained for restoring site to user specified factory default. 
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 
@@ -16,10 +15,9 @@ if ( ! defined( 'WP_POST_TYPE' ) ) {
     define( 'WP_POST_TYPE', 'post' );
 }
 if ( ! defined( 'WP_POST_TYPE_ALT' ) ) {
-    define( 'WP_POST_TYPE_ALT', 'custom' ); //change as needed
+    define( 'WP_POST_TYPE_ALT', 'custom' ); //change if needed
 }
 
-                                                                          
 function wp_site_installer_menu(){
     if ( current_user_can( 'manage_options' ) ) {
         require_once( dirname(__FILE__) . '/includes/template/template.php' );
@@ -65,9 +63,9 @@ function load_site_one_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
-                if ( file_exists( $file ) ) {
-                    require_once( $file );
+                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
+                    if ( file_exists( $file ) ) {
+                        require_once( $file );
                 }
             }
         }
@@ -88,6 +86,9 @@ function run_site_one_files() {
                         break;    
                     case 'themes':
                         activate_themes();
+                        break;
+                    case 'theme_plugins':
+                        configure_theme_plugins();
                         break;
                     case 'plugins':
                         configure_plugins();
@@ -327,7 +328,7 @@ function run_sorting_files() {
     }
 }
 
-if ( ! defined( 'is_localhost' ) ) {
+if ( ! function_exists( 'is_localhost' ) ) {
     function is_localhost() {
         $whitelist = array( '127.0.0.1', '::1' );
         if( in_array( $_SERVER['REMOTE_ADDR'], $whitelist ) ) {

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name:    Restrained Mailer
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Just a contact form and mailer. Shortcode: [mailer]
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

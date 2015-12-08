@@ -2,11 +2,11 @@
 
 /*
 Plugin Name:    Restrained Video
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Displays a video using the youtu.be short url or an mp4. [video url="https://youtu.be/--------" width="640" height="360"]
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

@@ -1,12 +1,12 @@
-# BEGIN Https
-# <IfModule mod_rewrite.c>
-    # RewriteEngine On
-    # RewriteCond %{HTTP_HOST} !^www\.
-    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-# </IfModule>
-# END Https
+# BEGIN HTTPS AND WWW
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+#    RewriteCond %{HTTP_HOST} !^www\.
+#    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+#    RewriteCond %{HTTPS} off
+#    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#</IfModule>
+# END HTTPS AND WWW
 
 # BEGIN Security
 Options -Indexes

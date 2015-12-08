@@ -2,11 +2,11 @@
 
 /*
 Plugin Name:    Intelligent Dashboard
-Plugin URI:     http://wp.cbos.ca
+Plugin URI:     https://wp.cbos.ca
 Description:    Intelligently adds indicators to your dashboard to help you monitor your site.
 Version:        1.0.0
 Author:         wp.cbos.ca
-Author URI:     http://wp.cbos.ca
+Author URI:     https://wp.cbos.ca
 License:        GPLv2+
 */ 
 

@@ -53,7 +53,7 @@ function get_help_data(){
     $str .= 'with has been over a year in the making. If you like, you can head over to ';
     $str .= 'GitHub to <a href="https://github.com/wp-cbos-ca/">look me up</a> and ';
     $str .= 'follow and/or contribute to it&apos;s development, or purchase a copy of ';
-    $str .= 'the WordPress bundle it is packaged with at <a href="http://wp.cbos.ca">wp.cbos.ca</a> ';
+    $str .= 'the WordPress bundle it is packaged with at <a href="https://wp.cbos.ca">wp.cbos.ca</a> ';
     $str .= 'to aid with development.</p>' . PHP_EOL;
     
     $str .= '<p>Each component can be controlled individually with dip switch like ';
