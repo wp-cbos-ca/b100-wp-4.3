@@ -34,7 +34,7 @@ function restrained_maps( ){
     global $add_maps_script;
     $add_maps_script = true;
     $items = get_restrained_maps_data();
-    $str = sprintf( '<div id="map-canvas" class="%s;" style="width: %s; height: %s;"></div>', $items['align'], $items['width'], $items['height']);
+    $str = sprintf( '<div id="map-canvas" class="%s;" style="max-width: %s; height: %s;"></div>', $items['align'], $items['width'], $items['height']);
     return $str;
 }
 add_shortcode( 'map', 'restrained_maps', 15 );
