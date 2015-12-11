@@ -28,9 +28,7 @@ function update_page_for_posts( $slug ) {
 }
 
 function update_page_on_front( $slug ) {
-
-    $page = get_page_by_title ( $slug, OBJECT, 'page' );
-
-    update_option( 'page_on_front', $page -> ID );
-
+    if ( $page = get_page_by_title ( $slug, OBJECT, 'page' ) ) {
+        update_option( 'page_on_front', $page->ID );
+    }
 }
