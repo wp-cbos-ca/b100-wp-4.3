@@ -17,6 +17,10 @@ function get_plugins_data() {
         'activate' => 1, 'local' => 1, 'online' => 1, 
         ),
         array ( 
+        'name' => 'WP Not Serviced', 'folder' => 'wp-not-serviced', 'file' => 'plugin.php', 
+        'activate' => 1, 'local' => 0, 'online' => 1, 
+        ),
+        array ( 
         'name' => 'WP Ice Age', 'folder' => 'wp-ice-age', 'file' => 'plugin.php',
         'activate' => 1, 'local' => 1, 'online' => 1,
         ),

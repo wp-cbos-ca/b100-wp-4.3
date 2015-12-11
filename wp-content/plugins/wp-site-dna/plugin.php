@@ -87,7 +87,7 @@ function run_site_one_files() {
                     case 'themes':
                         activate_themes();
                         break;
-                    case 'theme_plugins':
+                    case 'theme':
                         configure_theme_plugins();
                         break;
                     case 'plugins':

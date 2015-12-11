@@ -3,11 +3,11 @@
 defined( 'ABSPATH' ) || die();
 
 function get_theme_template(){
-    $template = array ( 'title' => 'Twenty Twelve', 'option_name' => 'template', 'option_value' => 'twentytwelve', 'activate' => 1 );
+    $template = array ( 'activate' => 1, 'title' => 'The Plugin Theme', 'option_name' => 'template', 'option_value' => 'the-plugin-theme', );
     return $template;
 }
 
 function get_theme_stylesheet(){
-    $stylesheet = array ( 'title' => 'Twenty Twelve Child', 'option_name' => 'stylesheet', 'option_value' => 'twentytwelve-child', 'activate' => 0 );
+    $stylesheet = array ( 'activate' => 0, 'title' => 'The Plugin Theme Child', 'option_name' => 'stylesheet', 'option_value' => 'the-plugin-theme-child', );
     return $stylesheet;
 }
