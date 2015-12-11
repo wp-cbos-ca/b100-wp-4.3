@@ -19,7 +19,7 @@ function get_site_one_data(){
         array( 'name' => 'https',         'run' => 0, 'ran' => 0 ),
         array( 'name' => 'dashboard',     'run' => 1, 'ran' => 0 ),
         array( 'name' => 'themes',        'run' => 1, 'ran' => 0 ),
-        array( 'name' => 'theme_plugins', 'run' => 0, 'ran' => 0 ),        
+        array( 'name' => 'theme_plugins', 'run' => 1, 'ran' => 0 ),        
         array( 'name' => 'plugins',       'run' => 1, 'ran' => 0 ),        
         array( 'name' => 'users',         'run' => 1, 'ran' => 0 ),
     );

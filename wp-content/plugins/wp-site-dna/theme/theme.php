@@ -2,9 +2,9 @@
 
 defined( 'ABSPATH' ) || die();
 
-function configure_plugins(){
+function configure_theme_plugins(){
     require_once( dirname(__FILE__) . '/data.php' );
-    $plugins = get_plugins_data();
+    $plugins = get_plugin_theme_data();
     if ( ! empty ( $plugins ) )  {
         foreach ( $plugins as $plugin ) {
             $file = WP_PLUGIN_DIR  . '/' .  $plugin['folder'] . '/' . $plugin['file'];
