@@ -21,6 +21,10 @@ function get_plugins_data() {
         'activate' => 1, 'local' => 1, 'online' => 1,
         ),
         array ( 
+        'name' => 'WP Developer', 'folder' => 'wp-developer', 'file' => 'plugin.php',
+        'activate' => 1, 'local' => 1, 'online' => 1,
+        ),
+        array ( 
         'name' => 'WP Bundle Security', 'folder' => 'wp-bundle-security', 'file' => 'plugin.php', 
         'activate' => 1, 'local' => 1, 'online' => 1,         
         ),    
@@ -36,6 +40,10 @@ function get_plugins_data() {
             array ( 'option_name' => 'sucuriscan_dns_lookups', 'option_value' => 'disabled', 'set' => 1 ),
             ),
         ),
+        array ( 
+        'name' => 'Lockdown WP Admin', 'folder' => 'lockdown-wp-admin', 'file' => 'lockdown-wp-admin.php', 
+        'activate' => 0, 'local' => 0, 'online' => 1,         
+        ),    
         array ( 
         'name' => 'Restrained Site Map', 'folder' => 'restrained-site-map', 'file' => 'plugin.php', 
         'activate' => 1, 'local' => 1, 'online' => 1,         
