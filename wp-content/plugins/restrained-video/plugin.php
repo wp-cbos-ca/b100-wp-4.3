@@ -3,7 +3,7 @@
 /*
 Plugin Name:    Restrained Video
 Plugin URI:     https://wp.cbos.ca
-Description:    Displays a video using the youtu.be short url or an mp4. [video url="https://youtu.be/--------" width="640" height="360"]
+Description:    Displays a video using the youtu.be short url or an mp4. [video url="https://youtu.be/--------" width="750" height="422"]
 Version:        1.0.0
 Author:         wp.cbos.ca
 Author URI:     https://wp.cbos.ca
@@ -15,6 +15,8 @@ defined( 'ABSPATH' ) || die();
 add_shortcode( 'video', 'restrained_video' );
 
 function restrained_video( $args ){
+    $args['width'] = isset( $args['width'] ) ? $args['width'] : '750';
+    $args['height'] = isset( $args['height'] ) ? $args['height'] : '422';
     if ( strpos( $args['url'], 'youtu' ) !== FALSE ){
          $html = get_video_format_one( $args );
     }
@@ -22,6 +24,26 @@ function restrained_video( $args ){
         $html = get_restrained_video_html( $args );
     }
     return $html;
+}
+
+function get_video_format_one( $args ){
+    $str = sprintf( '<iframe width="%s" height="%s"', $args['width'], $args['height'] );
+    $str .= sprintf( 'source src="%s" ', get_video_link( 'https://www.youtube.com/embed/', $args ) );
+    $str .= 'frameborder="0" allowfullscreen' . PHP_EOL;
+    $str .= '></iframe>';
+    return $str;
+}
+
+function get_video_link( $prefix='', $args ) {
+    $ex = explode( '/', $args['url'] );
+    if (  ! empty( $ex ) ) {
+        $url_id = $ex[ count( $ex ) - 1 ];
+        $link = sprintf( '%s%s?rel=0', $prefix, $url_id );
+    }
+    else {
+        $link = '';
+    }
+    return $link;
 }
 
 function get_restrained_video_html( $args ){
@@ -32,15 +54,3 @@ function get_restrained_video_html( $args ){
     $str .= '</video>';
     return $str;
 }
-
-function get_video_format_one( $args ){
-    $ex = explode( '/', $args['url'] );
-    $url_id = $ex[ count($ex) -1 ];
-    $str = sprintf( '<iframe width="%s" height="%s"', $args['width'], $args['height'] );
-    $str .= sprintf( 'source src="https://www.youtube.com/embed/%s?rel=0" ', $url_id, PHP_EOL );
-    $str .= 'frameborder="0" allowfullscreen' . PHP_EOL;
-    $str .= '></iframe>';
-    return $str;
-}
-
-

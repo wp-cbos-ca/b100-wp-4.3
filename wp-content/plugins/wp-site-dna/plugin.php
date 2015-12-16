@@ -108,12 +108,7 @@ function load_site_two_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                if ( strpos( $item['name'], 'menu-' ) !== FALSE ) {
-                    $file = dirname(__FILE__) . '/menus/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
-                else {
-                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
                 if ( file_exists( $file ) ) {
                     require_once( $file );
                 }
@@ -134,7 +129,7 @@ function run_site_two_files() {
                     case 'menus':
                         install_menus();
                         break;
-                    case 'menu-assign':
+                    case 'menu-locations':
                         assign_menus();
                         break;
                     case 'widgets':
@@ -200,19 +195,7 @@ function load_content_files() {
     if ( ! empty ( $items ) && is_array( $items ) ) {
         foreach ( $items as $item ) {
             if ( $item['run'] && ! $item['ran'] ) {
-                if ( strpos( $item['name'], 'posts-' ) !== FALSE ) {
-                    $file = dirname(__FILE__) . '/posts/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
-                else if ( strpos( $item['name'], 'post-type-block' ) !== FALSE ) {
-                    $file = dirname(__FILE__) . '/post-type/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
-                
-                else if ( strpos( $item['name'], 'page-' ) !== FALSE ) {
-                    $file = dirname(__FILE__) . '/pages/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
-                else {
-                    $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';
-                }
+                $file = dirname(__FILE__) . '/' . $item['name'] . '/' . $item['name'] . '.php';                
                 if ( file_exists( $file ) ) {
                     require_once( $file );
                 }
@@ -236,7 +219,7 @@ function run_content_files() {
                     case 'posts':
                         install_posts();
                         break;
-                    case 'posts-block':
+                    case 'post-block':
                         install_posts_block();
                         break;
                     case 'post-type':

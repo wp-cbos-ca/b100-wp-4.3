@@ -1,4 +1,5 @@
 wp-config.php
+wp-content/languages/
 wp-content/server/
 wp-content/uploads/
 wp-content/cache/meta
@@ -42,3 +43,4 @@ wp-content/plugins/bundles-to-go/
 wp-content/plugins/developer-html-cleaner/
 wp-content/plugins/wp-not-serviced/
 wp-content/themes/the-plugin-theme/
+wp-content/plugins/theme-0100-checklist.zip
