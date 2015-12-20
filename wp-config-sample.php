@@ -1,24 +1,11 @@
 <?php
 /**
- * The base configuration for WordPress
- *
- * The wp-config.php creation script uses this file during the
- * installation. You don't have to use the web site, you can
- * copy this file to "wp-config.php" and fill in the values.
- *
- * This file contains the following configurations:
- *
- * * MySQL settings
- * * Secret keys
- * * Database table prefix
- * * ABSPATH
- *
- * @link https://codex.wordpress.org/Editing_wp-config.php
- *
- * @package WordPress
+ * Edit directly to avoid the web based interface.
  */
-
-// ** MySQL settings - You can get this info from your web host ** //
+ 
+/** 
+* MySQL settings: obtain when creating a new database or from web host.
+*/
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'database_name_here' );
 
@@ -38,13 +25,11 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 /**#@+
- * Authentication Unique Keys and Salts.
- *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
- *
- * @since 2.6.0
+ * Generate from: 
+ * 
+ * https://api.wordpress.org/secret-key/1.1/salt/ 
+ * 
+ * Change to force new user logins.
  */
 define('AUTH_KEY',         'put your unique phrase here');
 define('SECURE_AUTH_KEY',  'put your unique phrase here');
