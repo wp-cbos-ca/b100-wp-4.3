@@ -20,22 +20,22 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define( 'DB_NAME', 'database_name_here' );
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define( 'DB_USER', 'username_here' );
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define( 'DB_PASSWORD', 'password_here' );
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define( 'DB_HOST', 'localhost' );
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -58,51 +58,43 @@ define('NONCE_SALT',       'put your unique phrase here');
 /**#@-*/
 
 /**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each
- * a unique prefix. Only numbers, letters, and underscores please!
- * 
- * Change this to a four or five digit prefix for better security.
- * Best done when performing a fresh install on a new database.
+ * Make random for better security or multi-site
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'tpt_'; 
 
 /**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * For information on other constants that can be used for debugging,
- * visit the Codex.
+* Set to false for site development.
+*/
+define( 'WP_AUTO_UPDATE_CORE', true ); 
+
+/**
+ * Set to true for site development.
  */
-define( 'WP_DEBUG', false);
+define( 'WP_DEBUG', false ); 
 
 /**
-*set to theme used for more reliable fallback.
+* Set to theme used for more reliable fallback.
 */
-define('WP_DEFAULT_THEME', 'twentytwelve');
+define( 'WP_DEFAULT_THEME', 'the-plugin-theme' );
 
 /**
-* set to true for enhanced security
-* 
-* @link https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/
+* Set to true to improve security.
 */
-define( 'DISALLOW_UNFILTERED_HTML', true); 
+define( 'DISALLOW_UNFILTERED_HTML', true ); 
 
 /**
-* Prevents users from using the theme and plugin editor in the admin section. 
-* Enhances security. Recommended.
+* Set to true to prevent admin based file edits.
 */
-define( 'DISALLOW_FILE_EDIT', true);
+define( 'DISALLOW_FILE_EDIT', true );
 
 /**
-* set to true and set up a server side cron for enhanced site performance
+* Set to true to speed up site. Requires server side cron.
 */
-define('DISABLE_WP_CRON', false);
+define( 'DISABLE_WP_CRON', false );
 
+/**
+* Defines WP Bundle Package used.
+*/
 define('WP_BUNDLE', 'WP43B100LTS' );
 
 /* That's all, stop editing! Happy blogging. */
